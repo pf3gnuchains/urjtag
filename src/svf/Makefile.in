@@ -607,7 +607,7 @@ lint-am: Makefile @MAINTAINER_MODE_TRUE@ $(top_srcdir)/Makefile.rules
 
 .PHONY: lint lint-am
 
-svf_flex.$(OBJEXT) svf.$(OBJEXT): svf_bison.$(OBJEXT)
+libsvf_flex_la-svf_flex.$(OBJEXT) svf.$(OBJEXT): svf_bison.h
 
 svf_bison.h: svf_bison.c
 
