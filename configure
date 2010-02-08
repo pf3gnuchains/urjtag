@@ -3136,7 +3136,7 @@ esac
 AM_BACKSLASH='\'
 
 
-ac_config_files="$ac_config_files Makefile doc/Makefile data/Makefile include/urjtag/Makefile src/Makefile src/lib/Makefile src/tap/Makefile src/part/Makefile src/bus/Makefile src/flash/Makefile src/cmd/Makefile src/svf/Makefile src/bsdl/Makefile src/jim/Makefile src/global/Makefile src/apps/jtag/Makefile src/apps/bsdl2jtag/Makefile src/bfin/Makefile po/Makefile.in"
+ac_config_files="$ac_config_files Makefile doc/Makefile data/Makefile include/urjtag/Makefile src/Makefile src/urjtag.pc src/lib/Makefile src/tap/Makefile src/part/Makefile src/bus/Makefile src/flash/Makefile src/cmd/Makefile src/svf/Makefile src/bsdl/Makefile src/jim/Makefile src/global/Makefile src/apps/jtag/Makefile src/apps/bsdl2jtag/Makefile src/bfin/Makefile po/Makefile.in"
 
 
 
@@ -19158,6 +19158,7 @@ do
     "data/Makefile") CONFIG_FILES="$CONFIG_FILES data/Makefile" ;;
     "include/urjtag/Makefile") CONFIG_FILES="$CONFIG_FILES include/urjtag/Makefile" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
+    "src/urjtag.pc") CONFIG_FILES="$CONFIG_FILES src/urjtag.pc" ;;
     "src/lib/Makefile") CONFIG_FILES="$CONFIG_FILES src/lib/Makefile" ;;
     "src/tap/Makefile") CONFIG_FILES="$CONFIG_FILES src/tap/Makefile" ;;
     "src/part/Makefile") CONFIG_FILES="$CONFIG_FILES src/part/Makefile" ;;
