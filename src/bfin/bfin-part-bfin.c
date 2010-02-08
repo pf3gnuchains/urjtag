@@ -193,6 +193,7 @@ extern void bfin_init (void);
 void
 bfin_init ()
 {
+    /* Keep in sync with data/analog/PARTS */
     urj_part_init_register ("BF506", bfin_part_init);
     urj_part_init_register ("BF518", bfin_part_init);
     urj_part_init_register ("BF526", bfin_part_init);
@@ -202,5 +203,7 @@ bfin_init ()
     urj_part_init_register ("BF537", bfin_part_init);
     urj_part_init_register ("BF538", bfin_part_init);
     urj_part_init_register ("BF548", bfin_part_init);
+    urj_part_init_register ("BF548M", bfin_part_init);
     urj_part_init_register ("BF561", bfin_part_init);
+    urj_part_init_register ("BF592", bfin_part_init);
 }
