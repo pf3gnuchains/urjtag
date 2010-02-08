@@ -980,6 +980,8 @@ CC
 MAINT
 MAINTAINER_MODE_FALSE
 MAINTAINER_MODE_TRUE
+AM_BACKSLASH
+AM_DEFAULT_VERBOSITY
 am__untar
 am__tar
 AMTAR
@@ -1045,6 +1047,7 @@ SHELL'
 ac_subst_files=''
 ac_user_opts='
 enable_option_checking
+enable_silent_rules
 enable_maintainer_mode
 enable_dependency_tracking
 enable_nls
@@ -1708,6 +1711,8 @@ Optional Features:
   --disable-option-checking  ignore unrecognized --enable/--with options
   --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
   --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --enable-silent-rules          less verbose build output (undo: `make V=1')
+  --disable-silent-rules         verbose build output (undo: `make V=0')
   --enable-maintainer-mode  enable make rules and dependencies not useful
 			  (and sometimes confusing) to the casual installer
   --disable-dependency-tracking  speeds up one-time build
@@ -3117,6 +3122,18 @@ am__tar='${AMTAR} chof - "$$tardir"'; am__untar='${AMTAR} xf -'
 
 
 
+
+# Check whether --enable-silent-rules was given.
+if test "${enable_silent_rules+set}" = set; then :
+  enableval=$enable_silent_rules;
+fi
+
+case $enable_silent_rules in
+yes) AM_DEFAULT_VERBOSITY=0;;
+no)  AM_DEFAULT_VERBOSITY=1;;
+*)   AM_DEFAULT_VERBOSITY=0;;
+esac
+AM_BACKSLASH='\'
 
 
 ac_config_files="$ac_config_files Makefile doc/Makefile data/Makefile include/urjtag/Makefile src/Makefile src/lib/Makefile src/tap/Makefile src/part/Makefile src/bus/Makefile src/flash/Makefile src/cmd/Makefile src/svf/Makefile src/bsdl/Makefile src/jim/Makefile src/global/Makefile src/apps/jtag/Makefile src/apps/bsdl2jtag/Makefile src/bfin/Makefile po/Makefile.in"
@@ -7429,13 +7446,13 @@ if test "${lt_cv_nm_interface+set}" = set; then :
 else
   lt_cv_nm_interface="BSD nm"
   echo "int some_variable = 0;" > conftest.$ac_ext
-  (eval echo "\"\$as_me:7432: $ac_compile\"" >&5)
+  (eval echo "\"\$as_me:7449: $ac_compile\"" >&5)
   (eval "$ac_compile" 2>conftest.err)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:7435: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
+  (eval echo "\"\$as_me:7452: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
   (eval "$NM \"conftest.$ac_objext\"" 2>conftest.err > conftest.out)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:7438: output\"" >&5)
+  (eval echo "\"\$as_me:7455: output\"" >&5)
   cat conftest.out >&5
   if $GREP 'External.*some_variable' conftest.out > /dev/null; then
     lt_cv_nm_interface="MS dumpbin"
@@ -7901,11 +7918,11 @@ irix5* | irix6* | nonstopux*)
   ;;
 
 # This must be Linux ELF.
-linux* | k*bsd*-gnu | kopensolaris*-gnu)
+linux* | k*bsd*-gnu)
   lt_cv_deplibs_check_method=pass_all
   ;;
 
-netbsd* | netbsdelf*-gnu)
+netbsd*)
   if echo __ELF__ | $CC -E - | $GREP __ELF__ > /dev/null; then
     lt_cv_deplibs_check_method='match_pattern /lib[^/]+(\.so\.[0-9]+\.[0-9]+|_pic\.a)$'
   else
@@ -8640,7 +8657,7 @@ ia64-*-hpux*)
   ;;
 *-*-irix6*)
   # Find out which ABI we are using.
-  echo '#line 8643 "configure"' > conftest.$ac_ext
+  echo '#line 8660 "configure"' > conftest.$ac_ext
   if { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_compile\""; } >&5
   (eval $ac_compile) 2>&5
   ac_status=$?
@@ -9902,11 +9919,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:9905: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:9922: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:9909: \$? = $ac_status" >&5
+   echo "$as_me:9926: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -10071,7 +10088,7 @@ $as_echo_n "checking for $compiler option to produce PIC... " >&6; }
       lt_prog_compiler_static='-non_shared'
       ;;
 
-    linux* | k*bsd*-gnu | kopensolaris*-gnu)
+    linux* | k*bsd*-gnu)
       case $cc_basename in
       # old Intel for x86_64 which still supported -KPIC.
       ecc*)
@@ -10241,11 +10258,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:10244: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:10261: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:10248: \$? = $ac_status" >&5
+   echo "$as_me:10265: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -10346,11 +10363,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:10349: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:10366: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:10353: \$? = $ac_status" >&5
+   echo "$as_me:10370: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -10401,11 +10418,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:10404: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:10421: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:10408: \$? = $ac_status" >&5
+   echo "$as_me:10425: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -10520,9 +10537,6 @@ $as_echo_n "checking whether the $compiler linker ($LD) supports shared librarie
   openbsd*)
     with_gnu_ld=no
     ;;
-  linux* | k*bsd*-gnu)
-    link_all_deplibs=no
-    ;;
   esac
 
   ld_shlibs=yes
@@ -10544,7 +10558,6 @@ $as_echo_n "checking whether the $compiler linker ($LD) supports shared librarie
     fi
     supports_anon_versioning=no
     case `$LD -v 2>&1` in
-      *GNU\ gold*) supports_anon_versioning=yes ;;
       *\ [01].* | *\ 2.[0-9].* | *\ 2.10.*) ;; # catch versions < 2.11
       *\ 2.11.93.0.2\ *) supports_anon_versioning=yes ;; # RH7.3 ...
       *\ 2.11.92.0.12\ *) supports_anon_versioning=yes ;; # Mandrake 8.2 ...
@@ -10636,7 +10649,7 @@ _LT_EOF
       archive_expsym_cmds='sed "s,^,_," $export_symbols >$output_objdir/$soname.expsym~$CC -shared $pic_flag $libobjs $deplibs $compiler_flags ${wl}-h,$soname ${wl}--retain-symbols-file,$output_objdir/$soname.expsym ${wl}--image-base,`expr ${RANDOM-$$} % 4096 / 2 \* 262144 + 1342177280` -o $lib'
       ;;
 
-    gnu* | linux* | tpf* | k*bsd*-gnu | kopensolaris*-gnu)
+    gnu* | linux* | tpf* | k*bsd*-gnu)
       tmp_diet=no
       if test "$host_os" = linux-dietlibc; then
 	case $cc_basename in
@@ -10706,7 +10719,7 @@ _LT_EOF
       fi
       ;;
 
-    netbsd* | netbsdelf*-gnu)
+    netbsd*)
       if echo __ELF__ | $CC -E - | $GREP __ELF__ >/dev/null; then
 	archive_cmds='$LD -Bshareable $libobjs $deplibs $linker_flags -o $lib'
 	wlarc=
@@ -10881,7 +10894,6 @@ _LT_EOF
 	if test "$aix_use_runtimelinking" = yes; then
 	  shared_flag="$shared_flag "'${wl}-G'
 	fi
-	link_all_deplibs=no
       else
 	# not using gcc
 	if test "$host_cpu" = ia64; then
@@ -11208,7 +11220,7 @@ rm -f core conftest.err conftest.$ac_objext \
       link_all_deplibs=yes
       ;;
 
-    netbsd* | netbsdelf*-gnu)
+    netbsd*)
       if echo __ELF__ | $CC -E - | $GREP __ELF__ >/dev/null; then
 	archive_cmds='$LD -Bshareable -o $lib $libobjs $deplibs $linker_flags'  # a.out
       else
@@ -11954,7 +11966,14 @@ freebsd* | dragonfly*)
     *) objformat=elf ;;
     esac
   fi
-  version_type=freebsd-$objformat
+  # Handle Gentoo/FreeBSD as it was Linux
+  case $host_vendor in
+    gentoo)
+      version_type=linux ;;
+    *)
+      version_type=freebsd-$objformat ;;
+  esac
+
   case $version_type in
     freebsd-elf*)
       library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext} $libname${shared_ext}'
@@ -11964,6 +11983,12 @@ freebsd* | dragonfly*)
     freebsd-*)
       library_names_spec='${libname}${release}${shared_ext}$versuffix $libname${shared_ext}$versuffix'
       need_version=yes
+      ;;
+    linux)
+      library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}$major ${libname}${shared_ext}'
+      soname_spec='${libname}${release}${shared_ext}$major'
+      need_lib_prefix=no
+      need_version=no
       ;;
   esac
   shlibpath_var=LD_LIBRARY_PATH
@@ -12098,7 +12123,7 @@ linux*oldld* | linux*aout* | linux*coff*)
   ;;
 
 # This must be Linux ELF.
-linux* | k*bsd*-gnu | kopensolaris*-gnu)
+linux* | k*bsd*-gnu)
   version_type=linux
   need_lib_prefix=no
   need_version=no
@@ -12151,18 +12176,6 @@ rm -f core conftest.err conftest.$ac_objext \
   # people can always --disable-shared, the test was removed, and we
   # assume the GNU/Linux dynamic linker is in use.
   dynamic_linker='GNU/Linux ld.so'
-  ;;
-
-netbsdelf*-gnu)
-  version_type=linux
-  need_lib_prefix=no
-  need_version=no
-  library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}$major ${libname}${shared_ext}'
-  soname_spec='${libname}${release}${shared_ext}$major'
-  shlibpath_var=LD_LIBRARY_PATH
-  shlibpath_overrides_runpath=no
-  hardcode_into_libs=yes
-  dynamic_linker='NetBSD ld.elf_so'
   ;;
 
 netbsd*)
@@ -12785,7 +12798,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 12788 "configure"
+#line 12801 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -12881,7 +12894,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 12884 "configure"
+#line 12897 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -13856,11 +13869,10 @@ pkg_failed=no
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for LIBUSB" >&5
 $as_echo_n "checking for LIBUSB... " >&6; }
 
-if test -n "$PKG_CONFIG"; then
-    if test -n "$LIBUSB_CFLAGS"; then
-        pkg_cv_LIBUSB_CFLAGS="$LIBUSB_CFLAGS"
-    else
-        if test -n "$PKG_CONFIG" && \
+if test -n "$LIBUSB_CFLAGS"; then
+    pkg_cv_LIBUSB_CFLAGS="$LIBUSB_CFLAGS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libusb\""; } >&5
   ($PKG_CONFIG --exists --print-errors "libusb") 2>&5
   ac_status=$?
@@ -13870,15 +13882,13 @@ if test -n "$PKG_CONFIG"; then
 else
   pkg_failed=yes
 fi
-    fi
-else
-	pkg_failed=untried
+ else
+    pkg_failed=untried
 fi
-if test -n "$PKG_CONFIG"; then
-    if test -n "$LIBUSB_LIBS"; then
-        pkg_cv_LIBUSB_LIBS="$LIBUSB_LIBS"
-    else
-        if test -n "$PKG_CONFIG" && \
+if test -n "$LIBUSB_LIBS"; then
+    pkg_cv_LIBUSB_LIBS="$LIBUSB_LIBS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libusb\""; } >&5
   ($PKG_CONFIG --exists --print-errors "libusb") 2>&5
   ac_status=$?
@@ -13888,9 +13898,8 @@ if test -n "$PKG_CONFIG"; then
 else
   pkg_failed=yes
 fi
-    fi
-else
-	pkg_failed=untried
+ else
+    pkg_failed=untried
 fi
 
 
@@ -13903,9 +13912,9 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        LIBUSB_PKG_ERRORS=`$PKG_CONFIG --short-errors --errors-to-stdout --print-errors "libusb"`
+	        LIBUSB_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "libusb" 2>&1`
         else
-	        LIBUSB_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "libusb"`
+	        LIBUSB_PKG_ERRORS=`$PKG_CONFIG --print-errors "libusb" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$LIBUSB_PKG_ERRORS" >&5
@@ -14215,11 +14224,10 @@ pkg_failed=no
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for LIBFTDI" >&5
 $as_echo_n "checking for LIBFTDI... " >&6; }
 
-if test -n "$PKG_CONFIG"; then
-    if test -n "$LIBFTDI_CFLAGS"; then
-        pkg_cv_LIBFTDI_CFLAGS="$LIBFTDI_CFLAGS"
-    else
-        if test -n "$PKG_CONFIG" && \
+if test -n "$LIBFTDI_CFLAGS"; then
+    pkg_cv_LIBFTDI_CFLAGS="$LIBFTDI_CFLAGS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libftdi\""; } >&5
   ($PKG_CONFIG --exists --print-errors "libftdi") 2>&5
   ac_status=$?
@@ -14229,15 +14237,13 @@ if test -n "$PKG_CONFIG"; then
 else
   pkg_failed=yes
 fi
-    fi
-else
-	pkg_failed=untried
+ else
+    pkg_failed=untried
 fi
-if test -n "$PKG_CONFIG"; then
-    if test -n "$LIBFTDI_LIBS"; then
-        pkg_cv_LIBFTDI_LIBS="$LIBFTDI_LIBS"
-    else
-        if test -n "$PKG_CONFIG" && \
+if test -n "$LIBFTDI_LIBS"; then
+    pkg_cv_LIBFTDI_LIBS="$LIBFTDI_LIBS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libftdi\""; } >&5
   ($PKG_CONFIG --exists --print-errors "libftdi") 2>&5
   ac_status=$?
@@ -14247,9 +14253,8 @@ if test -n "$PKG_CONFIG"; then
 else
   pkg_failed=yes
 fi
-    fi
-else
-	pkg_failed=untried
+ else
+    pkg_failed=untried
 fi
 
 
@@ -14262,9 +14267,9 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        LIBFTDI_PKG_ERRORS=`$PKG_CONFIG --short-errors --errors-to-stdout --print-errors "libftdi"`
+	        LIBFTDI_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "libftdi" 2>&1`
         else
-	        LIBFTDI_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "libftdi"`
+	        LIBFTDI_PKG_ERRORS=`$PKG_CONFIG --print-errors "libftdi" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$LIBFTDI_PKG_ERRORS" >&5
