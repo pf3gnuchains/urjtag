@@ -1,3 +1,12 @@
+2010-02-08  Jie Zhang  <jie.zhang@analog.com>
+
+  * src/tap/usbconn/libftdx.h (URJ_USBCONN_FTDI_MAXRECV): Define
+    to be (63 * 64) if HAVE_LIBFTDI_ASYNC_MODE defined.
+  * src/tap/usbconn/libftdi.c (usbconn_ftdi_flush): Use async
+    mode libftdi if HAVE_LIBFTDI_ASYNC_MODE defined.
+  * configure.ac: Check libusb-1.0 and libftdi async mode.
+  * configure: Regenerate.
+
 2010-02-05  Jie Zhang  <jie.zhang@analog.com>
 
   * src/bsdl/Makefile.am (vhdl_flex.$(OBJEXT), bsdl_flex.$(OBJEXT)):
