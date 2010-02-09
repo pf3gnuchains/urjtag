@@ -179,7 +179,11 @@ AS_IF([test "x$with_libusb" != xno -a "x$with_libusb" != x1.0], [
     AC_DEFINE(HAVE_LIBUSB, 1, [Define if you have libusb])
     HAVELIBUSB=yes
   ],[
-    AC_MSG_WARN([*** libusb not detected. No support for USB JTAG cables via libusb.])
+    AS_IF([test "x$with_libusb" = x0.1], [
+      AC_MSG_ERROR([*** libusb-0.1 not detected.])
+    ],[
+      AC_MSG_WARN([*** libusb not detected. No support for USB JTAG cables via libusb.])
+    ])
     LIBS=$save_LIBS
     CPPFLAGS=$save_CPPFLAGS
   ])
@@ -204,7 +208,11 @@ AS_IF([test "x$with_libusb" != xno -a "x$with_libusb" != x0.1 -a "x$HAVELIBUSB" 
     AC_DEFINE(HAVE_LIBUSB1, 1, [Define if you have libusb-1.0])
     HAVELIBUSB1=yes
   ],[
-    AC_MSG_WARN([*** libusb-1.0 not detected. No support for async mode for FTDI cables.])
+    AS_IF([test "x$with_libusb" = x1.0], [
+      AC_MSG_ERROR([*** libusb-1.0 not detected.])
+    ],[
+      AC_MSG_WARN([*** libusb-1.0 not detected. No support for async mode for FTDI cables.])
+    ])
     LIBS=$save_LIBS
     CPPFLAGS=$save_CPPFLAGS
   ])

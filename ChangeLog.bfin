@@ -1,3 +1,28 @@
+2010-02-09  Jie Zhang  <jie.zhang@analog.com>
+
+  * configure.ac: Error out when libusb-0.1 is specified
+    but not found. Do the same for libusb-1.0 too.
+  * configure: Regenerate.
+  * Makefile.in: Regenerate.
+  * config.h.in: Regenerate.
+  * data/Makefile.in: Regenerate.
+  * doc/Makefile.in: Regenerate.
+  * include/urjtag/Makefile.in: Regenerate.
+  * src/Makefile.in: Regenerate.
+  * src/apps/bsdl2jtag/Makefile.in: Regenerate.
+  * src/apps/jtag/Makefile.in: Regenerate.
+  * src/bfin/Makefile.in: Regenerate.
+  * src/bsdl/Makefile.in: Regenerate.
+  * src/bus/Makefile.in: Regenerate.
+  * src/cmd/Makefile.in: Regenerate.
+  * src/flash/Makefile.in: Regenerate.
+  * src/global/Makefile.in: Regenerate.
+  * src/jim/Makefile.in: Regenerate.
+  * src/lib/Makefile.in: Regenerate.
+  * src/part/Makefile.in: Regenerate.
+  * src/svf/Makefile.in: Regenerate.
+  * src/tap/Makefile.in: Regenerate.
+
 2010-02-08  Jie Zhang  <jie.zhang@analog.com>
 
   * src/tap/usbconn/libftdx.h (URJ_USBCONN_FTDI_MAXRECV): Define
