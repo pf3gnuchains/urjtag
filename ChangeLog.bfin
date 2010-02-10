@@ -1,37 +1,3 @@
-2010-02-09  Jie Zhang  <jie.zhang@analog.com>
-
-  * configure.ac: Error out when libusb-0.1 is specified
-    but not found. Do the same for libusb-1.0 too.
-  * configure: Regenerate.
-  * Makefile.in: Regenerate.
-  * config.h.in: Regenerate.
-  * data/Makefile.in: Regenerate.
-  * doc/Makefile.in: Regenerate.
-  * include/urjtag/Makefile.in: Regenerate.
-  * src/Makefile.in: Regenerate.
-  * src/apps/bsdl2jtag/Makefile.in: Regenerate.
-  * src/apps/jtag/Makefile.in: Regenerate.
-  * src/bfin/Makefile.in: Regenerate.
-  * src/bsdl/Makefile.in: Regenerate.
-  * src/bus/Makefile.in: Regenerate.
-  * src/cmd/Makefile.in: Regenerate.
-  * src/flash/Makefile.in: Regenerate.
-  * src/global/Makefile.in: Regenerate.
-  * src/jim/Makefile.in: Regenerate.
-  * src/lib/Makefile.in: Regenerate.
-  * src/part/Makefile.in: Regenerate.
-  * src/svf/Makefile.in: Regenerate.
-  * src/tap/Makefile.in: Regenerate.
-
-2010-02-08  Jie Zhang  <jie.zhang@analog.com>
-
-  * src/tap/usbconn/libftdx.h (URJ_USBCONN_FTDI_MAXRECV): Define
-    to be (63 * 64) if HAVE_LIBFTDI_ASYNC_MODE defined.
-  * src/tap/usbconn/libftdi.c (usbconn_ftdi_flush): Use async
-    mode libftdi if HAVE_LIBFTDI_ASYNC_MODE defined.
-  * configure.ac: Check libusb-1.0 and libftdi async mode.
-  * configure: Regenerate.
-
 2010-02-05  Jie Zhang  <jie.zhang@analog.com>
 
   * src/bsdl/Makefile.am (vhdl_flex.$(OBJEXT), bsdl_flex.$(OBJEXT)):

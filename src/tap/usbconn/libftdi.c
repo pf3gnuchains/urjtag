@@ -69,7 +69,7 @@ usbconn_ftdi_flush (ftdi_param_t *p)
     int xferred;
     int recvd = 0;
 #ifdef HAVE_LIBFTDI_ASYNC_MODE
-    struct ftdi_transfer_control *tc;
+    struct ftdi_transfer_control *tc = NULL;
 #endif
 
     if (!p->fc)
@@ -121,7 +121,10 @@ usbconn_ftdi_flush (ftdi_param_t *p)
     }
 
     if ((xferred = ftdi_write_data (p->fc, p->send_buf, p->send_buffered)) < 0)
-        perror (ftdi_get_error_string (p->fc));
+    {
+        urj_error_set (URJ_ERROR_FTD, ftdi_get_error_string (p->fc));
+        return -1;
+    }
 
     if (xferred < p->send_buffered)
     {
