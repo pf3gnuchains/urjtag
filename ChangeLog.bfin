@@ -1,42 +1,5 @@
 2010-02-05  Jie Zhang  <jie.zhang@analog.com>
 
-  * src/bsdl/Makefile.am (vhdl_flex.$(OBJEXT), bsdl_flex.$(OBJEXT)):
-    Add prefix libbsdl_flex_la-.  Depend on vhdl_bison.h and
-    bsdl_bison.h instead of vhdl_bison.$(OBJEXT) and
-    bsdl_bison.$(OBJEXT).
-    (bsdl_bison.$(OBJEXT)): Depend bsdl_bison.h.
-  * src/bsdl/Makefile.in: Regenerate.
-  * src/svf/Makefile.am (svf_flex.$(OBJEXT)): Add prefix
-    libsvf_flex_la-.  Depend on svf_bison.h instead of
-    svf_bison.$(OBJEXT).
-  * src/svf/Makefile.in: Regenerate.
-
-2010-02-05  Jie Zhang  <jie.zhang@analog.com>
-
-  * include/urjtag/cable.h (enum action): Add URJ_TAP_CABLE_CLOCK_COMPACT.
-  * src/tap/cable/generic.c (do_one_queued_action): Handle
-    URJ_TAP_CABLE_CLOCK_COMPACT to turn off GCC warning.
-  * src/tap/cable/ft2232.c (ft2232_clock_compact_schedule): New.
-    (ft2232_flush): Compact consecutive clocks.
-
-2010-02-05  Jie Zhang  <jie.zhang@analog.com>
-
-  * include/urjtag/part.h (struct URJ_PART_PARAMS): Add wait_ready.
-  * include/urjtag/bfin.h (bfin_wait_clocks): Declare.
-  * include/urjtag/chain.h (urj_tap_chain_wait_ready): Declare.
-  * src/tap/chain.c (urj_tap_chain_wait_ready): New.
-  * src/tap/tap.c (urj_tap_defer_shift_register): Call
-    urj_tap_chain_wait_ready if Run-Test/Idle.
-  * src/bfin/bfin.c (bfin_wait_clocks): Define.
-    (part_emudat_defer_get): Call chain_wait_ready when Run-Test/Idle.
-    (part_emudat_get): Likewise.
-  * src/bfin/bfin-part-bfin.c: Include <sysdep.h>, <urjtag/chain.h>,
-    <urjtag/cable.h> and <urjtag/log.h>.
-    (bfin_wait_ready): New.
-    (bfin_part_init): Init wait_ready.
-
-2010-02-05  Jie Zhang  <jie.zhang@analog.com>
-
   Revert
   2010-01-29  Mike Frysinger  <vapier@gentoo.org>
   * include/urjtag/bfin.h, src/bfin/bfin.c, src/bfin/bfin-part-bfin.c: Switch
