@@ -789,6 +789,8 @@ ENABLE_CABLE_JLINK_FALSE
 ENABLE_CABLE_JLINK_TRUE
 ENABLE_CABLE_IGLOO_FALSE
 ENABLE_CABLE_IGLOO_TRUE
+ENABLE_CABLE_ICE100_FALSE
+ENABLE_CABLE_ICE100_TRUE
 ENABLE_CABLE_FT2232_FALSE
 ENABLE_CABLE_FT2232_TRUE
 ENABLE_CABLE_EI012_FALSE
@@ -915,10 +917,6 @@ HAVE_LIBFTDI_TRUE
 LIBFTDI_CONFIG
 LIBFTDI_LIBS
 LIBFTDI_CFLAGS
-HAVE_LIBUSB1_FALSE
-HAVE_LIBUSB1_TRUE
-LIBUSB1_LIBS
-LIBUSB1_CFLAGS
 HAVE_LIBUSB_FALSE
 HAVE_LIBUSB_TRUE
 LIBUSB_CONFIG
@@ -1066,6 +1064,7 @@ enable_static
 with_pic
 enable_fast_install
 enable_libtool_lock
+with_readline
 with_libusb
 with_libftdi
 with_ftd2xx
@@ -1096,8 +1095,6 @@ YFLAGS
 PKG_CONFIG
 LIBUSB_CFLAGS
 LIBUSB_LIBS
-LIBUSB1_CFLAGS
-LIBUSB1_LIBS
 LIBFTDI_CFLAGS
 LIBFTDI_LIBS'
 
@@ -1752,9 +1749,9 @@ Optional Features:
 
   --enable-cable          Enable default set or specific cable drivers:
                           'default' enables:
-                          arcom byteblaster dlc5 ea253 ei012 ft2232 igloo
-                          jlink keithkoep lattice mpcbdm triton usbblaster
-                          wiggler xpc
+                          arcom byteblaster dlc5 ea253 ei012 ft2232 ice100
+                          igloo jlink keithkoep lattice mpcbdm triton
+                          usbblaster wiggler xpc
 
                           Disabled by default are:
                           ep9307 jim ts7800
@@ -1779,6 +1776,7 @@ Optional Packages:
   --with-pic              try to use only PIC/non-PIC objects [default=use
                           both]
   --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
+  --without-readline      support command completion/history
   --with-libusb           use libusb for some USB JTAG cables
   --with-libftdi          use libftdi for FTDI-based cables
   --with-ftd2xx           use ftd2xx library for FTDI-based cables
@@ -1802,10 +1800,6 @@ Some influential environment variables:
   LIBUSB_CFLAGS
               C compiler flags for LIBUSB, overriding pkg-config
   LIBUSB_LIBS linker flags for LIBUSB, overriding pkg-config
-  LIBUSB1_CFLAGS
-              C compiler flags for LIBUSB1, overriding pkg-config
-  LIBUSB1_LIBS
-              linker flags for LIBUSB1, overriding pkg-config
   LIBFTDI_CFLAGS
               C compiler flags for LIBFTDI, overriding pkg-config
   LIBFTDI_LIBS
@@ -7458,13 +7452,13 @@ if test "${lt_cv_nm_interface+set}" = set; then :
 else
   lt_cv_nm_interface="BSD nm"
   echo "int some_variable = 0;" > conftest.$ac_ext
-  (eval echo "\"\$as_me:7461: $ac_compile\"" >&5)
+  (eval echo "\"\$as_me:7455: $ac_compile\"" >&5)
   (eval "$ac_compile" 2>conftest.err)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:7464: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
+  (eval echo "\"\$as_me:7458: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
   (eval "$NM \"conftest.$ac_objext\"" 2>conftest.err > conftest.out)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:7467: output\"" >&5)
+  (eval echo "\"\$as_me:7461: output\"" >&5)
   cat conftest.out >&5
   if $GREP 'External.*some_variable' conftest.out > /dev/null; then
     lt_cv_nm_interface="MS dumpbin"
@@ -8669,7 +8663,7 @@ ia64-*-hpux*)
   ;;
 *-*-irix6*)
   # Find out which ABI we are using.
-  echo '#line 8672 "configure"' > conftest.$ac_ext
+  echo '#line 8666 "configure"' > conftest.$ac_ext
   if { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_compile\""; } >&5
   (eval $ac_compile) 2>&5
   ac_status=$?
@@ -9931,11 +9925,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:9934: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:9928: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:9938: \$? = $ac_status" >&5
+   echo "$as_me:9932: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -10270,11 +10264,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:10273: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:10267: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:10277: \$? = $ac_status" >&5
+   echo "$as_me:10271: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -10375,11 +10369,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:10378: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:10372: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:10382: \$? = $ac_status" >&5
+   echo "$as_me:10376: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -10430,11 +10424,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:10433: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:10427: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:10437: \$? = $ac_status" >&5
+   echo "$as_me:10431: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -12810,7 +12804,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 12813 "configure"
+#line 12807 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -12906,7 +12900,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 12909 "configure"
+#line 12903 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -13554,7 +13548,7 @@ $as_echo "#define HAVE_I386_SET_IOPERM 1" >>confdefs.h
 	fi
 fi
 
-for ac_func in  	nanosleep 	swprintf 	usleep
+for ac_func in  	geteuid 	getuid 	nanosleep 	swprintf 	usleep
 do :
   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
 ac_fn_c_check_func "$LINENO" "$ac_func" "$as_ac_var"
@@ -13668,24 +13662,14 @@ fi
 
 done
 
-for ac_header in stropts.h
+for ac_header in  	wchar.h 	windows.h 	sys/wait.h
 do :
-  ac_fn_c_check_header_mongrel "$LINENO" "stropts.h" "ac_cv_header_stropts_h" "$ac_includes_default"
-if test "x$ac_cv_header_stropts_h" = x""yes; then :
+  as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
+ac_fn_c_check_header_mongrel "$LINENO" "$ac_header" "$as_ac_Header" "$ac_includes_default"
+eval as_val=\$$as_ac_Header
+   if test "x$as_val" = x""yes; then :
   cat >>confdefs.h <<_ACEOF
-#define HAVE_STROPTS_H 1
-_ACEOF
-
-fi
-
-done
-
-for ac_header in wchar.h
-do :
-  ac_fn_c_check_header_mongrel "$LINENO" "wchar.h" "ac_cv_header_wchar_h" "$ac_includes_default"
-if test "x$ac_cv_header_wchar_h" = x""yes; then :
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_WCHAR_H 1
+#define `$as_echo "HAVE_$ac_header" | $as_tr_cpp` 1
 _ACEOF
 
 fi
@@ -13693,6 +13677,51 @@ fi
 done
 
 
+if test "x$ac_cv_header_windows_h" = "xyes"; then :
+
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for IN/OUT defines in windows.h" >&5
+$as_echo_n "checking for IN/OUT defines in windows.h... " >&6; }
+	cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+#include <windows.h>
+int
+main ()
+{
+
+#if defined(IN) || defined(OUT)
+# error "IN/OUT defined"
+#endif
+
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_c_try_compile "$LINENO"; then :
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+else
+
+	as_fn_append CPPFLAGS " -DNO_W32_PSEUDO_MODIFIERS -D_NO_W32_PSEUDO_MODIFIERS"
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+
+fi
+
+
+
+# Check whether --with-readline was given.
+if test "${with_readline+set}" = set; then :
+  withval=$with_readline;
+fi
+
+  if test "x$with_readline" = "xno"; then :
+
+    vl_cv_lib_readline=no
+
+fi
 
   { $as_echo "$as_me:${as_lineno-$LINENO}: checking for a readline compatible library" >&5
 $as_echo_n "checking for a readline compatible library... " >&6; }
@@ -13856,6 +13885,8 @@ $as_echo "$vl_cv_lib_readline_completion" >&6; }
 $as_echo "#define HAVE_READLINE_COMPLETION 1" >>confdefs.h
 
     fi
+  elif test "$with_readline$vl_cv_lib_readline" = "yesno" ; then
+    as_fn_error "readline support requested, but none found" "$LINENO" 5
   fi
 
 
@@ -14190,10 +14221,7 @@ fi
   ac_fn_c_check_func "$LINENO" "usb_find_devices" "ac_cv_func_usb_find_devices"
 if test "x$ac_cv_func_usb_find_devices" = x""yes; then :
 
-
-$as_echo "#define HAVE_LIBUSB 1" >>confdefs.h
-
-    HAVELIBUSB=yes
+    HAVELIBUSB=0.1
 
 else
 
@@ -14214,29 +14242,19 @@ fi
 
 
 fi
- if test "x$HAVELIBUSB" = "xyes"; then
-  HAVE_LIBUSB_TRUE=
-  HAVE_LIBUSB_FALSE='#'
-else
-  HAVE_LIBUSB_TRUE='#'
-  HAVE_LIBUSB_FALSE=
-fi
 
 
-
-
-HAVELIBUSB1=no
-if test "x$with_libusb" != xno -a "x$with_libusb" != x0.1 -a "x$HAVELIBUSB" != "xyes"; then :
+if test "x$with_libusb" != xno -a "x$with_libusb" != x0.1 -a "x$HAVELIBUSB" = "xno"; then :
 
   save_LIBS=$LIBS
   save_CPPFLAGS=$CPPFLAGS
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for LIBUSB1" >&5
-$as_echo_n "checking for LIBUSB1... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for LIBUSB" >&5
+$as_echo_n "checking for LIBUSB... " >&6; }
 
-if test -n "$LIBUSB1_CFLAGS"; then
-    pkg_cv_LIBUSB1_CFLAGS="$LIBUSB1_CFLAGS"
+if test -n "$LIBUSB_CFLAGS"; then
+    pkg_cv_LIBUSB_CFLAGS="$LIBUSB_CFLAGS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libusb-1.0\""; } >&5
@@ -14244,15 +14262,15 @@ if test -n "$LIBUSB1_CFLAGS"; then
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_LIBUSB1_CFLAGS=`$PKG_CONFIG --cflags "libusb-1.0" 2>/dev/null`
+  pkg_cv_LIBUSB_CFLAGS=`$PKG_CONFIG --cflags "libusb-1.0" 2>/dev/null`
 else
   pkg_failed=yes
 fi
  else
     pkg_failed=untried
 fi
-if test -n "$LIBUSB1_LIBS"; then
-    pkg_cv_LIBUSB1_LIBS="$LIBUSB1_LIBS"
+if test -n "$LIBUSB_LIBS"; then
+    pkg_cv_LIBUSB_LIBS="$LIBUSB_LIBS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libusb-1.0\""; } >&5
@@ -14260,7 +14278,7 @@ if test -n "$LIBUSB1_LIBS"; then
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_LIBUSB1_LIBS=`$PKG_CONFIG --libs "libusb-1.0" 2>/dev/null`
+  pkg_cv_LIBUSB_LIBS=`$PKG_CONFIG --libs "libusb-1.0" 2>/dev/null`
 else
   pkg_failed=yes
 fi
@@ -14278,40 +14296,40 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        LIBUSB1_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "libusb-1.0" 2>&1`
+	        LIBUSB_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "libusb-1.0" 2>&1`
         else
-	        LIBUSB1_PKG_ERRORS=`$PKG_CONFIG --print-errors "libusb-1.0" 2>&1`
+	        LIBUSB_PKG_ERRORS=`$PKG_CONFIG --print-errors "libusb-1.0" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
-	echo "$LIBUSB1_PKG_ERRORS" >&5
+	echo "$LIBUSB_PKG_ERRORS" >&5
 
 	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
-                have_libusb1=no
+                have_libusb=no
 elif test $pkg_failed = untried; then
-	have_libusb1=no
+	have_libusb=no
 else
-	LIBUSB1_CFLAGS=$pkg_cv_LIBUSB1_CFLAGS
-	LIBUSB1_LIBS=$pkg_cv_LIBUSB1_LIBS
+	LIBUSB_CFLAGS=$pkg_cv_LIBUSB_CFLAGS
+	LIBUSB_LIBS=$pkg_cv_LIBUSB_LIBS
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 $as_echo "yes" >&6; }
-	have_libusb1=yes
+	have_libusb=yes
 fi
-  if test "$have_libusb1" = "yes"; then :
+  if test "$have_libusb" = "yes"; then :
 
-    LIBUSB_CFLAGS="$CFLAGS $LIBUSB1_CFLAGS"
-    LIBUSB_LIBS="$USB_LIBS $LIBUSB1_LIBS"
+    LIBUSB_CFLAGS="$CFLAGS $LIBUSB_CFLAGS"
+    LIBUSB_LIBS="$USB_LIBS $LIBUSB_LIBS"
 
 fi
-  LIBS="$LIBS $LIBUSB1_LIBS"
-  CPPFLAGS="$CPPFLAGS $LIBUSB1_CFLAGS"
+  LIBS="$LIBS $LIBUSB_LIBS"
+  CPPFLAGS="$CPPFLAGS $LIBUSB_CFLAGS"
   ac_fn_c_check_func "$LINENO" "libusb_get_device_list" "ac_cv_func_libusb_get_device_list"
 if test "x$ac_cv_func_libusb_get_device_list" = x""yes; then :
 
 
 $as_echo "#define HAVE_LIBUSB1 1" >>confdefs.h
 
-    HAVELIBUSB1=yes
+    HAVELIBUSB=1.0
 
 else
 
@@ -14332,12 +14350,17 @@ fi
 
 
 fi
- if test "x$HAVELIBUSB1" = "xyes"; then
-  HAVE_LIBUSB1_TRUE=
-  HAVE_LIBUSB1_FALSE='#'
+if test "x$HAVELIBUSB" != "xno"; then
+
+$as_echo "#define HAVE_LIBUSB 1" >>confdefs.h
+
+fi
+ if test "x$HAVELIBUSB" != "xno"; then
+  HAVE_LIBUSB_TRUE=
+  HAVE_LIBUSB_FALSE='#'
 else
-  HAVE_LIBUSB1_TRUE='#'
-  HAVE_LIBUSB1_FALSE=
+  HAVE_LIBUSB_TRUE='#'
+  HAVE_LIBUSB_FALSE=
 fi
 
 
@@ -14672,7 +14695,7 @@ fi
   ac_fn_c_check_func "$LINENO" "ftdi_read_data_submit" "ac_cv_func_ftdi_read_data_submit"
 if test "x$ac_cv_func_ftdi_read_data_submit" = x""yes; then :
 
-    if test "x$HAVELIBUSB" = "xyes"; then :
+    if test "x$HAVELIBUSB" = "x0.1"; then :
 
       as_fn_error "this libftdi cannot be used with libusb-0.1, libusb-1.0 is needed" "$LINENO" 5
 
@@ -14684,9 +14707,10 @@ $as_echo "#define HAVE_LIBFTDI_ASYNC_MODE 1" >>confdefs.h
 
 else
 
-    if test "x$HAVELIBUSB1" = "xyes"; then :
+    if test "x$HAVELIBUSB" = "x1.0"; then :
 
-      as_fn_error "this libftdi cannot be used with libusb-1.0, libusb-0.1 is needed" "$LINENO" 5
+      as_fn_error "this libftdi cannot be used with libusb-1.0, libusb-0.1 is needed.
+                    did you configure libftdi with --with-async-mode ?" "$LINENO" 5
 
 fi
 
@@ -16815,14 +16839,14 @@ else
 fi
 
 	# expand 'default' to default enabled cable drivers
-	drivers=`echo ${drivers} | $SED -e "s/default/ 	arcom 	byteblaster 	dlc5 	ea253 	ei012 	ft2232 	igloo 	jlink 	keithkoep 	lattice 	mpcbdm 	triton 	usbblaster 	wiggler 	xpc /"`
+	drivers=`echo ${drivers} | $SED -e "s/default/ 	arcom 	byteblaster 	dlc5 	ea253 	ei012 	ft2232 	ice100 	igloo 	jlink 	keithkoep 	lattice 	mpcbdm 	triton 	usbblaster 	wiggler 	xpc /"`
 	# automatically disable cable drivers when a required feature is not available
 	if test "x$HAVELIBFTDI" != "xyes" -a "x$HAVELIBFTD2XX" != "xyes"; then :
 
 		drivers=`echo ${drivers} | $SED -e "s/ft2232//" -e "s/usbblaster//"`
 
 fi
-	if test "x$HAVELIBUSB" != "xyes"; then :
+	if test "x$HAVELIBUSB" = "xno"; then :
 
 		drivers=`echo ${drivers} | $SED -e "s/jlink//" -e "s/xpc//"`
 
@@ -17000,6 +17024,35 @@ else
 else
   ENABLE_CABLE_FT2232_TRUE='#'
   ENABLE_CABLE_FT2232_FALSE=
+fi
+
+
+fi
+
+
+		if echo "$drivers" | $GREP -q "ice100"; then :
+
+
+$as_echo "#define ENABLE_CABLE_ICE100 1" >>confdefs.h
+
+			 if true; then
+  ENABLE_CABLE_ICE100_TRUE=
+  ENABLE_CABLE_ICE100_FALSE='#'
+else
+  ENABLE_CABLE_ICE100_TRUE='#'
+  ENABLE_CABLE_ICE100_FALSE=
+fi
+
+			as_fn_append enabled_drivers "ice100 "
+
+else
+
+			 if false; then
+  ENABLE_CABLE_ICE100_TRUE=
+  ENABLE_CABLE_ICE100_FALSE='#'
+else
+  ENABLE_CABLE_ICE100_TRUE='#'
+  ENABLE_CABLE_ICE100_FALSE=
 fi
 
 
@@ -17624,52 +17677,6 @@ fi
 fi
 
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for fmax in -lm" >&5
-$as_echo_n "checking for fmax in -lm... " >&6; }
-if test "${ac_cv_lib_m_fmax+set}" = set; then :
-  $as_echo_n "(cached) " >&6
-else
-  ac_check_lib_save_LIBS=$LIBS
-LIBS="-lm  $LIBS"
-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-
-/* Override any GCC internal prototype to avoid an error.
-   Use char because int might match the return type of a GCC
-   builtin and then its argument prototype would still apply.  */
-#ifdef __cplusplus
-extern "C"
-#endif
-char fmax ();
-int
-main ()
-{
-return fmax ();
-  ;
-  return 0;
-}
-_ACEOF
-if ac_fn_c_try_link "$LINENO"; then :
-  ac_cv_lib_m_fmax=yes
-else
-  ac_cv_lib_m_fmax=no
-fi
-rm -f core conftest.err conftest.$ac_objext \
-    conftest$ac_exeext conftest.$ac_ext
-LIBS=$ac_check_lib_save_LIBS
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_m_fmax" >&5
-$as_echo "$ac_cv_lib_m_fmax" >&6; }
-if test "x$ac_cv_lib_m_fmax" = x""yes; then :
-
-
-$as_echo "#define HAVE_FMAX 1" >>confdefs.h
-
-
-fi
-
-
-
 # Check whether --enable-dmalloc was given.
 if test "${enable_dmalloc+set}" = set; then :
   enableval=$enable_dmalloc; dmalloc=$enableval
@@ -17845,10 +17852,6 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${HAVE_LIBUSB_TRUE}" && test -z "${HAVE_LIBUSB_FALSE}"; then
   as_fn_error "conditional \"HAVE_LIBUSB\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${HAVE_LIBUSB1_TRUE}" && test -z "${HAVE_LIBUSB1_FALSE}"; then
-  as_fn_error "conditional \"HAVE_LIBUSB1\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${HAVE_LIBFTDI_TRUE}" && test -z "${HAVE_LIBFTDI_FALSE}"; then
@@ -18309,6 +18312,14 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_CABLE_FT2232_TRUE}" && test -z "${ENABLE_CABLE_FT2232_FALSE}"; then
   as_fn_error "conditional \"ENABLE_CABLE_FT2232\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ENABLE_CABLE_ICE100_TRUE}" && test -z "${ENABLE_CABLE_ICE100_FALSE}"; then
+  as_fn_error "conditional \"ENABLE_CABLE_ICE100\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ENABLE_CABLE_ICE100_TRUE}" && test -z "${ENABLE_CABLE_ICE100_FALSE}"; then
+  as_fn_error "conditional \"ENABLE_CABLE_ICE100\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_CABLE_IGLOO_TRUE}" && test -z "${ENABLE_CABLE_IGLOO_FALSE}"; then
@@ -20817,23 +20828,7 @@ $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
 fi
 
 
-if test "x$HAVELIBUSB" = "xyes"; then :
-
-  FLAG_HAVELIBUSB=0.1
-
-else
-
-  if test "x$HAVELIBUSB1" = "xyes"; then :
-
-    FLAG_HAVELIBUSB=1.0
-
-else
-
-    FLAG_HAVELIBUSB=no
-
-fi
-
-fi
+FLAG_HAVELIBUSB=$HAVELIBUSB
 if test "x$HAVELIBFTDI_ASYNCMODE" = "xyes"; then :
 
   FLAG_HAVELIBFTDI_ASYNCMODE="(have async mode)"
