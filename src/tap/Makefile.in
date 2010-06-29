@@ -125,8 +125,7 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 @ENABLE_CABLE_USBBLASTER_TRUE@	cable/usbblaster.c
 
 @ENABLE_CABLE_FT2232_TRUE@am__append_14 = \
-@ENABLE_CABLE_FT2232_TRUE@	cable/ft2232.c \
-@ENABLE_CABLE_FT2232_TRUE@	cable/ft2232_list.h
+@ENABLE_CABLE_FT2232_TRUE@	cable/ft2232.c
 
 @ENABLE_CABLE_TS7800_TRUE@am__append_15 = \
 @ENABLE_CABLE_TS7800_TRUE@	cable/ts7800.c
@@ -190,11 +189,10 @@ am__libtap_la_SOURCES_DIST = tap.c register.c state.c chain.c detect.c \
 	cable/ei012.c cable/keithkoep.c cable/lattice.c cable/mpcbdm.c \
 	cable/triton.c cable/minimal.c cable/wiggler.c \
 	cable/wiggler2.c cable/jlink.c cable/xpc.c cable/usbblaster.c \
-	cable/ft2232.c cable/ft2232_list.h cable/ts7800.c \
-	cable/ice100.c usbconn/libusb.c usbconn/libusb.h cable/jim.c \
-	usbconn/libftdi.c usbconn/libftdx.h usbconn/libftd2xx.c \
-	parport/direct.c parport/ppdev.c parport/ppi.c \
-	cable/vision_ep9307.c
+	cable/ft2232.c cable/ts7800.c cable/ice100.c usbconn/libusb.c \
+	usbconn/libusb.h cable/jim.c usbconn/libftdi.c \
+	usbconn/libftdx.h usbconn/libftd2xx.c parport/direct.c \
+	parport/ppdev.c parport/ppi.c cable/vision_ep9307.c
 @ENABLE_CABLE_ARCOM_TRUE@am__objects_1 = arcom.lo
 @ENABLE_CABLE_BYTEBLASTER_TRUE@am__objects_2 = byteblaster.lo
 @ENABLE_CABLE_DLC5_TRUE@am__objects_3 = dlc5.lo
