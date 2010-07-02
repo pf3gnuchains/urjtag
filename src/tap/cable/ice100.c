@@ -501,9 +501,9 @@ static int ice_init (urj_cable_t *cable)
     if (cable_params->version < 0x0107)
     {
         urj_log (URJ_LOG_LEVEL_ERROR,
-                     "Error: The firmware on the ICE-100b needs to be upgraded.  Please go to\n"
-                     "http://docs.blackfin.uclinux.org/doku.php?id=hw:jtag:ice100b\n"
-                     "to learn how to update the firmware.\n");
+                 _("The firmware on the ICE-100b needs to be upgraded. Please go to:\n"
+                   "%sto learn how to update the firmware.\n"),
+                   "http://docs.blackfin.uclinux.org/doku.php?id=hw:jtag:ice100b\n");
         return URJ_STATUS_FAIL;
     }
 
