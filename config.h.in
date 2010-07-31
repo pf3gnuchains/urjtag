@@ -165,6 +165,9 @@
 /* define if ft2232 is enabled */
 #undef ENABLE_CABLE_FT2232
 
+/* define if gpio is enabled */
+#undef ENABLE_CABLE_GPIO
+
 /* define if ice100 is enabled */
 #undef ENABLE_CABLE_ICE100
 

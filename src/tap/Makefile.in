@@ -98,65 +98,68 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 @ENABLE_CABLE_EI012_TRUE@am__append_5 = \
 @ENABLE_CABLE_EI012_TRUE@	cable/ei012.c
 
-@ENABLE_CABLE_KEITHKOEP_TRUE@am__append_6 = \
+@ENABLE_CABLE_GPIO_TRUE@am__append_6 = \
+@ENABLE_CABLE_GPIO_TRUE@	cable/gpio.c
+
+@ENABLE_CABLE_KEITHKOEP_TRUE@am__append_7 = \
 @ENABLE_CABLE_KEITHKOEP_TRUE@	cable/keithkoep.c
 
-@ENABLE_CABLE_LATTICE_TRUE@am__append_7 = \
+@ENABLE_CABLE_LATTICE_TRUE@am__append_8 = \
 @ENABLE_CABLE_LATTICE_TRUE@	cable/lattice.c
 
-@ENABLE_CABLE_MPCBDM_TRUE@am__append_8 = \
+@ENABLE_CABLE_MPCBDM_TRUE@am__append_9 = \
 @ENABLE_CABLE_MPCBDM_TRUE@	cable/mpcbdm.c
 
-@ENABLE_CABLE_TRITON_TRUE@am__append_9 = \
+@ENABLE_CABLE_TRITON_TRUE@am__append_10 = \
 @ENABLE_CABLE_TRITON_TRUE@	cable/triton.c
 
-@ENABLE_CABLE_WIGGLER_TRUE@am__append_10 = \
+@ENABLE_CABLE_WIGGLER_TRUE@am__append_11 = \
 @ENABLE_CABLE_WIGGLER_TRUE@	cable/minimal.c \
 @ENABLE_CABLE_WIGGLER_TRUE@	cable/wiggler.c \
 @ENABLE_CABLE_WIGGLER_TRUE@	cable/wiggler2.c
 
-@ENABLE_CABLE_JLINK_TRUE@am__append_11 = \
+@ENABLE_CABLE_JLINK_TRUE@am__append_12 = \
 @ENABLE_CABLE_JLINK_TRUE@	cable/jlink.c
 
-@ENABLE_CABLE_XPC_TRUE@am__append_12 = \
+@ENABLE_CABLE_XPC_TRUE@am__append_13 = \
 @ENABLE_CABLE_XPC_TRUE@	cable/xpc.c
 
-@ENABLE_CABLE_USBBLASTER_TRUE@am__append_13 = \
+@ENABLE_CABLE_USBBLASTER_TRUE@am__append_14 = \
 @ENABLE_CABLE_USBBLASTER_TRUE@	cable/usbblaster.c
 
-@ENABLE_CABLE_FT2232_TRUE@am__append_14 = \
+@ENABLE_CABLE_FT2232_TRUE@am__append_15 = \
 @ENABLE_CABLE_FT2232_TRUE@	cable/ft2232.c
 
-@ENABLE_CABLE_TS7800_TRUE@am__append_15 = \
+@ENABLE_CABLE_TS7800_TRUE@am__append_16 = \
 @ENABLE_CABLE_TS7800_TRUE@	cable/ts7800.c
 
-@ENABLE_CABLE_ICE100_TRUE@am__append_16 = \
+@ENABLE_CABLE_ICE100_TRUE@am__append_17 = \
 @ENABLE_CABLE_ICE100_TRUE@	cable/ice100.c
 
-@HAVE_LIBUSB_TRUE@am__append_17 = \
+@HAVE_LIBUSB_TRUE@am__append_18 = \
 @HAVE_LIBUSB_TRUE@	usbconn/libusb.c \
 @HAVE_LIBUSB_TRUE@	usbconn/libusb.h
 
-@ENABLE_JIM_TRUE@am__append_18 = \
+@ENABLE_JIM_TRUE@am__append_19 = \
 @ENABLE_JIM_TRUE@	cable/jim.c
 
-@ENABLE_LOWLEVEL_FTDI_TRUE@am__append_19 = \
+@ENABLE_LOWLEVEL_FTDI_TRUE@am__append_20 = \
 @ENABLE_LOWLEVEL_FTDI_TRUE@	usbconn/libftdi.c \
 @ENABLE_LOWLEVEL_FTDI_TRUE@	usbconn/libftdx.h
 
-@ENABLE_LOWLEVEL_FTD2XX_TRUE@am__append_20 = \
+@ENABLE_LOWLEVEL_FTD2XX_TRUE@am__append_21 = \
 @ENABLE_LOWLEVEL_FTD2XX_TRUE@	usbconn/libftd2xx.c
 
-@ENABLE_LOWLEVEL_DIRECT_TRUE@am__append_21 = \
+@ENABLE_LOWLEVEL_DIRECT_TRUE@am__append_22 = \
 @ENABLE_LOWLEVEL_DIRECT_TRUE@	parport/direct.c
 
-@ENABLE_LOWLEVEL_PPDEV_TRUE@am__append_22 = \
+@ENABLE_LOWLEVEL_PPDEV_TRUE@am__append_23 = \
 @ENABLE_LOWLEVEL_PPDEV_TRUE@	parport/ppdev.c
 
-@ENABLE_LOWLEVEL_PPI_TRUE@am__append_23 = \
+@ENABLE_LOWLEVEL_PPI_TRUE@am__append_24 = \
 @ENABLE_LOWLEVEL_PPI_TRUE@	parport/ppi.c
 
-@ENABLE_CABLE_EP9307_TRUE@am__append_24 = \
+@ENABLE_CABLE_EP9307_TRUE@am__append_25 = \
 @ENABLE_CABLE_EP9307_TRUE@	cable/vision_ep9307.c
 
 subdir = src/tap
@@ -186,8 +189,8 @@ am__libtap_la_SOURCES_DIST = tap.c register.c state.c chain.c detect.c \
 	cable/generic_usbconn_list.h cable/generic_parport.h \
 	cable/generic_parport.c cable/cmd_xfer.h cable/cmd_xfer.c \
 	cable/arcom.c cable/byteblaster.c cable/dlc5.c cable/ea253.c \
-	cable/ei012.c cable/keithkoep.c cable/lattice.c cable/mpcbdm.c \
-	cable/triton.c cable/minimal.c cable/wiggler.c \
+	cable/ei012.c cable/gpio.c cable/keithkoep.c cable/lattice.c \
+	cable/mpcbdm.c cable/triton.c cable/minimal.c cable/wiggler.c \
 	cable/wiggler2.c cable/jlink.c cable/xpc.c cable/usbblaster.c \
 	cable/ft2232.c cable/ts7800.c cable/ice100.c usbconn/libusb.c \
 	usbconn/libusb.h cable/jim.c usbconn/libftdi.c \
@@ -198,26 +201,27 @@ am__libtap_la_SOURCES_DIST = tap.c register.c state.c chain.c detect.c \
 @ENABLE_CABLE_DLC5_TRUE@am__objects_3 = dlc5.lo
 @ENABLE_CABLE_EA253_TRUE@am__objects_4 = ea253.lo
 @ENABLE_CABLE_EI012_TRUE@am__objects_5 = ei012.lo
-@ENABLE_CABLE_KEITHKOEP_TRUE@am__objects_6 = keithkoep.lo
-@ENABLE_CABLE_LATTICE_TRUE@am__objects_7 = lattice.lo
-@ENABLE_CABLE_MPCBDM_TRUE@am__objects_8 = mpcbdm.lo
-@ENABLE_CABLE_TRITON_TRUE@am__objects_9 = triton.lo
-@ENABLE_CABLE_WIGGLER_TRUE@am__objects_10 = minimal.lo wiggler.lo \
+@ENABLE_CABLE_GPIO_TRUE@am__objects_6 = gpio.lo
+@ENABLE_CABLE_KEITHKOEP_TRUE@am__objects_7 = keithkoep.lo
+@ENABLE_CABLE_LATTICE_TRUE@am__objects_8 = lattice.lo
+@ENABLE_CABLE_MPCBDM_TRUE@am__objects_9 = mpcbdm.lo
+@ENABLE_CABLE_TRITON_TRUE@am__objects_10 = triton.lo
+@ENABLE_CABLE_WIGGLER_TRUE@am__objects_11 = minimal.lo wiggler.lo \
 @ENABLE_CABLE_WIGGLER_TRUE@	wiggler2.lo
-@ENABLE_CABLE_JLINK_TRUE@am__objects_11 = jlink.lo
-@ENABLE_CABLE_XPC_TRUE@am__objects_12 = xpc.lo
-@ENABLE_CABLE_USBBLASTER_TRUE@am__objects_13 = usbblaster.lo
-@ENABLE_CABLE_FT2232_TRUE@am__objects_14 = ft2232.lo
-@ENABLE_CABLE_TS7800_TRUE@am__objects_15 = ts7800.lo
-@ENABLE_CABLE_ICE100_TRUE@am__objects_16 = ice100.lo
-@HAVE_LIBUSB_TRUE@am__objects_17 = libusb.lo
-@ENABLE_JIM_TRUE@am__objects_18 = jim.lo
-@ENABLE_LOWLEVEL_FTDI_TRUE@am__objects_19 = libftdi.lo
-@ENABLE_LOWLEVEL_FTD2XX_TRUE@am__objects_20 = libftd2xx.lo
-@ENABLE_LOWLEVEL_DIRECT_TRUE@am__objects_21 = direct.lo
-@ENABLE_LOWLEVEL_PPDEV_TRUE@am__objects_22 = ppdev.lo
-@ENABLE_LOWLEVEL_PPI_TRUE@am__objects_23 = ppi.lo
-@ENABLE_CABLE_EP9307_TRUE@am__objects_24 = vision_ep9307.lo
+@ENABLE_CABLE_JLINK_TRUE@am__objects_12 = jlink.lo
+@ENABLE_CABLE_XPC_TRUE@am__objects_13 = xpc.lo
+@ENABLE_CABLE_USBBLASTER_TRUE@am__objects_14 = usbblaster.lo
+@ENABLE_CABLE_FT2232_TRUE@am__objects_15 = ft2232.lo
+@ENABLE_CABLE_TS7800_TRUE@am__objects_16 = ts7800.lo
+@ENABLE_CABLE_ICE100_TRUE@am__objects_17 = ice100.lo
+@HAVE_LIBUSB_TRUE@am__objects_18 = libusb.lo
+@ENABLE_JIM_TRUE@am__objects_19 = jim.lo
+@ENABLE_LOWLEVEL_FTDI_TRUE@am__objects_20 = libftdi.lo
+@ENABLE_LOWLEVEL_FTD2XX_TRUE@am__objects_21 = libftd2xx.lo
+@ENABLE_LOWLEVEL_DIRECT_TRUE@am__objects_22 = direct.lo
+@ENABLE_LOWLEVEL_PPDEV_TRUE@am__objects_23 = ppdev.lo
+@ENABLE_LOWLEVEL_PPI_TRUE@am__objects_24 = ppi.lo
+@ENABLE_CABLE_EP9307_TRUE@am__objects_25 = vision_ep9307.lo
 am_libtap_la_OBJECTS = tap.lo register.lo state.lo chain.lo detect.lo \
 	discovery.lo idcode.lo parport.lo usbconn.lo cable.lo \
 	generic.lo generic_usbconn.lo generic_parport.lo cmd_xfer.lo \
@@ -228,7 +232,8 @@ am_libtap_la_OBJECTS = tap.lo register.lo state.lo chain.lo detect.lo \
 	$(am__objects_13) $(am__objects_14) $(am__objects_15) \
 	$(am__objects_16) $(am__objects_17) $(am__objects_18) \
 	$(am__objects_19) $(am__objects_20) $(am__objects_21) \
-	$(am__objects_22) $(am__objects_23) $(am__objects_24)
+	$(am__objects_22) $(am__objects_23) $(am__objects_24) \
+	$(am__objects_25)
 libtap_la_OBJECTS = $(am_libtap_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
@@ -339,6 +344,8 @@ PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
+PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
+PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
 POSUB = @POSUB@
 RANLIB = @RANLIB@
 SED = @SED@
@@ -388,7 +395,6 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
-lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -420,7 +426,8 @@ libtap_la_SOURCES = tap.c register.c state.c chain.c detect.c \
 	$(am__append_13) $(am__append_14) $(am__append_15) \
 	$(am__append_16) $(am__append_17) $(am__append_18) \
 	$(am__append_19) $(am__append_20) $(am__append_21) \
-	$(am__append_22) $(am__append_23) $(am__append_24)
+	$(am__append_22) $(am__append_23) $(am__append_24) \
+	$(am__append_25)
 AM_CFLAGS = $(WARNINGCFLAGS)
 all: all-am
 
@@ -489,6 +496,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/generic.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/generic_parport.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/generic_usbconn.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gpio.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ice100.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/idcode.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/jim.Plo@am__quote@
@@ -610,6 +618,14 @@ ei012.lo: cable/ei012.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cable/ei012.c' object='ei012.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ei012.lo `test -f 'cable/ei012.c' || echo '$(srcdir)/'`cable/ei012.c
+
+gpio.lo: cable/gpio.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gpio.lo -MD -MP -MF $(DEPDIR)/gpio.Tpo -c -o gpio.lo `test -f 'cable/gpio.c' || echo '$(srcdir)/'`cable/gpio.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/gpio.Tpo $(DEPDIR)/gpio.Plo
+@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cable/gpio.c' object='gpio.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gpio.lo `test -f 'cable/gpio.c' || echo '$(srcdir)/'`cable/gpio.c
 
 keithkoep.lo: cable/keithkoep.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT keithkoep.lo -MD -MP -MF $(DEPDIR)/keithkoep.Tpo -c -o keithkoep.lo `test -f 'cable/keithkoep.c' || echo '$(srcdir)/'`cable/keithkoep.c
