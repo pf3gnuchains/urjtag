@@ -1,5 +1,5 @@
 /*
- * $Id: chain.h 1733 2010-01-26 09:44:38Z jiez $
+ * $Id: chain.h 1769 2010-02-08 03:56:49Z jiez $
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

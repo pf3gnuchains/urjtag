@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.am 1727 2010-01-24 05:08:13Z vapier $
+# $Id: Makefile.am 1814 2010-07-30 19:14:43Z vapier $
 #
 # Copyright (C) 2002 ETC s.r.o.
 #

@@ -1,5 +1,5 @@
 /*
- * $Id: log-error.c 1733 2010-01-26 09:44:38Z jiez $
+ * $Id: log-error.c 1763 2010-02-05 23:09:29Z vapier $
  *
  * Copyright (C) 2009 Rutger Hofman, VU Amsterdam
  *

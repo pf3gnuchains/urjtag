@@ -1,5 +1,5 @@
 /*
- * $Id: amd.c 1722 2010-01-23 22:19:27Z vapier $
+ * $Id: amd.c 1783 2010-05-19 19:12:11Z arniml $
  *
  * Flash driver for AMD Am29LV640D, Am29LV641D, Am29LV642D
  * Copyright (C) 2003 AH

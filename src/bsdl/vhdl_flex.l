@@ -1,5 +1,5 @@
 /*
- * $Id: vhdl_flex.l 1729 2010-01-24 11:31:51Z vapier $
+ * $Id: vhdl_flex.l 1812 2010-07-18 18:28:21Z vapier $
  *
  * Original Lex source by Ken Parker, 1990
  * Extensions and adaptions for UrJTAG by Arnim Laeuger, 2007

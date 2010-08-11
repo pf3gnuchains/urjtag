@@ -1,5 +1,5 @@
 /*
- * $Id: intel.c 1722 2010-01-23 22:19:27Z vapier $
+ * $Id: intel.c 1815 2010-07-30 20:29:27Z arniml $
  *
  * Copyright (C) 2002 ETC s.r.o.
  *

@@ -1,5 +1,5 @@
 /*
- * $Id: libftdx.h 1729 2010-01-24 11:31:51Z vapier $
+ * $Id: libftdx.h 1809 2010-06-29 21:20:11Z vapier $
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

@@ -1,5 +1,5 @@
 /*
- * $Id: cmd_writemem.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id: cmd_writemem.c 1812 2010-07-18 18:28:21Z vapier $
  *
  * Written by Kent Palmkvist <kentp@isy.liu.se>, 2005
  *

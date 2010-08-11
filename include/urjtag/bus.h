@@ -1,5 +1,5 @@
 /*
- * $Id: bus.h 1636 2009-05-28 11:15:58Z rfhh $
+ * $Id: bus.h 1788 2010-06-15 03:28:23Z vapier $
  *
  * Bus driver interface
  * Copyright (C) 2002 ETC s.r.o.

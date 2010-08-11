@@ -1,5 +1,5 @@
 /*
- * $Id: xpc.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id: xpc.c 1801 2010-06-25 02:23:25Z vapier $
  *
  * Xilinx Platform Cable USB Driver (slow GPIO only)
  * Copyright (C) 2008 Kolja Waschk

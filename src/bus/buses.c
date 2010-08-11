@@ -1,5 +1,5 @@
 /*
- * $Id: buses.c 1711 2010-01-23 19:12:01Z vapier $
+ * $Id: buses.c 1818 2010-07-31 17:57:39Z vapier $
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

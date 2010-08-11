@@ -1,5 +1,5 @@
 #
-# $Id: configure.ac 1756 2010-02-02 12:32:43Z jiez $
+# $Id: configure.ac 1814 2010-07-30 19:14:43Z vapier $
 #
 # Copyright (C) 2007, 2008 Kolja Waschk and other
 #    UrJTAG.org developers, (C) 2002, 2003 ETC s.r.o.
@@ -27,7 +27,7 @@ AC_INIT(UrJTAG,0.10,http://urjtag.org,urjtag)
 
 AC_PREREQ(2.54)
 AC_COPYRIGHT([Copyright (C) 2007/08 Kolja Waschk and other UrJTAG authors; 2002/03 ETC s.r.o.])
-AC_REVISION($Revision: 1756 $)
+AC_REVISION($Revision: 1814 $)
 
 # Get SVN Revision - idea from xfce-power-manager (C) 2007 by B.Tarricone
 dnl get svn revision

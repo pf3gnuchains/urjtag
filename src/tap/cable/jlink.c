@@ -1,5 +1,5 @@
 /*
- * $Id: jlink.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id: jlink.c 1801 2010-06-25 02:23:25Z vapier $
  *
  * Segger J-Link cable driver
  *

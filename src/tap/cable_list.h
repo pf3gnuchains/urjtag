@@ -1,5 +1,5 @@
 /*
- * $Id: cable_list.h 1746 2010-01-29 09:09:11Z vapier $
+ * $Id: cable_list.h 1814 2010-07-30 19:14:43Z vapier $
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

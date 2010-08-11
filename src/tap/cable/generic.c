@@ -1,5 +1,5 @@
 /*
- * $Id: generic.c 1636 2009-05-28 11:15:58Z rfhh $
+ * $Id: generic.c 1820 2010-08-07 22:47:54Z arniml $
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

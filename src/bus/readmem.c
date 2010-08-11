@@ -1,5 +1,5 @@
 /*
- * $Id: readmem.c 1663 2009-07-15 17:48:57Z arniml $
+ * $Id: readmem.c 1763 2010-02-05 23:09:29Z vapier $
  *
  * Copyright (C) 2002 ETC s.r.o.
  *

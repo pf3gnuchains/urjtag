@@ -1,5 +1,5 @@
 /*
- * $Id: chain.c 1595 2009-05-14 19:51:47Z rfhh $
+ * $Id: chain.c 1769 2010-02-08 03:56:49Z jiez $
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

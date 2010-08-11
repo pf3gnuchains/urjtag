@@ -1,5 +1,5 @@
 /*
- * $Id: cmd_endian.c 1595 2009-05-14 19:51:47Z rfhh $
+ * $Id: cmd_endian.c 1763 2010-02-05 23:09:29Z vapier $
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

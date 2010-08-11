@@ -1,5 +1,5 @@
 /*
- * $Id: parse.c 1737 2010-01-26 20:24:11Z arniml $
+ * $Id: parse.c 1812 2010-07-18 18:28:21Z vapier $
  *
  * Copyright (C) 2002, 2003 ETC s.r.o.
  *

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.am 1729 2010-01-24 11:31:51Z vapier $
+# $Id: Makefile.am 1776 2010-02-10 08:09:28Z jiez $
 #
 # Copyright (C) 2007, Arnim Laeuger
 #

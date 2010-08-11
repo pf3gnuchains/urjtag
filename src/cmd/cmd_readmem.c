@@ -1,5 +1,5 @@
 /*
- * $Id: cmd_readmem.c 1626 2009-05-24 19:53:11Z rfhh $
+ * $Id: cmd_readmem.c 1812 2010-07-18 18:28:21Z vapier $
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

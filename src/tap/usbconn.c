@@ -1,5 +1,5 @@
 /*
- * $Id: usbconn.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id: usbconn.c 1788 2010-06-15 03:28:23Z vapier $
  *
  * Copyright (C) 2008 K. Waschk
  *

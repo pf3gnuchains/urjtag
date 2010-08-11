@@ -1,5 +1,5 @@
 /*
- * $Id: usbblaster.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id: usbblaster.c 1809 2010-06-29 21:20:11Z vapier $
  *
  * Altera USB-Blaster<tm> Cable Driver
  * Copyright (C) 2006 K. Waschk

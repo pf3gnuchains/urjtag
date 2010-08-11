@@ -1,5 +1,5 @@
 /*
- * $Id: jtag.c 1744 2010-01-29 08:34:30Z vapier $
+ * $Id: jtag.c 1811 2010-07-18 07:38:52Z vapier $
  *
  * Copyright (C) 2002, 2003 ETC s.r.o.
  *

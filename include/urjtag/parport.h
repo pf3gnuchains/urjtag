@@ -1,5 +1,5 @@
 /*
- * $Id: parport.h 1721 2010-01-23 22:11:49Z vapier $
+ * $Id: parport.h 1788 2010-06-15 03:28:23Z vapier $
  *
  * Parallel Port Connection Driver Interface
  * Copyright (C) 2003 ETC s.r.o.

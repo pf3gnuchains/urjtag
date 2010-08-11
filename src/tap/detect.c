@@ -1,5 +1,5 @@
 /*
- * $Id: detect.c 1757 2010-02-03 01:18:45Z vapier $
+ * $Id: detect.c 1812 2010-07-18 18:28:21Z vapier $
  *
  * Copyright (C) 2002 ETC s.r.o.
  *

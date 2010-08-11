@@ -1,5 +1,5 @@
 /*
- * $Id: cmd_cable.c 1746 2010-01-29 09:09:11Z vapier $
+ * $Id: cmd_cable.c 1798 2010-06-23 19:27:02Z vapier $
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

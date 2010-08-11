@@ -1,5 +1,5 @@
 /*
- * $Id: generic_usbconn.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id: generic_usbconn.c 1809 2010-06-29 21:20:11Z vapier $
  *
  * Copyright (C) 2003 ETC s.r.o.
  *
