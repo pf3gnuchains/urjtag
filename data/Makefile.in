@@ -16,7 +16,7 @@
 @SET_MAKE@
 
 #
-# $Id: Makefile.am 1755 2010-02-02 10:01:18Z jiez $
+# $Id: Makefile.am 1761 2010-02-05 18:46:52Z vapier $
 #
 # Copyright (C) 2002 ETC s.r.o.
 #
