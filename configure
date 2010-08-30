@@ -14135,6 +14135,9 @@ $as_echo "yes" >&6; }
 	HAVELIBUSB=1.0
 fi
 
+$as_echo "#define HAVE_LIBUSB1 1" >>confdefs.h
+
+
 fi
     if test "x$with_libusb" != x1.0 -a "x$HAVELIBUSB" = xno; then :
 
@@ -14231,6 +14234,8 @@ $as_echo "#define HAVE_LIBUSB 1" >>confdefs.h
 fi
 
 fi
+  as_fn_append LIBS " $LIBUSB_LIBS"
+  as_fn_append CPPFLAGS " $LIBUSB_CFLAGS"
 
 fi
  if test "x$HAVELIBUSB" != "xno"; then

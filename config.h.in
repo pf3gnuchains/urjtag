@@ -290,6 +290,9 @@
 /* Define if you have libusb */
 #undef HAVE_LIBUSB
 
+/* Define if you have libusb-1.0 */
+#undef HAVE_LIBUSB1
+
 /* Define to 1 if you have the <linux/ppdev.h> header file. */
 #undef HAVE_LINUX_PPDEV_H
 
