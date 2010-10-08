@@ -278,6 +278,7 @@ LINT_FLAGS = -warnposixheaders +boolint
 pkginclude_HEADERS = \
 	bfin.h \
 	bitmask.h \
+	bitops.h \
 	bsbit.h \
 	bsdl.h \
 	bsdl_mode.h \
@@ -300,6 +301,7 @@ pkginclude_HEADERS = \
 	parse.h \
 	part.h \
 	part_instruction.h \
+	pld.h \
 	pod.h \
 	tap_register.h \
 	tap_state.h \

@@ -16,9 +16,9 @@
 @SET_MAKE@
 
 #
-# $Id: Makefile.am 1733 2010-01-26 09:44:38Z jiez $
+# $Id$
 #
-# Copyright (C) 2003 ETC s.r.o.
+# Copyright (C) 2010 Michael Walle
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -35,7 +35,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 # 02111-1307, USA.
 #
-# Written by Marcel Telka <marcel@telka.sk>, 2003.
+# Written by Michael Walle <michael@walle.cc>, 2010.
 #
 
 #
@@ -83,9 +83,7 @@ build_triplet = @build@
 host_triplet = @host@
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(top_srcdir)/Makefile.rules
-@ENABLE_SVF_TRUE@am__append_1 = cmd_svf.c
-@ENABLE_BSDL_TRUE@am__append_2 = cmd_bsdl.c
-subdir = src/cmd
+subdir = src/pld
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/gettext.m4 \
 	$(top_srcdir)/m4/iconv.m4 $(top_srcdir)/m4/lib-ld.m4 \
@@ -103,31 +101,9 @@ CONFIG_HEADER = $(top_builddir)/config.h \
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 LTLIBRARIES = $(noinst_LTLIBRARIES)
-libcmd_la_LIBADD =
-am__libcmd_la_SOURCES_DIST = cmd.h cmd_list.h cmd_frequency.c \
-	cmd_cable.c cmd_reset.c cmd_discovery.c cmd_idcode.c \
-	cmd_detect.c cmd_detectflash.c cmd_help.c cmd_quit.c \
-	cmd_scan.c cmd_signal.c cmd_salias.c cmd_bit.c cmd_register.c \
-	cmd_initbus.c cmd_print.c cmd_part.c cmd_bus.c \
-	cmd_instruction.c cmd_shift.c cmd_dr.c cmd_get.c cmd_test.c \
-	cmd_debug.c cmd_shell.c cmd_set.c cmd_endian.c cmd_peekpoke.c \
-	cmd_pod.c cmd_readmem.c cmd_writemem.c cmd_flashmem.c \
-	cmd_eraseflash.c cmd_include.c cmd_addpart.c cmd_cmd.c \
-	cmd_usleep.c cmd_bfin.c cmd_pld.c cmd_svf.c cmd_bsdl.c
-@ENABLE_SVF_TRUE@am__objects_1 = cmd_svf.lo
-@ENABLE_BSDL_TRUE@am__objects_2 = cmd_bsdl.lo
-am_libcmd_la_OBJECTS = cmd_frequency.lo cmd_cable.lo cmd_reset.lo \
-	cmd_discovery.lo cmd_idcode.lo cmd_detect.lo \
-	cmd_detectflash.lo cmd_help.lo cmd_quit.lo cmd_scan.lo \
-	cmd_signal.lo cmd_salias.lo cmd_bit.lo cmd_register.lo \
-	cmd_initbus.lo cmd_print.lo cmd_part.lo cmd_bus.lo \
-	cmd_instruction.lo cmd_shift.lo cmd_dr.lo cmd_get.lo \
-	cmd_test.lo cmd_debug.lo cmd_shell.lo cmd_set.lo cmd_endian.lo \
-	cmd_peekpoke.lo cmd_pod.lo cmd_readmem.lo cmd_writemem.lo \
-	cmd_flashmem.lo cmd_eraseflash.lo cmd_include.lo \
-	cmd_addpart.lo cmd_cmd.lo cmd_usleep.lo cmd_bfin.lo cmd_pld.lo \
-	$(am__objects_1) $(am__objects_2)
-libcmd_la_OBJECTS = $(am_libcmd_la_OBJECTS)
+libpld_la_LIBADD =
+am_libpld_la_OBJECTS = pld.lo xilinx_bitstream.lo xilinx.lo
+libpld_la_OBJECTS = $(am_libpld_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
@@ -157,8 +133,8 @@ am__v_CCLD_0 = @echo "  CCLD  " $@;
 AM_V_GEN = $(am__v_GEN_$(V))
 am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))
 am__v_GEN_0 = @echo "  GEN   " $@;
-SOURCES = $(libcmd_la_SOURCES)
-DIST_SOURCES = $(am__libcmd_la_SOURCES_DIST)
+SOURCES = $(libpld_la_SOURCES)
+DIST_SOURCES = $(libpld_la_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -303,18 +279,12 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 LINT_FLAGS = -warnposixheaders +boolint
-noinst_LTLIBRARIES = libcmd.la
-libcmd_la_SOURCES = cmd.h cmd_list.h cmd_frequency.c cmd_cable.c \
-	cmd_reset.c cmd_discovery.c cmd_idcode.c cmd_detect.c \
-	cmd_detectflash.c cmd_help.c cmd_quit.c cmd_scan.c \
-	cmd_signal.c cmd_salias.c cmd_bit.c cmd_register.c \
-	cmd_initbus.c cmd_print.c cmd_part.c cmd_bus.c \
-	cmd_instruction.c cmd_shift.c cmd_dr.c cmd_get.c cmd_test.c \
-	cmd_debug.c cmd_shell.c cmd_set.c cmd_endian.c cmd_peekpoke.c \
-	cmd_pod.c cmd_readmem.c cmd_writemem.c cmd_flashmem.c \
-	cmd_eraseflash.c cmd_include.c cmd_addpart.c cmd_cmd.c \
-	cmd_usleep.c cmd_bfin.c cmd_pld.c $(am__append_1) \
-	$(am__append_2)
+noinst_LTLIBRARIES = libpld.la
+libpld_la_SOURCES = \
+	pld.c \
+	xilinx_bitstream.c \
+	xilinx.c
+
 AM_CFLAGS = $(WARNINGCFLAGS)
 all: all-am
 
@@ -329,9 +299,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu src/cmd/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu src/pld/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu src/cmd/Makefile
+	  $(AUTOMAKE) --gnu src/pld/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -359,8 +329,8 @@ clean-noinstLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libcmd.la: $(libcmd_la_OBJECTS) $(libcmd_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(LINK)  $(libcmd_la_OBJECTS) $(libcmd_la_LIBADD) $(LIBS)
+libpld.la: $(libpld_la_OBJECTS) $(libpld_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(LINK)  $(libpld_la_OBJECTS) $(libpld_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -368,47 +338,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_addpart.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_bfin.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_bit.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_bsdl.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_bus.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_cable.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_cmd.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_debug.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_detect.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_detectflash.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_discovery.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_dr.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_endian.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_eraseflash.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_flashmem.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_frequency.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_get.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_help.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_idcode.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_include.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_initbus.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_instruction.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_part.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_peekpoke.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_pld.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_pod.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_print.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_quit.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_readmem.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_register.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_reset.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_salias.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_scan.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_set.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_shell.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_shift.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_signal.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_svf.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_test.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_usleep.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_writemem.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pld.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xilinx.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xilinx_bitstream.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
