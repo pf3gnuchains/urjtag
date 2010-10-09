@@ -50,6 +50,7 @@ typedef struct
     urj_part_signal_t *scas;
     urj_part_signal_t *sms;
     urj_part_signal_t *swe;
+    urj_part_signal_t *pg0;
 } bus_params_t;
 
 #define AMS     ((bus_params_t *) bus->params)->ams
@@ -63,6 +64,7 @@ typedef struct
 #define SCAS    ((bus_params_t *) bus->params)->scas
 #define SMS     ((bus_params_t *) bus->params)->sms
 #define SWE     ((bus_params_t *) bus->params)->swe
+#define PG0     ((bus_params_t *) bus->params)->pg0
 
 /*
  * bus->driver->(*new_bus)
@@ -118,6 +120,7 @@ bf537_stamp_bus_new (urj_chain_t *chain, const urj_bus_driver_t *driver,
     failed |= urj_bus_generic_attach_sig (part, &(SWE), "SWE_B");
 
     failed |= urj_bus_generic_attach_sig (part, &(SMS), "SMS_B");
+    failed |= urj_bus_generic_attach_sig (part, &(PG0), "PG0");
 
     if (failed)
     {
@@ -185,6 +188,7 @@ select_flash (urj_bus_t *bus, uint32_t adr)
     urj_part_set_signal (p, SCAS, 1, 1);
     urj_part_set_signal (p, SWE, 1, 1);
     urj_part_set_signal (p, SMS, 1, 1);
+    urj_part_set_signal (p, PG0, 1, 0);
 }
 
 static void
@@ -204,6 +208,7 @@ unselect_flash (urj_bus_t *bus)
     urj_part_set_signal (p, SCAS, 1, 1);
     urj_part_set_signal (p, SWE, 1, 1);
     urj_part_set_signal (p, SMS, 1, 1);
+    urj_part_set_signal (p, PG0, 1, 0);
 }
 
 static void
