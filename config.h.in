@@ -302,6 +302,9 @@
 /* Define to 1 if you have the `nanosleep' function. */
 #undef HAVE_NANOSLEEP
 
+/* Define to 1 if you have the `pread' function. */
+#undef HAVE_PREAD
+
 /* Define if your readline library has \`rl_completion_matches' */
 #undef HAVE_READLINE_COMPLETION
 
