@@ -724,32 +724,8 @@ ENABLE_BUS_EJTAG_FALSE
 ENABLE_BUS_EJTAG_TRUE
 ENABLE_BUS_BSCOACH_FALSE
 ENABLE_BUS_BSCOACH_TRUE
-ENABLE_BUS_BF561_EZKIT_FALSE
-ENABLE_BUS_BF561_EZKIT_TRUE
-ENABLE_BUS_BF548_EZKIT_FALSE
-ENABLE_BUS_BF548_EZKIT_TRUE
-ENABLE_BUS_BF53X_FALSE
-ENABLE_BUS_BF53X_TRUE
-ENABLE_BUS_BF538F_EZKIT_FALSE
-ENABLE_BUS_BF538F_EZKIT_TRUE
-ENABLE_BUS_BF537_EZKIT_FALSE
-ENABLE_BUS_BF537_EZKIT_TRUE
-ENABLE_BUS_BF537_STAMP_FALSE
-ENABLE_BUS_BF537_STAMP_TRUE
-ENABLE_BUS_BF533_EZKIT_FALSE
-ENABLE_BUS_BF533_EZKIT_TRUE
-ENABLE_BUS_BF533_STAMP_FALSE
-ENABLE_BUS_BF533_STAMP_TRUE
-ENABLE_BUS_BF52X_FALSE
-ENABLE_BUS_BF52X_TRUE
-ENABLE_BUS_BF527_EZKIT_FALSE
-ENABLE_BUS_BF527_EZKIT_TRUE
-ENABLE_BUS_BF526_EZKIT_FALSE
-ENABLE_BUS_BF526_EZKIT_TRUE
-ENABLE_BUS_BF51X_FALSE
-ENABLE_BUS_BF51X_TRUE
-ENABLE_BUS_BF518F_EZBRD_FALSE
-ENABLE_BUS_BF518F_EZBRD_TRUE
+ENABLE_BUS_BLACKFIN_FALSE
+ENABLE_BUS_BLACKFIN_TRUE
 ENABLE_BUS_BCM1250_FALSE
 ENABLE_BUS_BCM1250_TRUE
 ENABLE_BUS_AVR32_FALSE
@@ -1604,10 +1580,7 @@ Optional Features:
   --enable-jedec-exp      Enable experimental JEDEC flash detection
   --enable-bus            Enable default set or specific bus drivers:
                           'default' enables:
-                          arm9tdmi au1500 avr32 bcm1250 bf518f_ezbrd bf51x
-                          bf526_ezkit bf527_ezkit bf52x bf533_stamp
-                          bf533_ezkit bf537_stamp bf537_ezkit bf538f_ezkit
-                          bf53x bf548_ezkit bf561_ezkit bscoach ejtag
+                          arm9tdmi au1500 avr32 bcm1250 blackfin bscoach ejtag
                           ejtag_dma fjmem ixp425 ixp435 ixp465 jopcyc h7202
                           lh7a400 mpc5200 mpc824x mpc837x ppc405ep
                           ppc440gx_ebc8 prototype pxa2x0 pxa27x s3c4510 sa1110
@@ -15391,7 +15364,7 @@ else
 fi
 
 	# expand 'default' to default enabled bus drivers
-	drivers=`echo ${drivers} | $SED -e "s/default/ 	arm9tdmi 	au1500 	avr32 	bcm1250 	bf518f_ezbrd 	bf51x 	bf526_ezkit 	bf527_ezkit 	bf52x 	bf533_stamp 	bf533_ezkit 	bf537_stamp 	bf537_ezkit 	bf538f_ezkit 	bf53x 	bf548_ezkit 	bf561_ezkit 	bscoach 	ejtag 	ejtag_dma 	fjmem 	ixp425 	ixp435 	ixp465 	jopcyc 	h7202 	lh7a400 	mpc5200 	mpc824x 	mpc837x 	ppc405ep 	ppc440gx_ebc8 	prototype 	pxa2x0 	pxa27x 	s3c4510 	sa1110 	sh7727 	sh7750r 	sh7751r 	sharc_21065L 	sharc_21369_ezkit 	slsup3 	tx4925 	zefant_xs3 /"`
+	drivers=`echo ${drivers} | $SED -e "s/default/ 	arm9tdmi 	au1500 	avr32 	bcm1250 	blackfin 	bscoach 	ejtag 	ejtag_dma 	fjmem 	ixp425 	ixp435 	ixp465 	jopcyc 	h7202 	lh7a400 	mpc5200 	mpc824x 	mpc837x 	ppc405ep 	ppc440gx_ebc8 	prototype 	pxa2x0 	pxa27x 	s3c4510 	sa1110 	sh7727 	sh7750r 	sh7751r 	sharc_21065L 	sharc_21369_ezkit 	slsup3 	tx4925 	zefant_xs3 /"`
 
 
 	enabled_drivers=''
@@ -15513,377 +15486,29 @@ fi
 fi
 
 
-		if echo "$drivers" | $GREP -q "bf518f_ezbrd"; then :
+		if echo "$drivers" | $GREP -q "blackfin"; then :
 
 
-$as_echo "#define ENABLE_BUS_BF518F_EZBRD 1" >>confdefs.h
+$as_echo "#define ENABLE_BUS_BLACKFIN 1" >>confdefs.h
 
 			 if true; then
-  ENABLE_BUS_BF518F_EZBRD_TRUE=
-  ENABLE_BUS_BF518F_EZBRD_FALSE='#'
+  ENABLE_BUS_BLACKFIN_TRUE=
+  ENABLE_BUS_BLACKFIN_FALSE='#'
 else
-  ENABLE_BUS_BF518F_EZBRD_TRUE='#'
-  ENABLE_BUS_BF518F_EZBRD_FALSE=
+  ENABLE_BUS_BLACKFIN_TRUE='#'
+  ENABLE_BUS_BLACKFIN_FALSE=
 fi
 
-			as_fn_append enabled_drivers "bf518f_ezbrd "
+			as_fn_append enabled_drivers "blackfin "
 
 else
 
 			 if false; then
-  ENABLE_BUS_BF518F_EZBRD_TRUE=
-  ENABLE_BUS_BF518F_EZBRD_FALSE='#'
+  ENABLE_BUS_BLACKFIN_TRUE=
+  ENABLE_BUS_BLACKFIN_FALSE='#'
 else
-  ENABLE_BUS_BF518F_EZBRD_TRUE='#'
-  ENABLE_BUS_BF518F_EZBRD_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf51x"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF51X 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF51X_TRUE=
-  ENABLE_BUS_BF51X_FALSE='#'
-else
-  ENABLE_BUS_BF51X_TRUE='#'
-  ENABLE_BUS_BF51X_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf51x "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF51X_TRUE=
-  ENABLE_BUS_BF51X_FALSE='#'
-else
-  ENABLE_BUS_BF51X_TRUE='#'
-  ENABLE_BUS_BF51X_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf526_ezkit"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF526_EZKIT 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF526_EZKIT_TRUE=
-  ENABLE_BUS_BF526_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF526_EZKIT_TRUE='#'
-  ENABLE_BUS_BF526_EZKIT_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf526_ezkit "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF526_EZKIT_TRUE=
-  ENABLE_BUS_BF526_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF526_EZKIT_TRUE='#'
-  ENABLE_BUS_BF526_EZKIT_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf527_ezkit"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF527_EZKIT 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF527_EZKIT_TRUE=
-  ENABLE_BUS_BF527_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF527_EZKIT_TRUE='#'
-  ENABLE_BUS_BF527_EZKIT_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf527_ezkit "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF527_EZKIT_TRUE=
-  ENABLE_BUS_BF527_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF527_EZKIT_TRUE='#'
-  ENABLE_BUS_BF527_EZKIT_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf52x"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF52X 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF52X_TRUE=
-  ENABLE_BUS_BF52X_FALSE='#'
-else
-  ENABLE_BUS_BF52X_TRUE='#'
-  ENABLE_BUS_BF52X_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf52x "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF52X_TRUE=
-  ENABLE_BUS_BF52X_FALSE='#'
-else
-  ENABLE_BUS_BF52X_TRUE='#'
-  ENABLE_BUS_BF52X_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf533_stamp"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF533_STAMP 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF533_STAMP_TRUE=
-  ENABLE_BUS_BF533_STAMP_FALSE='#'
-else
-  ENABLE_BUS_BF533_STAMP_TRUE='#'
-  ENABLE_BUS_BF533_STAMP_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf533_stamp "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF533_STAMP_TRUE=
-  ENABLE_BUS_BF533_STAMP_FALSE='#'
-else
-  ENABLE_BUS_BF533_STAMP_TRUE='#'
-  ENABLE_BUS_BF533_STAMP_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf533_ezkit"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF533_EZKIT 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF533_EZKIT_TRUE=
-  ENABLE_BUS_BF533_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF533_EZKIT_TRUE='#'
-  ENABLE_BUS_BF533_EZKIT_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf533_ezkit "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF533_EZKIT_TRUE=
-  ENABLE_BUS_BF533_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF533_EZKIT_TRUE='#'
-  ENABLE_BUS_BF533_EZKIT_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf537_stamp"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF537_STAMP 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF537_STAMP_TRUE=
-  ENABLE_BUS_BF537_STAMP_FALSE='#'
-else
-  ENABLE_BUS_BF537_STAMP_TRUE='#'
-  ENABLE_BUS_BF537_STAMP_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf537_stamp "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF537_STAMP_TRUE=
-  ENABLE_BUS_BF537_STAMP_FALSE='#'
-else
-  ENABLE_BUS_BF537_STAMP_TRUE='#'
-  ENABLE_BUS_BF537_STAMP_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf537_ezkit"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF537_EZKIT 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF537_EZKIT_TRUE=
-  ENABLE_BUS_BF537_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF537_EZKIT_TRUE='#'
-  ENABLE_BUS_BF537_EZKIT_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf537_ezkit "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF537_EZKIT_TRUE=
-  ENABLE_BUS_BF537_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF537_EZKIT_TRUE='#'
-  ENABLE_BUS_BF537_EZKIT_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf538f_ezkit"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF538F_EZKIT 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF538F_EZKIT_TRUE=
-  ENABLE_BUS_BF538F_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF538F_EZKIT_TRUE='#'
-  ENABLE_BUS_BF538F_EZKIT_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf538f_ezkit "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF538F_EZKIT_TRUE=
-  ENABLE_BUS_BF538F_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF538F_EZKIT_TRUE='#'
-  ENABLE_BUS_BF538F_EZKIT_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf53x"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF53X 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF53X_TRUE=
-  ENABLE_BUS_BF53X_FALSE='#'
-else
-  ENABLE_BUS_BF53X_TRUE='#'
-  ENABLE_BUS_BF53X_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf53x "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF53X_TRUE=
-  ENABLE_BUS_BF53X_FALSE='#'
-else
-  ENABLE_BUS_BF53X_TRUE='#'
-  ENABLE_BUS_BF53X_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf548_ezkit"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF548_EZKIT 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF548_EZKIT_TRUE=
-  ENABLE_BUS_BF548_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF548_EZKIT_TRUE='#'
-  ENABLE_BUS_BF548_EZKIT_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf548_ezkit "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF548_EZKIT_TRUE=
-  ENABLE_BUS_BF548_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF548_EZKIT_TRUE='#'
-  ENABLE_BUS_BF548_EZKIT_FALSE=
-fi
-
-
-fi
-
-
-		if echo "$drivers" | $GREP -q "bf561_ezkit"; then :
-
-
-$as_echo "#define ENABLE_BUS_BF561_EZKIT 1" >>confdefs.h
-
-			 if true; then
-  ENABLE_BUS_BF561_EZKIT_TRUE=
-  ENABLE_BUS_BF561_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF561_EZKIT_TRUE='#'
-  ENABLE_BUS_BF561_EZKIT_FALSE=
-fi
-
-			as_fn_append enabled_drivers "bf561_ezkit "
-
-else
-
-			 if false; then
-  ENABLE_BUS_BF561_EZKIT_TRUE=
-  ENABLE_BUS_BF561_EZKIT_FALSE='#'
-else
-  ENABLE_BUS_BF561_EZKIT_TRUE='#'
-  ENABLE_BUS_BF561_EZKIT_FALSE=
+  ENABLE_BUS_BLACKFIN_TRUE='#'
+  ENABLE_BUS_BLACKFIN_FALSE=
 fi
 
 
@@ -17896,108 +17521,12 @@ if test -z "${ENABLE_BUS_BCM1250_TRUE}" && test -z "${ENABLE_BUS_BCM1250_FALSE}"
   as_fn_error "conditional \"ENABLE_BUS_BCM1250\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
-if test -z "${ENABLE_BUS_BF518F_EZBRD_TRUE}" && test -z "${ENABLE_BUS_BF518F_EZBRD_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF518F_EZBRD\" was never defined.
+if test -z "${ENABLE_BUS_BLACKFIN_TRUE}" && test -z "${ENABLE_BUS_BLACKFIN_FALSE}"; then
+  as_fn_error "conditional \"ENABLE_BUS_BLACKFIN\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
-if test -z "${ENABLE_BUS_BF518F_EZBRD_TRUE}" && test -z "${ENABLE_BUS_BF518F_EZBRD_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF518F_EZBRD\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF51X_TRUE}" && test -z "${ENABLE_BUS_BF51X_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF51X\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF51X_TRUE}" && test -z "${ENABLE_BUS_BF51X_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF51X\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF526_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF526_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF526_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF526_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF526_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF526_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF527_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF527_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF527_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF527_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF527_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF527_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF52X_TRUE}" && test -z "${ENABLE_BUS_BF52X_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF52X\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF52X_TRUE}" && test -z "${ENABLE_BUS_BF52X_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF52X\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF533_STAMP_TRUE}" && test -z "${ENABLE_BUS_BF533_STAMP_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF533_STAMP\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF533_STAMP_TRUE}" && test -z "${ENABLE_BUS_BF533_STAMP_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF533_STAMP\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF533_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF533_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF533_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF533_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF533_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF533_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF537_STAMP_TRUE}" && test -z "${ENABLE_BUS_BF537_STAMP_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF537_STAMP\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF537_STAMP_TRUE}" && test -z "${ENABLE_BUS_BF537_STAMP_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF537_STAMP\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF537_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF537_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF537_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF537_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF537_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF537_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF538F_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF538F_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF538F_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF538F_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF538F_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF538F_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF53X_TRUE}" && test -z "${ENABLE_BUS_BF53X_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF53X\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF53X_TRUE}" && test -z "${ENABLE_BUS_BF53X_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF53X\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF548_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF548_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF548_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF548_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF548_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF548_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF561_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF561_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF561_EZKIT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${ENABLE_BUS_BF561_EZKIT_TRUE}" && test -z "${ENABLE_BUS_BF561_EZKIT_FALSE}"; then
-  as_fn_error "conditional \"ENABLE_BUS_BF561_EZKIT\" was never defined.
+if test -z "${ENABLE_BUS_BLACKFIN_TRUE}" && test -z "${ENABLE_BUS_BLACKFIN_FALSE}"; then
+  as_fn_error "conditional \"ENABLE_BUS_BLACKFIN\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_BUS_BSCOACH_TRUE}" && test -z "${ENABLE_BUS_BSCOACH_FALSE}"; then

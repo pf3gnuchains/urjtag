@@ -21,44 +21,8 @@
 /* define if bcm1250 is enabled */
 #undef ENABLE_BUS_BCM1250
 
-/* define if bf518f_ezbrd is enabled */
-#undef ENABLE_BUS_BF518F_EZBRD
-
-/* define if bf51x is enabled */
-#undef ENABLE_BUS_BF51X
-
-/* define if bf526_ezkit is enabled */
-#undef ENABLE_BUS_BF526_EZKIT
-
-/* define if bf527_ezkit is enabled */
-#undef ENABLE_BUS_BF527_EZKIT
-
-/* define if bf52x is enabled */
-#undef ENABLE_BUS_BF52X
-
-/* define if bf533_ezkit is enabled */
-#undef ENABLE_BUS_BF533_EZKIT
-
-/* define if bf533_stamp is enabled */
-#undef ENABLE_BUS_BF533_STAMP
-
-/* define if bf537_ezkit is enabled */
-#undef ENABLE_BUS_BF537_EZKIT
-
-/* define if bf537_stamp is enabled */
-#undef ENABLE_BUS_BF537_STAMP
-
-/* define if bf538f_ezkit is enabled */
-#undef ENABLE_BUS_BF538F_EZKIT
-
-/* define if bf53x is enabled */
-#undef ENABLE_BUS_BF53X
-
-/* define if bf548_ezkit is enabled */
-#undef ENABLE_BUS_BF548_EZKIT
-
-/* define if bf561_ezkit is enabled */
-#undef ENABLE_BUS_BF561_EZKIT
+/* define if blackfin is enabled */
+#undef ENABLE_BUS_BLACKFIN
 
 /* define if bscoach is enabled */
 #undef ENABLE_BUS_BSCOACH

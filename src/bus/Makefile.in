@@ -87,44 +87,42 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 @ENABLE_BUS_AU1500_TRUE@am__append_2 = au1500.c
 @ENABLE_BUS_AVR32_TRUE@am__append_3 = avr32.c
 @ENABLE_BUS_BCM1250_TRUE@am__append_4 = bcm1250.c
-@ENABLE_BUS_BF518F_EZBRD_TRUE@am__append_5 = bf518f_ezbrd.c
-@ENABLE_BUS_BF526_EZKIT_TRUE@am__append_6 = bf537_stamp.c
-@ENABLE_BUS_BF526_EZKIT_FALSE@@ENABLE_BUS_BF527_EZKIT_TRUE@am__append_7 = bf537_stamp.c
-@ENABLE_BUS_BF526_EZKIT_FALSE@@ENABLE_BUS_BF527_EZKIT_FALSE@@ENABLE_BUS_BF533_EZKIT_TRUE@am__append_8 = bf537_stamp.c
-@ENABLE_BUS_BF526_EZKIT_FALSE@@ENABLE_BUS_BF527_EZKIT_FALSE@@ENABLE_BUS_BF533_EZKIT_FALSE@@ENABLE_BUS_BF537_STAMP_TRUE@am__append_9 = bf537_stamp.c
-@ENABLE_BUS_BF526_EZKIT_FALSE@@ENABLE_BUS_BF527_EZKIT_FALSE@@ENABLE_BUS_BF533_EZKIT_FALSE@@ENABLE_BUS_BF537_EZKIT_TRUE@@ENABLE_BUS_BF537_STAMP_FALSE@am__append_10 = bf537_stamp.c
-@ENABLE_BUS_BF526_EZKIT_FALSE@@ENABLE_BUS_BF527_EZKIT_FALSE@@ENABLE_BUS_BF533_EZKIT_FALSE@@ENABLE_BUS_BF537_EZKIT_FALSE@@ENABLE_BUS_BF537_STAMP_FALSE@@ENABLE_BUS_BF538F_EZKIT_TRUE@am__append_11 = bf537_stamp.c
-@ENABLE_BUS_BF533_STAMP_TRUE@am__append_12 = bf533_stamp.c
-@ENABLE_BUS_BF548_EZKIT_TRUE@am__append_13 = bf548_ezkit.c
-@ENABLE_BUS_BF561_EZKIT_TRUE@am__append_14 = bf561_ezkit.c
-@ENABLE_BUS_BSCOACH_TRUE@am__append_15 = bscoach.c
-@ENABLE_BUS_EJTAG_TRUE@am__append_16 = ejtag.c
-@ENABLE_BUS_EJTAG_DMA_TRUE@am__append_17 = ejtag_dma.c
-@ENABLE_BUS_FJMEM_TRUE@am__append_18 = fjmem.c
-@ENABLE_BUS_H7202_TRUE@am__append_19 = h7202.c
-@ENABLE_BUS_IXP425_TRUE@am__append_20 = ixp425.c
-@ENABLE_BUS_IXP435_TRUE@am__append_21 = ixp435.c
-@ENABLE_BUS_IXP465_TRUE@am__append_22 = ixp465.c
-@ENABLE_BUS_JOPCYC_TRUE@am__append_23 = jopcyc.c
-@ENABLE_BUS_LH7A400_TRUE@am__append_24 = lh7a400.c
-@ENABLE_BUS_MPC5200_TRUE@am__append_25 = mpc5200.c
-@ENABLE_BUS_MPC824X_TRUE@am__append_26 = mpc824x.c
-@ENABLE_BUS_MPC837X_TRUE@am__append_27 = mpc837x.c
-@ENABLE_BUS_PPC405EP_TRUE@am__append_28 = ppc405ep.c
-@ENABLE_BUS_PPC440GX_EBC8_TRUE@am__append_29 = ppc440gx_ebc8.c
-@ENABLE_BUS_PROTOTYPE_TRUE@am__append_30 = prototype.c
-@ENABLE_BUS_PXA2X0_TRUE@am__append_31 = pxa2x0.c
-@ENABLE_BUS_PXA27X_TRUE@@ENABLE_BUS_PXA2X0_FALSE@am__append_32 = pxa2x0.c
-@ENABLE_BUS_S3C4510_TRUE@am__append_33 = s3c4510x.c
-@ENABLE_BUS_SA1110_TRUE@am__append_34 = sa1110.c
-@ENABLE_BUS_SH7727_TRUE@am__append_35 = sh7727.c
-@ENABLE_BUS_SH7750R_TRUE@am__append_36 = sh7750r.c
-@ENABLE_BUS_SH7751R_TRUE@am__append_37 = sh7751r.c
-@ENABLE_BUS_SHARC_21065L_TRUE@am__append_38 = sharc21065l.c
-@ENABLE_BUS_SHARC_21369_EZKIT_TRUE@am__append_39 = sharc21369_ezkit.c
-@ENABLE_BUS_SLSUP3_TRUE@am__append_40 = slsup3.c
-@ENABLE_BUS_TX4925_TRUE@am__append_41 = tx4925.c
-@ENABLE_BUS_ZEFANT_XS3_TRUE@am__append_42 = zefant-xs3.c
+@ENABLE_BUS_BLACKFIN_TRUE@am__append_5 = \
+@ENABLE_BUS_BLACKFIN_TRUE@	blackfin.c \
+@ENABLE_BUS_BLACKFIN_TRUE@	bf518f_ezbrd.c \
+@ENABLE_BUS_BLACKFIN_TRUE@	bf533_stamp.c \
+@ENABLE_BUS_BLACKFIN_TRUE@	bf537_stamp.c \
+@ENABLE_BUS_BLACKFIN_TRUE@	bf548_ezkit.c \
+@ENABLE_BUS_BLACKFIN_TRUE@	bf561_ezkit.c
+
+@ENABLE_BUS_BSCOACH_TRUE@am__append_6 = bscoach.c
+@ENABLE_BUS_EJTAG_TRUE@am__append_7 = ejtag.c
+@ENABLE_BUS_EJTAG_DMA_TRUE@am__append_8 = ejtag_dma.c
+@ENABLE_BUS_FJMEM_TRUE@am__append_9 = fjmem.c
+@ENABLE_BUS_H7202_TRUE@am__append_10 = h7202.c
+@ENABLE_BUS_IXP425_TRUE@am__append_11 = ixp425.c
+@ENABLE_BUS_IXP435_TRUE@am__append_12 = ixp435.c
+@ENABLE_BUS_IXP465_TRUE@am__append_13 = ixp465.c
+@ENABLE_BUS_JOPCYC_TRUE@am__append_14 = jopcyc.c
+@ENABLE_BUS_LH7A400_TRUE@am__append_15 = lh7a400.c
+@ENABLE_BUS_MPC5200_TRUE@am__append_16 = mpc5200.c
+@ENABLE_BUS_MPC824X_TRUE@am__append_17 = mpc824x.c
+@ENABLE_BUS_MPC837X_TRUE@am__append_18 = mpc837x.c
+@ENABLE_BUS_PPC405EP_TRUE@am__append_19 = ppc405ep.c
+@ENABLE_BUS_PPC440GX_EBC8_TRUE@am__append_20 = ppc440gx_ebc8.c
+@ENABLE_BUS_PROTOTYPE_TRUE@am__append_21 = prototype.c
+@ENABLE_BUS_PXA2X0_TRUE@am__append_22 = pxa2x0.c
+@ENABLE_BUS_PXA27X_TRUE@@ENABLE_BUS_PXA2X0_FALSE@am__append_23 = pxa2x0.c
+@ENABLE_BUS_S3C4510_TRUE@am__append_24 = s3c4510x.c
+@ENABLE_BUS_SA1110_TRUE@am__append_25 = sa1110.c
+@ENABLE_BUS_SH7727_TRUE@am__append_26 = sh7727.c
+@ENABLE_BUS_SH7750R_TRUE@am__append_27 = sh7750r.c
+@ENABLE_BUS_SH7751R_TRUE@am__append_28 = sh7751r.c
+@ENABLE_BUS_SHARC_21065L_TRUE@am__append_29 = sharc21065l.c
+@ENABLE_BUS_SHARC_21369_EZKIT_TRUE@am__append_30 = sharc21369_ezkit.c
+@ENABLE_BUS_SLSUP3_TRUE@am__append_31 = slsup3.c
+@ENABLE_BUS_TX4925_TRUE@am__append_32 = tx4925.c
+@ENABLE_BUS_ZEFANT_XS3_TRUE@am__append_33 = zefant-xs3.c
 subdir = src/bus
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/gettext.m4 \
@@ -146,57 +144,51 @@ LTLIBRARIES = $(noinst_LTLIBRARIES)
 libbus_la_LIBADD =
 am__libbus_la_SOURCES_DIST = buses.c buses.h buses_list.h \
 	generic_bus.c generic_bus.h pxa2x0_mc.h readmem.c writemem.c \
-	arm9tdmi.c au1500.c avr32.c bcm1250.c bf518f_ezbrd.c \
-	bf537_stamp.c bf533_stamp.c bf548_ezkit.c bf561_ezkit.c \
-	bscoach.c ejtag.c ejtag_dma.c fjmem.c h7202.c ixp425.c \
-	ixp435.c ixp465.c jopcyc.c lh7a400.c mpc5200.c mpc824x.c \
-	mpc837x.c ppc405ep.c ppc440gx_ebc8.c prototype.c pxa2x0.c \
-	s3c4510x.c sa1110.c sh7727.c sh7750r.c sh7751r.c sharc21065l.c \
-	sharc21369_ezkit.c slsup3.c tx4925.c zefant-xs3.c
+	arm9tdmi.c au1500.c avr32.c bcm1250.c blackfin.c \
+	bf518f_ezbrd.c bf533_stamp.c bf537_stamp.c bf548_ezkit.c \
+	bf561_ezkit.c bscoach.c ejtag.c ejtag_dma.c fjmem.c h7202.c \
+	ixp425.c ixp435.c ixp465.c jopcyc.c lh7a400.c mpc5200.c \
+	mpc824x.c mpc837x.c ppc405ep.c ppc440gx_ebc8.c prototype.c \
+	pxa2x0.c s3c4510x.c sa1110.c sh7727.c sh7750r.c sh7751r.c \
+	sharc21065l.c sharc21369_ezkit.c slsup3.c tx4925.c \
+	zefant-xs3.c
 @ENABLE_BUS_ARM9TDMI_TRUE@am__objects_1 = arm9tdmi.lo
 @ENABLE_BUS_AU1500_TRUE@am__objects_2 = au1500.lo
 @ENABLE_BUS_AVR32_TRUE@am__objects_3 = avr32.lo
 @ENABLE_BUS_BCM1250_TRUE@am__objects_4 = bcm1250.lo
-@ENABLE_BUS_BF518F_EZBRD_TRUE@am__objects_5 = bf518f_ezbrd.lo
-@ENABLE_BUS_BF526_EZKIT_TRUE@am__objects_6 = bf537_stamp.lo
-@ENABLE_BUS_BF526_EZKIT_FALSE@@ENABLE_BUS_BF527_EZKIT_TRUE@am__objects_7 = bf537_stamp.lo
-@ENABLE_BUS_BF526_EZKIT_FALSE@@ENABLE_BUS_BF527_EZKIT_FALSE@@ENABLE_BUS_BF533_EZKIT_TRUE@am__objects_8 = bf537_stamp.lo
-@ENABLE_BUS_BF526_EZKIT_FALSE@@ENABLE_BUS_BF527_EZKIT_FALSE@@ENABLE_BUS_BF533_EZKIT_FALSE@@ENABLE_BUS_BF537_STAMP_TRUE@am__objects_9 = bf537_stamp.lo
-@ENABLE_BUS_BF526_EZKIT_FALSE@@ENABLE_BUS_BF527_EZKIT_FALSE@@ENABLE_BUS_BF533_EZKIT_FALSE@@ENABLE_BUS_BF537_EZKIT_TRUE@@ENABLE_BUS_BF537_STAMP_FALSE@am__objects_10 = bf537_stamp.lo
-@ENABLE_BUS_BF526_EZKIT_FALSE@@ENABLE_BUS_BF527_EZKIT_FALSE@@ENABLE_BUS_BF533_EZKIT_FALSE@@ENABLE_BUS_BF537_EZKIT_FALSE@@ENABLE_BUS_BF537_STAMP_FALSE@@ENABLE_BUS_BF538F_EZKIT_TRUE@am__objects_11 = bf537_stamp.lo
-@ENABLE_BUS_BF533_STAMP_TRUE@am__objects_12 = bf533_stamp.lo
-@ENABLE_BUS_BF548_EZKIT_TRUE@am__objects_13 = bf548_ezkit.lo
-@ENABLE_BUS_BF561_EZKIT_TRUE@am__objects_14 = bf561_ezkit.lo
-@ENABLE_BUS_BSCOACH_TRUE@am__objects_15 = bscoach.lo
-@ENABLE_BUS_EJTAG_TRUE@am__objects_16 = ejtag.lo
-@ENABLE_BUS_EJTAG_DMA_TRUE@am__objects_17 = ejtag_dma.lo
-@ENABLE_BUS_FJMEM_TRUE@am__objects_18 = fjmem.lo
-@ENABLE_BUS_H7202_TRUE@am__objects_19 = h7202.lo
-@ENABLE_BUS_IXP425_TRUE@am__objects_20 = ixp425.lo
-@ENABLE_BUS_IXP435_TRUE@am__objects_21 = ixp435.lo
-@ENABLE_BUS_IXP465_TRUE@am__objects_22 = ixp465.lo
-@ENABLE_BUS_JOPCYC_TRUE@am__objects_23 = jopcyc.lo
-@ENABLE_BUS_LH7A400_TRUE@am__objects_24 = lh7a400.lo
-@ENABLE_BUS_MPC5200_TRUE@am__objects_25 = mpc5200.lo
-@ENABLE_BUS_MPC824X_TRUE@am__objects_26 = mpc824x.lo
-@ENABLE_BUS_MPC837X_TRUE@am__objects_27 = mpc837x.lo
-@ENABLE_BUS_PPC405EP_TRUE@am__objects_28 = ppc405ep.lo
-@ENABLE_BUS_PPC440GX_EBC8_TRUE@am__objects_29 = ppc440gx_ebc8.lo
-@ENABLE_BUS_PROTOTYPE_TRUE@am__objects_30 = prototype.lo
-@ENABLE_BUS_PXA2X0_TRUE@am__objects_31 = pxa2x0.lo
-@ENABLE_BUS_PXA27X_TRUE@@ENABLE_BUS_PXA2X0_FALSE@am__objects_32 =  \
+@ENABLE_BUS_BLACKFIN_TRUE@am__objects_5 = blackfin.lo bf518f_ezbrd.lo \
+@ENABLE_BUS_BLACKFIN_TRUE@	bf533_stamp.lo bf537_stamp.lo \
+@ENABLE_BUS_BLACKFIN_TRUE@	bf548_ezkit.lo bf561_ezkit.lo
+@ENABLE_BUS_BSCOACH_TRUE@am__objects_6 = bscoach.lo
+@ENABLE_BUS_EJTAG_TRUE@am__objects_7 = ejtag.lo
+@ENABLE_BUS_EJTAG_DMA_TRUE@am__objects_8 = ejtag_dma.lo
+@ENABLE_BUS_FJMEM_TRUE@am__objects_9 = fjmem.lo
+@ENABLE_BUS_H7202_TRUE@am__objects_10 = h7202.lo
+@ENABLE_BUS_IXP425_TRUE@am__objects_11 = ixp425.lo
+@ENABLE_BUS_IXP435_TRUE@am__objects_12 = ixp435.lo
+@ENABLE_BUS_IXP465_TRUE@am__objects_13 = ixp465.lo
+@ENABLE_BUS_JOPCYC_TRUE@am__objects_14 = jopcyc.lo
+@ENABLE_BUS_LH7A400_TRUE@am__objects_15 = lh7a400.lo
+@ENABLE_BUS_MPC5200_TRUE@am__objects_16 = mpc5200.lo
+@ENABLE_BUS_MPC824X_TRUE@am__objects_17 = mpc824x.lo
+@ENABLE_BUS_MPC837X_TRUE@am__objects_18 = mpc837x.lo
+@ENABLE_BUS_PPC405EP_TRUE@am__objects_19 = ppc405ep.lo
+@ENABLE_BUS_PPC440GX_EBC8_TRUE@am__objects_20 = ppc440gx_ebc8.lo
+@ENABLE_BUS_PROTOTYPE_TRUE@am__objects_21 = prototype.lo
+@ENABLE_BUS_PXA2X0_TRUE@am__objects_22 = pxa2x0.lo
+@ENABLE_BUS_PXA27X_TRUE@@ENABLE_BUS_PXA2X0_FALSE@am__objects_23 =  \
 @ENABLE_BUS_PXA27X_TRUE@@ENABLE_BUS_PXA2X0_FALSE@	pxa2x0.lo
-@ENABLE_BUS_S3C4510_TRUE@am__objects_33 = s3c4510x.lo
-@ENABLE_BUS_SA1110_TRUE@am__objects_34 = sa1110.lo
-@ENABLE_BUS_SH7727_TRUE@am__objects_35 = sh7727.lo
-@ENABLE_BUS_SH7750R_TRUE@am__objects_36 = sh7750r.lo
-@ENABLE_BUS_SH7751R_TRUE@am__objects_37 = sh7751r.lo
-@ENABLE_BUS_SHARC_21065L_TRUE@am__objects_38 = sharc21065l.lo
-@ENABLE_BUS_SHARC_21369_EZKIT_TRUE@am__objects_39 =  \
+@ENABLE_BUS_S3C4510_TRUE@am__objects_24 = s3c4510x.lo
+@ENABLE_BUS_SA1110_TRUE@am__objects_25 = sa1110.lo
+@ENABLE_BUS_SH7727_TRUE@am__objects_26 = sh7727.lo
+@ENABLE_BUS_SH7750R_TRUE@am__objects_27 = sh7750r.lo
+@ENABLE_BUS_SH7751R_TRUE@am__objects_28 = sh7751r.lo
+@ENABLE_BUS_SHARC_21065L_TRUE@am__objects_29 = sharc21065l.lo
+@ENABLE_BUS_SHARC_21369_EZKIT_TRUE@am__objects_30 =  \
 @ENABLE_BUS_SHARC_21369_EZKIT_TRUE@	sharc21369_ezkit.lo
-@ENABLE_BUS_SLSUP3_TRUE@am__objects_40 = slsup3.lo
-@ENABLE_BUS_TX4925_TRUE@am__objects_41 = tx4925.lo
-@ENABLE_BUS_ZEFANT_XS3_TRUE@am__objects_42 = zefant-xs3.lo
+@ENABLE_BUS_SLSUP3_TRUE@am__objects_31 = slsup3.lo
+@ENABLE_BUS_TX4925_TRUE@am__objects_32 = tx4925.lo
+@ENABLE_BUS_ZEFANT_XS3_TRUE@am__objects_33 = zefant-xs3.lo
 am_libbus_la_OBJECTS = buses.lo generic_bus.lo readmem.lo writemem.lo \
 	$(am__objects_1) $(am__objects_2) $(am__objects_3) \
 	$(am__objects_4) $(am__objects_5) $(am__objects_6) \
@@ -208,10 +200,7 @@ am_libbus_la_OBJECTS = buses.lo generic_bus.lo readmem.lo writemem.lo \
 	$(am__objects_22) $(am__objects_23) $(am__objects_24) \
 	$(am__objects_25) $(am__objects_26) $(am__objects_27) \
 	$(am__objects_28) $(am__objects_29) $(am__objects_30) \
-	$(am__objects_31) $(am__objects_32) $(am__objects_33) \
-	$(am__objects_34) $(am__objects_35) $(am__objects_36) \
-	$(am__objects_37) $(am__objects_38) $(am__objects_39) \
-	$(am__objects_40) $(am__objects_41) $(am__objects_42)
+	$(am__objects_31) $(am__objects_32) $(am__objects_33)
 libbus_la_OBJECTS = $(am_libbus_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
@@ -401,10 +390,7 @@ libbus_la_SOURCES = buses.c buses.h buses_list.h generic_bus.c \
 	$(am__append_23) $(am__append_24) $(am__append_25) \
 	$(am__append_26) $(am__append_27) $(am__append_28) \
 	$(am__append_29) $(am__append_30) $(am__append_31) \
-	$(am__append_32) $(am__append_33) $(am__append_34) \
-	$(am__append_35) $(am__append_36) $(am__append_37) \
-	$(am__append_38) $(am__append_39) $(am__append_40) \
-	$(am__append_41) $(am__append_42)
+	$(am__append_32) $(am__append_33)
 AM_CFLAGS = $(WARNINGCFLAGS)
 all: all-am
 
@@ -467,6 +453,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bf537_stamp.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bf548_ezkit.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bf561_ezkit.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/blackfin.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bscoach.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/buses.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ejtag.Plo@am__quote@
