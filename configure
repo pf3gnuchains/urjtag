@@ -14105,11 +14105,13 @@ else
 	LIBUSB_LIBS=$pkg_cv_LIBUSB_LIBS
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 $as_echo "yes" >&6; }
-	HAVELIBUSB=1.0
-fi
+
+          HAVELIBUSB=1.0
 
 $as_echo "#define HAVE_LIBUSB1 1" >>confdefs.h
 
+
+fi
 
 fi
     if test "x$with_libusb" != x1.0 -a "x$HAVELIBUSB" = xno; then :
