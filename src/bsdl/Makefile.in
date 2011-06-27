@@ -189,6 +189,7 @@ EXEEXT = @EXEEXT@
 FGREP = @FGREP@
 FTD2XXLIB = @FTD2XXLIB@
 GMSGFMT = @GMSGFMT@
+GMSGFMT_015 = @GMSGFMT_015@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
@@ -196,6 +197,7 @@ INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 INTLLIBS = @INTLLIBS@
+INTL_MACOSX_LIBS = @INTL_MACOSX_LIBS@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LEX = @LEX@
@@ -219,13 +221,13 @@ LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
-MKINSTALLDIRS = @MKINSTALLDIRS@
 MSGFMT = @MSGFMT@
+MSGFMT_015 = @MSGFMT_015@
 MSGMERGE = @MSGMERGE@
 NM = @NM@
 NMEDIT = @NMEDIT@
 OBJDUMP = @OBJDUMP@
-OBJEXT = lo
+OBJEXT = @OBJEXT@
 OTOOL = @OTOOL@
 OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
@@ -250,6 +252,7 @@ USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 WARNINGCFLAGS = @WARNINGCFLAGS@
 XGETTEXT = @XGETTEXT@
+XGETTEXT_015 = @XGETTEXT_015@
 YACC = @YACC@
 YFLAGS = @YFLAGS@
 abs_builddir = @abs_builddir@
@@ -320,7 +323,6 @@ libbsdl_flex_la_SOURCES = \
 
 noinst_HEADERS = \
 	bsdl_bison.h \
-	bsdl_config.h \
 	bsdl_msg.h \
 	bsdl_parser.h \
 	bsdl_sysdep.h \
@@ -339,8 +341,7 @@ MAINTAINERCLEANFILES = \
 	vhdl_bison.h \
 	bsdl_bison.c \
 	bsdl_bison.h \
-	vhdl_flex.c \
-	bsdl_config.h
+	vhdl_flex.c
 
 all: all-am
 
@@ -667,21 +668,14 @@ lint-am: Makefile @MAINTAINER_MODE_TRUE@ $(top_srcdir)/Makefile.rules
 .PHONY: lint lint-am
 
 # additional dependencies
-# - all files depend on bsdl_config.h which dynamically generated
 # - *_flex files must be processed after their *_bison counterparts
 #   to ensure that *_bison.h is present
-libbsdl_flex_la-vhdl_flex.$(OBJEXT): vhdl_bison.h bsdl_config.h
-vhdl_bison.$(OBJEXT): bsdl_config.h
-libbsdl_flex_la-bsdl_flex.$(OBJEXT): bsdl_bison.h bsdl_config.h
-bsdl_bison.$(OBJEXT): bsdl_config.h
-bsdl.$(OBJEXT) : bsdl_config.h
-bsdl_sem.$(OBJEXT): bsdl_bison.h bsdl_config.h
+libbsdl_flex_la-vhdl_flex.$(OBJEXT): vhdl_bison.h
+libbsdl_flex_la-bsdl_flex.$(OBJEXT): bsdl_bison.h
+bsdl_sem.$(OBJEXT): bsdl_bison.h
 
 vhdl_bison.h: vhdl_bison.c
 bsdl_bison.h: bsdl_bison.c
-
-bsdl_config.h: ../../config.h
-	grep 'DMALLOC' $< > $@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

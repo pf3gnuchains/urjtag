@@ -158,6 +158,7 @@ EXEEXT = @EXEEXT@
 FGREP = @FGREP@
 FTD2XXLIB = @FTD2XXLIB@
 GMSGFMT = @GMSGFMT@
+GMSGFMT_015 = @GMSGFMT_015@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
@@ -165,6 +166,7 @@ INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 INTLLIBS = @INTLLIBS@
+INTL_MACOSX_LIBS = @INTL_MACOSX_LIBS@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LEX = @LEX@
@@ -188,8 +190,8 @@ LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
-MKINSTALLDIRS = @MKINSTALLDIRS@
 MSGFMT = @MSGFMT@
+MSGFMT_015 = @MSGFMT_015@
 MSGMERGE = @MSGMERGE@
 NM = @NM@
 NMEDIT = @NMEDIT@
@@ -219,6 +221,7 @@ USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 WARNINGCFLAGS = @WARNINGCFLAGS@
 XGETTEXT = @XGETTEXT@
+XGETTEXT_015 = @XGETTEXT_015@
 YACC = @YACC@
 YFLAGS = @YFLAGS@
 abs_builddir = @abs_builddir@
@@ -447,6 +450,12 @@ nobase_dist_pkgdata_DATA = \
 	xilinx/xc2c256-tq144/xc2c256-tq144 \
 	xilinx/xc2c256-vq100/STEPPINGS \
 	xilinx/xc2c256-vq100/xc2c256-vq100 \
+	xilinx/xc2c32a-vq44/STEPPINGS \
+	xilinx/xc2c32a-vq44/xc2c32a-vq44 \
+	xilinx/xc2c32a-cp56/STEPPINGS \
+	xilinx/xc2c32a-cp56/xc2c32a-cp56 \
+	xilinx/xc2c32a-cv64/STEPPINGS \
+	xilinx/xc2c32a-cv64/xc2c32a-cv64 \
 	xilinx/xc2c64a-vq44/STEPPINGS \
 	xilinx/xc2c64a-vq44/xc2c64a-vq44 \
 	xilinx/xc2s200e-pq208/STEPPINGS \
@@ -473,6 +482,10 @@ nobase_dist_pkgdata_DATA = \
 	xilinx/xc3s100e_die/xc3s100e_die \
 	xilinx/xc3s100e_die/STEPPINGS \
 	xilinx/xc3s100e_die/xc3s100e_vq100 \
+	xilinx/xc3s1600e/STEPPINGS \
+	xilinx/xc3s1600e/xc3s1600e \
+	xilinx/xc3s1200e_fg320/STEPPINGS \
+	xilinx/xc3s1200e_fg320/xc3s1200e_fg320 \
 	xilinx/xc3s1500/xc3s1500_fg456 \
 	xilinx/xc3s1500/xc3s1500l_fg676 \
 	xilinx/xc3s1500/xc3s1500l \

@@ -116,7 +116,7 @@ am__libcmd_la_SOURCES_DIST = cmd.h cmd_list.h cmd_frequency.c \
 	cmd_usleep.c cmd_bfin.c cmd_pld.c cmd_svf.c cmd_bsdl.c
 @ENABLE_SVF_TRUE@am__objects_1 = cmd_svf.lo
 @ENABLE_BSDL_TRUE@am__objects_2 = cmd_bsdl.lo
-am_libcmd_la_OBJECTS = cmd_frequency.lo cmd_cable.lo cmd_reset.lo \
+am__objects_3 = cmd_frequency.lo cmd_cable.lo cmd_reset.lo \
 	cmd_discovery.lo cmd_idcode.lo cmd_detect.lo \
 	cmd_detectflash.lo cmd_help.lo cmd_quit.lo cmd_scan.lo \
 	cmd_signal.lo cmd_salias.lo cmd_bit.lo cmd_register.lo \
@@ -127,6 +127,7 @@ am_libcmd_la_OBJECTS = cmd_frequency.lo cmd_cable.lo cmd_reset.lo \
 	cmd_flashmem.lo cmd_eraseflash.lo cmd_include.lo \
 	cmd_addpart.lo cmd_cmd.lo cmd_usleep.lo cmd_bfin.lo cmd_pld.lo \
 	$(am__objects_1) $(am__objects_2)
+am_libcmd_la_OBJECTS = $(am__objects_3)
 libcmd_la_OBJECTS = $(am_libcmd_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
@@ -188,6 +189,7 @@ EXEEXT = @EXEEXT@
 FGREP = @FGREP@
 FTD2XXLIB = @FTD2XXLIB@
 GMSGFMT = @GMSGFMT@
+GMSGFMT_015 = @GMSGFMT_015@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
@@ -195,6 +197,7 @@ INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 INTLLIBS = @INTLLIBS@
+INTL_MACOSX_LIBS = @INTL_MACOSX_LIBS@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LEX = @LEX@
@@ -218,8 +221,8 @@ LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
-MKINSTALLDIRS = @MKINSTALLDIRS@
 MSGFMT = @MSGFMT@
+MSGFMT_015 = @MSGFMT_015@
 MSGMERGE = @MSGMERGE@
 NM = @NM@
 NMEDIT = @NMEDIT@
@@ -249,6 +252,7 @@ USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 WARNINGCFLAGS = @WARNINGCFLAGS@
 XGETTEXT = @XGETTEXT@
+XGETTEXT_015 = @XGETTEXT_015@
 YACC = @YACC@
 YFLAGS = @YFLAGS@
 abs_builddir = @abs_builddir@
@@ -304,17 +308,23 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 LINT_FLAGS = -warnposixheaders +boolint
 noinst_LTLIBRARIES = libcmd.la
-libcmd_la_SOURCES = cmd.h cmd_list.h cmd_frequency.c cmd_cable.c \
-	cmd_reset.c cmd_discovery.c cmd_idcode.c cmd_detect.c \
-	cmd_detectflash.c cmd_help.c cmd_quit.c cmd_scan.c \
-	cmd_signal.c cmd_salias.c cmd_bit.c cmd_register.c \
-	cmd_initbus.c cmd_print.c cmd_part.c cmd_bus.c \
-	cmd_instruction.c cmd_shift.c cmd_dr.c cmd_get.c cmd_test.c \
-	cmd_debug.c cmd_shell.c cmd_set.c cmd_endian.c cmd_peekpoke.c \
-	cmd_pod.c cmd_readmem.c cmd_writemem.c cmd_flashmem.c \
-	cmd_eraseflash.c cmd_include.c cmd_addpart.c cmd_cmd.c \
-	cmd_usleep.c cmd_bfin.c cmd_pld.c $(am__append_1) \
+all_cmd_files = cmd_frequency.c cmd_cable.c cmd_reset.c \
+	cmd_discovery.c cmd_idcode.c cmd_detect.c cmd_detectflash.c \
+	cmd_help.c cmd_quit.c cmd_scan.c cmd_signal.c cmd_salias.c \
+	cmd_bit.c cmd_register.c cmd_initbus.c cmd_print.c cmd_part.c \
+	cmd_bus.c cmd_instruction.c cmd_shift.c cmd_dr.c cmd_get.c \
+	cmd_test.c cmd_debug.c cmd_shell.c cmd_set.c cmd_endian.c \
+	cmd_peekpoke.c cmd_pod.c cmd_readmem.c cmd_writemem.c \
+	cmd_flashmem.c cmd_eraseflash.c cmd_include.c cmd_addpart.c \
+	cmd_cmd.c cmd_usleep.c cmd_bfin.c cmd_pld.c $(am__append_1) \
 	$(am__append_2)
+libcmd_la_SOURCES = \
+	cmd.h \
+	cmd_list.h \
+	$(all_cmd_files)
+
+EXTRA_DIST = generated_cmd_list.h
+MAINTAINERCLEANFILES = generated_cmd_list.h
 AM_CFLAGS = $(WARNINGCFLAGS)
 all: all-am
 
@@ -551,6 +561,7 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
+	-test -z "$(MAINTAINERCLEANFILES)" || rm -f $(MAINTAINERCLEANFILES)
 clean: clean-am
 
 clean-am: clean-generic clean-libtool clean-noinstLTLIBRARIES \
@@ -645,6 +656,15 @@ lint:
 lint-am: Makefile @MAINTAINER_MODE_TRUE@ $(top_srcdir)/Makefile.rules
 
 .PHONY: lint lint-am
+
+$(libcmd_la_OBJECTS): generated_cmd_list.h
+generated_cmd_list.h: $(all_cmd_files)
+	$(AM_V_GEN)set -e; \
+	cmds=`$(SED) -n '/^const urj_cmd_t urj_cmd_/{s:.*urj_cmd_::;s: =.*::;p}' $^`; \
+	for c in $$cmds ; do \
+		printf '#ifndef URJ_CMD_SKIP_%s\n_URJ_CMD(%s)\n#endif\n' $$c $$c; \
+	done > $@.tmp; \
+	cmp -s $@ $@.tmp && rm -f $@.tmp || mv $@.tmp $@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

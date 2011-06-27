@@ -130,10 +130,12 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(pkgconfigdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
+am__DEPENDENCIES_1 =
 liburjtag_la_DEPENDENCIES = tap/libtap.la part/libpart.la \
 	lib/libjtaglib.la flash/libflash.la bfin/libbfin.la \
 	bus/libbus.la cmd/libcmd.la pld/libpld.la global/libglobal.la \
-	$(am__append_4) $(am__append_5) $(am__append_6)
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) $(am__append_4) \
+	$(am__append_5) $(am__append_6)
 am_liburjtag_la_OBJECTS =
 liburjtag_la_OBJECTS = $(am_liburjtag_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
@@ -235,6 +237,7 @@ EXEEXT = @EXEEXT@
 FGREP = @FGREP@
 FTD2XXLIB = @FTD2XXLIB@
 GMSGFMT = @GMSGFMT@
+GMSGFMT_015 = @GMSGFMT_015@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
@@ -242,6 +245,7 @@ INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 INTLLIBS = @INTLLIBS@
+INTL_MACOSX_LIBS = @INTL_MACOSX_LIBS@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LEX = @LEX@
@@ -265,8 +269,8 @@ LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
-MKINSTALLDIRS = @MKINSTALLDIRS@
 MSGFMT = @MSGFMT@
+MSGFMT_015 = @MSGFMT_015@
 MSGMERGE = @MSGMERGE@
 NM = @NM@
 NMEDIT = @NMEDIT@
@@ -296,6 +300,7 @@ USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 WARNINGCFLAGS = @WARNINGCFLAGS@
 XGETTEXT = @XGETTEXT@
+XGETTEXT_015 = @XGETTEXT_015@
 YACC = @YACC@
 YFLAGS = @YFLAGS@
 abs_builddir = @abs_builddir@
@@ -359,8 +364,9 @@ liburjtag_la_LDFLAGS = -version-info 0:0:0
 liburjtag_la_SOURCES = 
 liburjtag_la_LIBADD = tap/libtap.la part/libpart.la lib/libjtaglib.la \
 	flash/libflash.la bfin/libbfin.la bus/libbus.la cmd/libcmd.la \
-	pld/libpld.la global/libglobal.la -lm @FTD2XXLIB@ @LIBINTL@ \
-	$(am__append_4) $(am__append_5) $(am__append_6)
+	pld/libpld.la global/libglobal.la -lm $(LIBFTDI_LIBS) \
+	@FTD2XXLIB@ $(LIBUSB_LIBS) @LIBINTL@ $(am__append_4) \
+	$(am__append_5) $(am__append_6)
 INCLUDES = -DLOCALEDIR=\"$(localedir)\"
 AM_CFLAGS = $(WARNINGCFLAGS)
 all: all-recursive
