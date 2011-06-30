@@ -3045,7 +3045,7 @@ esac
 AM_BACKSLASH='\'
 
 
-ac_config_files="$ac_config_files Makefile doc/Makefile data/Makefile include/urjtag/Makefile src/Makefile src/urjtag.pc src/lib/Makefile src/tap/Makefile src/part/Makefile src/bus/Makefile src/flash/Makefile src/cmd/Makefile src/svf/Makefile src/bsdl/Makefile src/jim/Makefile src/pld/Makefile src/global/Makefile src/apps/jtag/Makefile src/apps/bsdl2jtag/Makefile src/bfin/Makefile po/Makefile.in"
+ac_config_files="$ac_config_files Makefile doc/Makefile data/Makefile extra/fjmem/Makefile include/urjtag/Makefile src/Makefile src/urjtag.pc src/lib/Makefile src/tap/Makefile src/part/Makefile src/bus/Makefile src/flash/Makefile src/cmd/Makefile src/svf/Makefile src/bsdl/Makefile src/jim/Makefile src/pld/Makefile src/global/Makefile src/apps/jtag/Makefile src/apps/bsdl2jtag/Makefile src/bfin/Makefile po/Makefile.in"
 
 
 
@@ -19066,6 +19066,7 @@ do
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "doc/Makefile") CONFIG_FILES="$CONFIG_FILES doc/Makefile" ;;
     "data/Makefile") CONFIG_FILES="$CONFIG_FILES data/Makefile" ;;
+    "extra/fjmem/Makefile") CONFIG_FILES="$CONFIG_FILES extra/fjmem/Makefile" ;;
     "include/urjtag/Makefile") CONFIG_FILES="$CONFIG_FILES include/urjtag/Makefile" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
     "src/urjtag.pc") CONFIG_FILES="$CONFIG_FILES src/urjtag.pc" ;;

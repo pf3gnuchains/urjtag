@@ -663,8 +663,7 @@ generated_cmd_list.h: $(all_cmd_files)
 	cmds=`$(SED) -n '/^const urj_cmd_t urj_cmd_/{s:.*urj_cmd_::;s: =.*::;p}' $^`; \
 	for c in $$cmds ; do \
 		printf '#ifndef URJ_CMD_SKIP_%s\n_URJ_CMD(%s)\n#endif\n' $$c $$c; \
-	done > $@.tmp; \
-	cmp -s $@ $@.tmp && rm -f $@.tmp || mv $@.tmp $@
+	done > $@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

@@ -321,6 +321,12 @@ libsvf_flex_la_CFLAGS = \
 	$(AM_CFLAGS) \
 	-Wno-error
 
+
+# additional dependencies
+# - *_flex files must be processed after their *_bison counterparts
+#   to ensure that *_bison.h is present
+# - we use variables to workaround automake rule/dependency limitations
+SVF_BISON_OBJS = libsvf_flex_la-svf_flex.lo svf.lo
 MAINTAINERCLEANFILES = \
 	svf_bison.c \
 	svf_bison.h \
@@ -637,10 +643,8 @@ lint:
 lint-am: Makefile @MAINTAINER_MODE_TRUE@ $(top_srcdir)/Makefile.rules
 
 .PHONY: lint lint-am
-
-libsvf_flex_la-svf_flex.$(OBJEXT) svf.$(OBJEXT): svf_bison.h
-
-svf_bison.h: svf_bison.c
+$(SVF_BISON_OBJS): svf_bison.h
+svf_bison.h: svf_bison.c ; @true
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

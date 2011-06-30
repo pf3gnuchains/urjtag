@@ -89,6 +89,7 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 @ENABLE_BUS_BCM1250_TRUE@am__append_4 = bcm1250.c
 @ENABLE_BUS_BLACKFIN_TRUE@am__append_5 = \
 @ENABLE_BUS_BLACKFIN_TRUE@	blackfin.c \
+@ENABLE_BUS_BLACKFIN_TRUE@	blackfin.h \
 @ENABLE_BUS_BLACKFIN_TRUE@	bf518f_ezbrd.c \
 @ENABLE_BUS_BLACKFIN_TRUE@	bf533_stamp.c \
 @ENABLE_BUS_BLACKFIN_TRUE@	bf537_stamp.c \
@@ -144,7 +145,7 @@ LTLIBRARIES = $(noinst_LTLIBRARIES)
 libbus_la_LIBADD =
 am__libbus_la_SOURCES_DIST = buses.c buses.h buses_list.h \
 	generic_bus.c generic_bus.h pxa2x0_mc.h readmem.c writemem.c \
-	arm9tdmi.c au1500.c avr32.c bcm1250.c blackfin.c \
+	arm9tdmi.c au1500.c avr32.c bcm1250.c blackfin.c blackfin.h \
 	bf518f_ezbrd.c bf533_stamp.c bf537_stamp.c bf548_ezkit.c \
 	bf561_ezkit.c bscoach.c ejtag.c ejtag_dma.c fjmem.c h7202.c \
 	ixp425.c ixp435.c ixp465.c jopcyc.c lh7a400.c mpc5200.c \
