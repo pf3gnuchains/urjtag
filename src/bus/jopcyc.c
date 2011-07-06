@@ -1,5 +1,5 @@
 /*
- * $Id: jopcyc.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Bus driver for the Cyclone Boards manufactured by JOP.design.
  *

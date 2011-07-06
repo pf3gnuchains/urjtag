@@ -1,4 +1,4 @@
-/* $Id: svf_flex.l 1729 2010-01-24 11:31:51Z vapier $
+/* $Id$
  *
  * Copyright (C) 2002 by CSD at http://www-csd.ijs.si
  * Copyright (C) 2004, Arnim Laeuger

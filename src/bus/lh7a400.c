@@ -1,5 +1,5 @@
 /*
- * $Id: lh7a400.c 1636 2009-05-28 11:15:58Z rfhh $
+ * $Id$
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

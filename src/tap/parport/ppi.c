@@ -1,5 +1,5 @@
 /*
- * $Id: ppi.c 1786 2010-06-14 22:58:41Z vapier $
+ * $Id$
  *
  * FreeBSD ppi Driver
  * Copyright (C) 2005 Daniel O'Connor

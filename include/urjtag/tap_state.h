@@ -1,5 +1,5 @@
 /*
- * $Id: tap_state.h 1544 2009-05-01 12:55:19Z rfhh $
+ * $Id$
  *
  * Copyright (C) 2002 ETC s.r.o.
  *

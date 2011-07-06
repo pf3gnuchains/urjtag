@@ -1,5 +1,5 @@
 /*
- * $Id: bsdl_sem.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Copyright (C) 2008, Arnim Laeuger
  *

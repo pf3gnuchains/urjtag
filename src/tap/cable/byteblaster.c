@@ -1,5 +1,5 @@
 /*
- * $Id: byteblaster.c 1714 2010-01-23 20:07:41Z vapier $
+ * $Id$
  *
  * Altera ByteBlaster/ByteBlaster II/ByteBlasterMV Parallel Port Download Cable Driver
  * Copyright (C) 2002, 2003 ETC s.r.o.

@@ -1,5 +1,5 @@
 --
--- $Id: some_cpu.bsd 1729 2010-01-24 11:31:51Z vapier $
+-- $Id$
 --
 -- BSDL definitions for "some_cpu" of "JTAG target simulator"
 --

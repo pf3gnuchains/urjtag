@@ -1,7 +1,7 @@
 /**
 **  @file s3c4510x.c
 **
-**  $Id: s3c4510x.c 1789 2010-06-15 23:01:20Z vapier $
+**  $Id$
 **
 **  Copyright (C) 2003, All Rights Reserved
 **

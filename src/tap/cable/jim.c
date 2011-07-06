@@ -1,5 +1,5 @@
 /*
- * $Id: jim.c 1817 2010-07-31 03:40:53Z vapier $
+ * $Id$
  *
  * JTAG target simulator JIM "cable" driver
  *

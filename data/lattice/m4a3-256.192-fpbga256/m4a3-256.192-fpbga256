@@ -1,5 +1,5 @@
 #
-# $Id: m4a3-256.192-fpbga256 619 2004-11-16 21:51:27Z telka $
+# $Id$
 #
 # JTAG declarations for Lattice M4A3-256/192 (256-pin fpBGA)
 # Copyright (C) 2002 ETC s.r.o.

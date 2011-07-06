@@ -1,5 +1,5 @@
 /*
- * $Id: intel.c 1815 2010-07-30 20:29:27Z arniml $
+ * $Id$
  *
  * Copyright (C) 2002 ETC s.r.o.
  *

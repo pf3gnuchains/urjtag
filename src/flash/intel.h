@@ -1,5 +1,5 @@
 /*
- * $Id: intel.h 1722 2010-01-23 22:19:27Z vapier $
+ * $Id$
  *
  * Copyright (C) 2002 ETC s.r.o.
  * All rights reserved.

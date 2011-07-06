@@ -1,5 +1,5 @@
 /*
- * $Id: ea253.c 1714 2010-01-23 20:07:41Z vapier $
+ * $Id$
  *
  * ETC EA253 JTAG Cable Driver
  * Copyright (C) 2002, 2003 ETC s.r.o.

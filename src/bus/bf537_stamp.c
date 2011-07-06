@@ -1,5 +1,5 @@
 /*
- * $Id: bf537_stamp.c 1751 2010-02-01 08:18:12Z jiez $
+ * $Id$
  *
  * Analog Devices ADSP-BF537 STAMP/EZ-KIT Lite bus driver
  * Copyright (C) 2008-2011 Analog Devices, Inc.

@@ -1,5 +1,5 @@
 /*
- * $Id: pxa2x0_mc.h 1539 2009-05-01 12:02:08Z rfhh $
+ * $Id$
  *
  * XScale PXA26x/PXA255/PXA250/PXA210 Memory Controller Registers
  * Copyright (C) 2002, 2003 ETC s.r.o.

@@ -1,5 +1,5 @@
 /*
- * $Id: cmd_dr.c 1740 2010-01-29 00:30:42Z vapier $
+ * $Id$
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

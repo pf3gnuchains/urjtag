@@ -1,5 +1,5 @@
 /*
- * $Id: cmd_flashmem.c 1746 2010-01-29 09:09:11Z vapier $
+ * $Id$
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

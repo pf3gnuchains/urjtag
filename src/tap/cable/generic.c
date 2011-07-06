@@ -1,5 +1,5 @@
 /*
- * $Id: generic.c 1820 2010-08-07 22:47:54Z arniml $
+ * $Id$
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

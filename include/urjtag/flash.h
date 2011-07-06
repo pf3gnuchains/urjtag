@@ -1,5 +1,5 @@
 /*
- * $Id: flash.h 1788 2010-06-15 03:28:23Z vapier $
+ * $Id$
  *
  * Copyright (C) 2003 ETC s.r.o.
  * All rights reserved.

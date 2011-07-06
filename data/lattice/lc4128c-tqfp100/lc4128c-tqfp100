@@ -1,5 +1,5 @@
 #
-# $Id: lc4128c-tqfp100 1487 2009-04-08 21:07:12Z arniml $
+# $Id$
 #
 # JTAG declarations for Lattice LC4128C (100-pin TQFP)
 # Copyright (C) 2004 ETC s.r.o.

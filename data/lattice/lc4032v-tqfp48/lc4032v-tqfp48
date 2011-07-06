@@ -1,5 +1,5 @@
 #
-# $Id: lc4032v-tqfp48 619 2004-11-16 21:51:27Z telka $
+# $Id$
 #
 # JTAG declarations for Lattice LC4032V (48-pin TQFP)
 # Copyright (C) 2002 ETC s.r.o.

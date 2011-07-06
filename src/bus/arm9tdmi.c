@@ -1,5 +1,5 @@
 /*
- * $Id: arm9tdmi.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * ARM9TDMI core bus driver
  * Copyright (C) 2003, Rongkai zhan <zhanrk@163.com>

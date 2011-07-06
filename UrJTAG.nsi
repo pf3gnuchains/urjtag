@@ -1,5 +1,5 @@
 ;
-; $Id: UrJTAG.nsi 1729 2010-01-24 11:31:51Z vapier $
+; $Id$
 ;
 ; Script to create Installer for Windows platforms using 
 ;   "nullsoft scriptable install system" (NSIS)

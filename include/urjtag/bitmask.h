@@ -1,5 +1,5 @@
 /*
- * $Id: bitmask.h 1709 2010-01-23 18:37:24Z vapier $
+ * $Id$
  *
  * Common header file
  * Copyright (C) 2002 ETC s.r.o.

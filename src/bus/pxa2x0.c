@@ -1,5 +1,5 @@
 /*
- * $Id: pxa2x0.c 1636 2009-05-28 11:15:58Z rfhh $
+ * $Id$
  *
  * Intel PXA2x0 compatible bus driver via BSR
  * Copyright (C) 2002, 2003 ETC s.r.o.

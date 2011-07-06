@@ -1,5 +1,5 @@
 /*
- * $Id: cmd_bit.c 1695 2010-01-23 00:57:18Z vapier $
+ * $Id$
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

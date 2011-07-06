@@ -1,5 +1,5 @@
 /*
- * $Id: libusb.h 1801 2010-06-25 02:23:25Z vapier $
+ * $Id$
  *
  * Link driver for accessing USB devices via libusb
  *

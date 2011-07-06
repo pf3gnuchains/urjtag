@@ -1,5 +1,5 @@
 /*
- * $Id: generic_bus.h 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Generic bus driver utility functions
  *

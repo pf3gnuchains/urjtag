@@ -1,5 +1,5 @@
 /*
- * $Id: pod.h 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Pod signal names
  * Copyright (C) 2008 K. Waschk

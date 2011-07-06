@@ -1,5 +1,5 @@
 /*
- * $Id: usbconn.h 1788 2010-06-15 03:28:23Z vapier $
+ * $Id$
  *
  * USB Device Connection Driver Interface
  * Copyright (C) 2008 K. Waschk

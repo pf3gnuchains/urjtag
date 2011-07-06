@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.am 1584 2009-05-09 05:12:40Z rfhh $
+# $Id$
 #
 # Copyright (C) 2002 ETC s.r.o.
 #

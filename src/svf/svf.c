@@ -1,5 +1,5 @@
 /*
- * $Id: svf.c 1744 2010-01-29 08:34:30Z vapier $
+ * $Id$
  *
  * Copyright (C) 2004, Arnim Laeuger
  *

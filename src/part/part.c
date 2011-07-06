@@ -1,5 +1,5 @@
 /*
- * $Id: part.c 1733 2010-01-26 09:44:38Z jiez $
+ * $Id$
  *
  * Copyright (C) 2002 ETC s.r.o.
  *

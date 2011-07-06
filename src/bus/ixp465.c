@@ -1,5 +1,5 @@
 /*
- * $Id: ixp465.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Copyright (C) 2002 ETC s.r.o.
  *

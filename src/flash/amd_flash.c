@@ -1,5 +1,5 @@
 /*
- * $Id: amd_flash.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * AMD 8 bit flash driver for AM29F040B & AM29LV040B
  * Copyright (C) 2006 Kila Medical Systems.

@@ -1,5 +1,5 @@
 #
-# $Id: lx5280 1487 2009-04-08 21:07:12Z arniml $
+# $Id$
 #
 # JTAG declarations for Lexra LX5280 (Realtek RTL8181, RTL8186)
 # Copyright (C) 2005 Marek Michalkiewicz

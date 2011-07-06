@@ -1,5 +1,5 @@
 /*
- * $Id: generic.h 1714 2010-01-23 20:07:41Z vapier $
+ * $Id$
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

@@ -1,5 +1,5 @@
 /*
- * $Id: tap.h 1579 2009-05-07 22:27:21Z rfhh $
+ * $Id$
  *
  * Copyright (C) 2002 ETC s.r.o.
  *

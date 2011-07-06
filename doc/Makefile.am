@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.am 881 2007-12-22 13:12:02Z kawk $
+# $Id$
 #
 # Copyright (C) 2003 ETC s.r.o.
 #

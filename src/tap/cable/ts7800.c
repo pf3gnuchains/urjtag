@@ -1,5 +1,5 @@
 /*
- * $Id: ts7800.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Technologic Systems TS-7800 SoC GPIO JTAG Cable Driver
  * Copyright (C) 2008 Catalin Ionescu

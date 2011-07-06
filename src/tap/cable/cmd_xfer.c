@@ -1,5 +1,5 @@
 /*
- * $Id: cmd_xfer.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Generic command buffer handler.
  *

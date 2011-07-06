@@ -1,5 +1,5 @@
 /*
- * $Id: libftd2xx.c 1753 2010-02-02 07:10:30Z jiez $
+ * $Id$
  *
  * Link driver for accessing FTDI devices via libftd2xx
  *

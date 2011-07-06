@@ -1,5 +1,5 @@
 /*
- * $Id: bsdl_sysdep.h 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Reduced version of the global sysdep.h that is suitable for the
  * BSDL subsystem components. config.h defines a number of macros

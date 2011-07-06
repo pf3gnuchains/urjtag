@@ -1,5 +1,5 @@
 /*
- * $Id: cmd_reset.c 1595 2009-05-14 19:51:47Z rfhh $
+ * $Id$
  *
  * Copyright (C) 2004 Marcel Telka
  *

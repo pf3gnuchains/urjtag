@@ -1,5 +1,5 @@
 /*
- * $Id: zefant-xs3.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Bus driver for the Zefant-XS3 Board manufactured by Simple Solutions.
  *

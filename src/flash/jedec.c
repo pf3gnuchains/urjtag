@@ -1,5 +1,5 @@
 /*
- * $Id: jedec.c 1818 2010-07-31 17:57:39Z vapier $
+ * $Id$
  *
  * Copyright (C) 2003 Matan Ziv-Av
  *

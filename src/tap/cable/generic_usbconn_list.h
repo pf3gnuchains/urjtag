@@ -1,5 +1,5 @@
 /*
- * $Id: generic_usbconn_list.h 1808 2010-06-29 21:10:54Z vapier $
+ * $Id$
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

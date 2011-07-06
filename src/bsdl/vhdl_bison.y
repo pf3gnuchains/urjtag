@@ -1,5 +1,5 @@
 /*
- * $Id: vhdl_bison.y 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Original Yacc code by Ken Parker, 1990
  * Extensions and adaptions for UrJTAG by Arnim Laeuger, 2007

@@ -1,5 +1,5 @@
 #
-# $Id: m4a3-64.32-tqfp48 619 2004-11-16 21:51:27Z telka $
+# $Id$
 #
 # JTAG declarations for Lattice M4A3-64/32 (48-pin TQFP)
 # Copyright (C) 2002 ETC s.r.o.

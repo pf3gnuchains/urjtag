@@ -1,5 +1,5 @@
 /*
- * $Id: sysdep.h 1793 2010-06-16 21:47:54Z vapier $
+ * $Id$
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

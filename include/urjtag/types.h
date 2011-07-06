@@ -1,5 +1,5 @@
 /*
- * $Id: types.h 1733 2010-01-26 09:44:38Z jiez $
+ * $Id$
  *
  * Global opaque types that had better be predefined
  * Copyright (C) 2009, Rutger Hofman

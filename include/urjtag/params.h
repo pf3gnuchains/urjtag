@@ -1,5 +1,5 @@
 /*
- * $Id: params.h 1788 2010-06-15 03:28:23Z vapier $
+ * $Id$
  *
  * Parameter list, in the vein of X parameter passing
  * Copyright (C) 2009 VU Amsterdam

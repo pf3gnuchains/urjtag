@@ -1,5 +1,5 @@
 /*
- * $Id: mic.h 1537 2009-04-27 12:59:18Z rfhh $
+ * $Id$
  *
  * Manufacturer's Identification Code declarations
  * Copyright (C) 2002 ETC s.r.o.

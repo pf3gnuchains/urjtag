@@ -1,5 +1,5 @@
 /*
- * $Id: avr32.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * AVR32 multi-mode bus driver
  *

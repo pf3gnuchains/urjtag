@@ -1,5 +1,5 @@
 /*
- * $Id: cmd_addpart.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

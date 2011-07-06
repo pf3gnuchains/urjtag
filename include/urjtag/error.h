@@ -1,5 +1,5 @@
 /*
- * $Id: error.h 1733 2010-01-26 09:44:38Z jiez $
+ * $Id$
  *
  * Copyright (C) 2009, Rutger Hofman, VU Amsterdam
  *

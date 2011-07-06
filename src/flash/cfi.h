@@ -1,5 +1,5 @@
 /*
- * $Id: cfi.h 1651 2009-06-13 12:59:25Z rfhh $
+ * $Id$
  *
  * Common Flash Memory Interface (CFI) Declarations
  * Copyright (C) 2002 ETC s.r.o.

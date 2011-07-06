@@ -1,5 +1,5 @@
 /*
- * $Id: mpc5200.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Freescale MPC5200 compatible bus driver via BSR
  * Copyright (C) 2003 Marcel Telka

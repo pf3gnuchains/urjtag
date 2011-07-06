@@ -1,5 +1,5 @@
 /*
- * $Id: params.c 1819 2010-08-07 21:42:24Z vapier $
+ * $Id$
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

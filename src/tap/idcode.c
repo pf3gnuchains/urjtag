@@ -1,5 +1,5 @@
 /*
- * $Id: idcode.c 1799 2010-06-23 20:08:35Z vapier $
+ * $Id$
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

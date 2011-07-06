@@ -1,4 +1,4 @@
-# $Id: POTFILES.in 1814 2010-07-30 19:14:43Z vapier $
+# $Id$
 src/apps/bsdl2jtag/bsdl2jtag.c
 src/apps/jtag/jtag.c
 src/bsdl/bsdl_bison.y

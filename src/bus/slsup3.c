@@ -1,5 +1,5 @@
 /*
- * $Id: slsup3.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Altera UP3 Education Kit bus driver via BSR
  * Copyright (C) 2005 Kent Palmkvist

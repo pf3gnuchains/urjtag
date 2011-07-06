@@ -1,5 +1,5 @@
 /*
- * $Id: cable.h 1814 2010-07-30 19:14:43Z vapier $
+ * $Id$
  *
  * Cable driver interface
  * Copyright (C) 2003 ETC s.r.o.

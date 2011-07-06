@@ -1,5 +1,5 @@
 /*
- * $Id: ejtag_dma.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * EJTAG compatible bus driver via DMA
  * Copyright (C) 2008, Julien Aube

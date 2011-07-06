@@ -1,5 +1,5 @@
 /*
- * $Id: bscoach.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Busdriver for flashaccess on the Goepel "Boundary Scan Coach" training board
  * www.goepel.com

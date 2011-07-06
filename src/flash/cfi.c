@@ -1,5 +1,5 @@
 /*
- * $Id: cfi.c 1685 2009-12-22 23:11:27Z arniml $
+ * $Id$
  *
  * Copyright (C) 2002, 2003 ETC s.r.o.
  *

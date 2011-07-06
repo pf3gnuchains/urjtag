@@ -1,5 +1,5 @@
 /*
- * $Id: minimal.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Minimal Parallel Port JTAG Cable Driver
  * Copyright © 2009 Yen Rui

@@ -1,5 +1,5 @@
 /*
- * $Id: bf561_ezkit.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Analog Devices ADSP-BF561 EZ-KIT Lite bus driver
  * Copyright (C) 2008-2011 Analog Devices, Inc.

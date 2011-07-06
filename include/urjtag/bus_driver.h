@@ -1,5 +1,5 @@
 /*
- * $Id: bus_driver.h 1651 2009-06-13 12:59:25Z rfhh $
+ * $Id$
  *
  * Bus driver interface
  * Copyright (C) 2002, 2003 ETC s.r.o.

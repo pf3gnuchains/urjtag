@@ -1,5 +1,5 @@
 /*
- * $Id: detectflash.c 1745 2010-01-29 08:39:13Z vapier $
+ * $Id$
  *
  * Copyright (C) 2002 ETC s.r.o.
  *

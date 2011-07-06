@@ -1,5 +1,5 @@
 /*
- * $Id: sharc21369_ezkit.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Analog Device's SHARC 21369 compatible bus driver via BSR
  * Copyright (C) 2009- Monami Software Limited Partnership, JAPAN.

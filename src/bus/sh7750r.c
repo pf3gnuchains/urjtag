@@ -1,5 +1,5 @@
 /*
- * $Id: sh7750r.c 1636 2009-05-28 11:15:58Z rfhh $
+ * $Id$
  *
  * Copyright (C) 2003 ETC s.r.o.
  *

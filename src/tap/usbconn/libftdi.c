@@ -1,5 +1,5 @@
 /*
- * $Id: libftdi.c 1795 2010-06-23 02:18:25Z vapier $
+ * $Id$
  *
  * Link driver for accessing FTDI devices via libftdi
  *

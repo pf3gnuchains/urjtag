@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 --
--- $Id: fjmem_config_pack_cyclone-p.vhd 1071 2008-02-21 20:34:04Z arniml $
+-- $Id$
 --
 -- This program is free software; you can redistribute it and/or
 -- modify it under the terms of the GNU General Public License

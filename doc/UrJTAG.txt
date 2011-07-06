@@ -1,7 +1,7 @@
 Universal JTAG library, server and tools
 ========================================
 Kolja Waschk (Ed.)
-$Id: UrJTAG.txt 1783 2010-05-19 19:12:11Z arniml $
+$Id$
 
 /////////////////////////////////////////////////////////////////////////////
 This document is formatted to be readable for "asciidoc". Before you

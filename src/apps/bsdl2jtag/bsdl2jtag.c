@@ -1,5 +1,5 @@
 /*
- * $Id: bsdl2jtag.c 1812 2010-07-18 18:28:21Z vapier $
+ * $Id$
  *
  * Copyright (C) 2009, Arnim Laeuger
  *

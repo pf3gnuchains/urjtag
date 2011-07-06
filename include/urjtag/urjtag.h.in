@@ -1,5 +1,5 @@
 /*
- * $Id: urjtag.h.in 1730 2010-01-24 18:40:34Z vapier $
+ * $Id$
  *
  * Public include file for the UrJTAG library.
  * Copyright (C) 2009, Rutger Hofman

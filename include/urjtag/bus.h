@@ -1,5 +1,5 @@
 /*
- * $Id: bus.h 1788 2010-06-15 03:28:23Z vapier $
+ * $Id$
  *
  * Bus driver interface
  * Copyright (C) 2002 ETC s.r.o.

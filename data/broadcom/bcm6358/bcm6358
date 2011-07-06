@@ -1,5 +1,5 @@
 #
-# $Id: bcm6358 1607 2009-05-19 21:03:20Z arniml $
+# $Id$
 #
 # JTAG declarations for Atheros AR2312
 # Also valid for Broadcom BCM6358 (obconseil@gmail.com)

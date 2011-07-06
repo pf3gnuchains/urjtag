@@ -1,4 +1,4 @@
-$Id: README 1528 2009-04-24 12:34:24Z rfhh $
+$Id$
 
 The subdirectory urjtag/ of the UrJTAG package contains a branch that is used
 for the conversion of UrJTAG to a library plus a separate command shell.

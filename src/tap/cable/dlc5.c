@@ -1,5 +1,5 @@
 /*
- * $Id: dlc5.c 1714 2010-01-23 20:07:41Z vapier $
+ * $Id$
  *
  * Xilinx DLC5 JTAG Parallel Cable III Driver
  * Copyright (C) 2002, 2003 ETC s.r.o.

@@ -1,5 +1,5 @@
 /*
- * $Id: ejtag.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * EJTAG compatible bus driver via PrAcc
  * Copyright (C) 2005, Marek Michalkiewicz

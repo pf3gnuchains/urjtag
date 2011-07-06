@@ -2,7 +2,7 @@
 --
 -- Parametrizable, generic RAM with enable.
 --
--- $Id: generic_ram_ena.vhd 1071 2008-02-21 20:34:04Z arniml $
+-- $Id$
 --
 -- Copyright (c) 2006 Arnim Laeuger (arniml@opencores.org)
 --

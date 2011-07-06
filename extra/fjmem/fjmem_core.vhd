@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 --
--- $Id: fjmem_core.vhd 1071 2008-02-21 20:34:04Z arniml $
+-- $Id$
 --
 -- jmem_core - a generic interface module for accessing on-chip and off-chip
 --             memory and peripherals

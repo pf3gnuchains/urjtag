@@ -1,5 +1,5 @@
 /*
- * $Id: cmd_debug.c 1782 2010-05-05 08:41:37Z vapier $
+ * $Id$
  *
  * Copyright (C) 2005 Protoparts
  *

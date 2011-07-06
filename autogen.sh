@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: autogen.sh 1547 2009-05-02 14:35:08Z rfhh $
+# $Id$
 #
 # Copyright (C) 2002, 2003 ETC s.r.o.
 #

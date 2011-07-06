@@ -1,5 +1,5 @@
 /*
- * $Id: direct.c 1724 2010-01-23 23:03:09Z vapier $
+ * $Id$
  *
  * Direct Parallel Port Connection Driver
  * Copyright (C) 2003 ETC s.r.o.

@@ -1,5 +1,5 @@
 /*
- * $Id: wiggler2.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Modified WIGGLER JTAG Cable Driver
  * Copyright (C) 2003 Ultra d.o.o.

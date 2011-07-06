@@ -1,5 +1,5 @@
 /*
- * $Id: triton.c 1729 2010-01-24 11:31:51Z vapier $
+ * $Id$
  *
  * Ka-Ro TRITON Starterkit II (PXA255/250) JTAG Cable
  * Copyright (C) 2002, 2003 ETC s.r.o.

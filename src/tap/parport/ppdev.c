@@ -1,5 +1,5 @@
 /*
- * $Id: ppdev.c 1744 2010-01-29 08:34:30Z vapier $
+ * $Id$
  *
  * Linux ppdev Driver
  * Copyright (C) 2003 ETC s.r.o.

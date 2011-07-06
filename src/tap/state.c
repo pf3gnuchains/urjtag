@@ -1,5 +1,5 @@
 /*
- * $Id: state.c 1754 2010-02-02 07:14:07Z jiez $
+ * $Id$
  *
  * TAP state handling
  * Copyright (C) 2002 ETC s.r.o.
