@@ -16,7 +16,7 @@
 @SET_MAKE@
 
 #
-# $Id: Makefile.am 1727 2010-01-24 05:08:13Z vapier $
+# $Id$
 #
 # Copyright (C) 2002 ETC s.r.o.
 #
@@ -39,7 +39,7 @@
 #
 
 #
-# $Id: Makefile.rules 1571 2009-05-05 20:11:23Z rfhh $
+# $Id$
 #
 # Copyright (C) 2003 ETC s.r.o.
 # Copyright (C) 2004 Marcel Telka
@@ -86,7 +86,7 @@ DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	AUTHORS COPYING ChangeLog INSTALL NEWS THANKS \
 	tools/config.guess tools/config.rpath tools/config.sub \
 	tools/depcomp tools/install-sh tools/ltmain.sh tools/missing \
-	tools/mkinstalldirs tools/ylwrap
+	tools/ylwrap
 @ENABLE_APPS_TRUE@am__append_1 = \
 @ENABLE_APPS_TRUE@	src/apps/jtag
 
@@ -107,7 +107,7 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
-mkinstalldirs = $(SHELL) $(top_srcdir)/tools/mkinstalldirs
+mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h $(top_builddir)/include/urjtag/urjtag.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
@@ -313,8 +313,8 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 LINT_FLAGS = -warnposixheaders +boolint
-SUBDIRS = doc extra/fjmem include/urjtag data src po $(am__append_1) \
-	$(am__append_2)
+SUBDIRS = doc extra/fjmem include include/urjtag data src po \
+	$(am__append_1) $(am__append_2)
 DIST_SUBDIRS = \
 	$(SUBDIRS)
 

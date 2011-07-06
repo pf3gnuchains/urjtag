@@ -16,7 +16,7 @@
 @SET_MAKE@
 
 #
-# $Id: Makefile.am 1733 2010-01-26 09:44:38Z jiez $
+# $Id$
 #
 # Copyright (C) 2003 ETC s.r.o.
 #
@@ -39,7 +39,7 @@
 #
 
 #
-# $Id: Makefile.rules 1571 2009-05-05 20:11:23Z rfhh $
+# $Id$
 #
 # Copyright (C) 2003 ETC s.r.o.
 # Copyright (C) 2004 Marcel Telka
@@ -97,7 +97,7 @@ am__aclocal_m4_deps = $(top_srcdir)/m4/gettext.m4 \
 	$(top_srcdir)/acinclude.m4 $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
-mkinstalldirs = $(SHELL) $(top_srcdir)/tools/mkinstalldirs
+mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h \
 	$(top_builddir)/include/urjtag/urjtag.h
 CONFIG_CLEAN_FILES =
@@ -323,8 +323,8 @@ libcmd_la_SOURCES = \
 	cmd_list.h \
 	$(all_cmd_files)
 
-EXTRA_DIST = generated_cmd_list.h
-MAINTAINERCLEANFILES = generated_cmd_list.h
+EXTRA_DIST = generated_cmd_list.h generated_cmd_list.h.stamp
+MAINTAINERCLEANFILES = generated_cmd_list.h generated_cmd_list.h.stamp
 AM_CFLAGS = $(WARNINGCFLAGS)
 all: all-am
 
@@ -658,12 +658,21 @@ lint-am: Makefile @MAINTAINER_MODE_TRUE@ $(top_srcdir)/Makefile.rules
 .PHONY: lint lint-am
 
 $(libcmd_la_OBJECTS): generated_cmd_list.h
-generated_cmd_list.h: $(all_cmd_files)
+generated_cmd_list.h: generated_cmd_list.h.stamp ; @true
+generated_cmd_list.h.stamp: $(all_cmd_files)
 	$(AM_V_GEN)set -e; \
 	cmds=`$(SED) -n '/^const urj_cmd_t urj_cmd_/{s:.*urj_cmd_::;s: =.*::;p}' $^`; \
 	for c in $$cmds ; do \
 		printf '#ifndef URJ_CMD_SKIP_%s\n_URJ_CMD(%s)\n#endif\n' $$c $$c; \
-	done > $@
+	done > generated_cmd_list.h.tmp; \
+	if cmp -s generated_cmd_list.h generated_cmd_list.h.tmp; then \
+		echo generated_cmd_list.h is unchanged; \
+		rm -f generated_cmd_list.h.tmp; \
+	else \
+		echo updating generated_cmd_list.h; \
+		mv generated_cmd_list.h.tmp generated_cmd_list.h; \
+	fi; \
+	touch $@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

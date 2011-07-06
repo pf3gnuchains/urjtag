@@ -16,7 +16,7 @@
 @SET_MAKE@
 
 #
-# $Id: Makefile.am 1729 2010-01-24 11:31:51Z vapier $
+# $Id$
 #
 # Copyright (C) 2002 ETC s.r.o.
 #
@@ -39,7 +39,7 @@
 #
 
 #
-# $Id: Makefile.rules 1571 2009-05-05 20:11:23Z rfhh $
+# $Id$
 #
 # Copyright (C) 2003 ETC s.r.o.
 # Copyright (C) 2004 Marcel Telka
@@ -98,7 +98,7 @@ am__aclocal_m4_deps = $(top_srcdir)/m4/gettext.m4 \
 	$(top_srcdir)/acinclude.m4 $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
-mkinstalldirs = $(SHELL) $(top_srcdir)/tools/mkinstalldirs
+mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h \
 	$(top_builddir)/include/urjtag/urjtag.h
 CONFIG_CLEAN_FILES =
