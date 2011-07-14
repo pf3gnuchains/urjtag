@@ -107,12 +107,8 @@ AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
 libsvf_flex_la_LIBADD =
-am_libsvf_flex_la_OBJECTS = libsvf_flex_la-svf_flex.lo
+am_libsvf_flex_la_OBJECTS = svf_flex.lo
 libsvf_flex_la_OBJECTS = $(am_libsvf_flex_la_OBJECTS)
-libsvf_flex_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
-	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(libsvf_flex_la_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o \
-	$@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir) -I$(top_builddir)/include/urjtag
 depcomp = $(SHELL) $(top_srcdir)/tools/depcomp
 am__depfiles_maybe = depfiles
@@ -317,10 +313,6 @@ libsvf_flex_la_SOURCES = \
 	svf_flex.l
 
 AM_CFLAGS = $(WARNINGCFLAGS)
-libsvf_flex_la_CFLAGS = \
-	$(AM_CFLAGS) \
-	-Wno-error
-
 
 # additional dependencies
 # - *_flex files must be processed after their *_bison counterparts
@@ -378,7 +370,7 @@ clean-noinstLTLIBRARIES:
 libsvf.la: $(libsvf_la_OBJECTS) $(libsvf_la_DEPENDENCIES) 
 	$(AM_V_CCLD)$(LINK)  $(libsvf_la_OBJECTS) $(libsvf_la_LIBADD) $(LIBS)
 libsvf_flex.la: $(libsvf_flex_la_OBJECTS) $(libsvf_flex_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(libsvf_flex_la_LINK)  $(libsvf_flex_la_OBJECTS) $(libsvf_flex_la_LIBADD) $(LIBS)
+	$(AM_V_CCLD)$(LINK)  $(libsvf_flex_la_OBJECTS) $(libsvf_flex_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -386,9 +378,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libsvf_flex_la-svf_flex.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/svf.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/svf_bison.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/svf_flex.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -413,14 +405,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
-
-libsvf_flex_la-svf_flex.lo: svf_flex.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsvf_flex_la_CFLAGS) $(CFLAGS) -MT libsvf_flex_la-svf_flex.lo -MD -MP -MF $(DEPDIR)/libsvf_flex_la-svf_flex.Tpo -c -o libsvf_flex_la-svf_flex.lo `test -f 'svf_flex.c' || echo '$(srcdir)/'`svf_flex.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libsvf_flex_la-svf_flex.Tpo $(DEPDIR)/libsvf_flex_la-svf_flex.Plo
-@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='svf_flex.c' object='libsvf_flex_la-svf_flex.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsvf_flex_la_CFLAGS) $(CFLAGS) -c -o libsvf_flex_la-svf_flex.lo `test -f 'svf_flex.c' || echo '$(srcdir)/'`svf_flex.c
 
 .l.c:
 	$(AM_V_LEX)$(am__skiplex) $(SHELL) $(YLWRAP) $< $(LEX_OUTPUT_ROOT).c $@ -- $(LEXCOMPILE)
