@@ -13880,7 +13880,7 @@ $as_echo "#define HAVE_I386_SET_IOPERM 1" >>confdefs.h
 	fi
 fi
 
-for ac_func in  	_sleep 	geteuid 	getline 	getuid 	nanosleep 	pread 	swprintf 	usleep
+for ac_func in  	_sleep 	getdelim 	geteuid 	getline 	getuid 	nanosleep 	pread 	swprintf 	usleep
 do :
   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
 ac_fn_c_check_func "$LINENO" "$ac_func" "$as_ac_var"

@@ -102,11 +102,13 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 LTLIBRARIES = $(noinst_LTLIBRARIES)
 libjtaglib_la_LIBADD =
-am__libjtaglib_la_SOURCES_DIST = fclock.c hex.c usleep.c lbasename.c \
-	lrealpath.c make-relative-prefix.c safe-ctype.c
+am__libjtaglib_la_SOURCES_DIST = fclock.c hex.c getdelim.c getline.c \
+	usleep.c lbasename.c lrealpath.c make-relative-prefix.c \
+	safe-ctype.c
 @JTAG_RELOCATABLE_TRUE@am__objects_1 = lbasename.lo lrealpath.lo \
 @JTAG_RELOCATABLE_TRUE@	make-relative-prefix.lo safe-ctype.lo
-am_libjtaglib_la_OBJECTS = fclock.lo hex.lo usleep.lo $(am__objects_1)
+am_libjtaglib_la_OBJECTS = fclock.lo hex.lo getdelim.lo getline.lo \
+	usleep.lo $(am__objects_1)
 libjtaglib_la_OBJECTS = $(am_libjtaglib_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
@@ -297,6 +299,8 @@ noinst_LTLIBRARIES = libjtaglib.la
 libjtaglib_la_SOURCES = \
 	fclock.c \
 	hex.c \
+	getdelim.c \
+	getline.c \
 	usleep.c \
 	$(libiberty_sources)
 
@@ -354,6 +358,8 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/fclock.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/getdelim.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/getline.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hex.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lbasename.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lrealpath.Plo@am__quote@
