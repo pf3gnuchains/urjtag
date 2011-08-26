@@ -112,8 +112,9 @@ am__libcmd_la_SOURCES_DIST = cmd.h cmd_list.h cmd_frequency.c \
 	cmd_instruction.c cmd_shift.c cmd_dr.c cmd_get.c cmd_test.c \
 	cmd_debug.c cmd_shell.c cmd_set.c cmd_endian.c cmd_peekpoke.c \
 	cmd_pod.c cmd_readmem.c cmd_writemem.c cmd_flashmem.c \
-	cmd_eraseflash.c cmd_include.c cmd_addpart.c cmd_cmd.c \
-	cmd_usleep.c cmd_bfin.c cmd_pld.c cmd_svf.c cmd_bsdl.c
+	cmd_eraseflash.c cmd_lockflash.c cmd_include.c cmd_addpart.c \
+	cmd_cmd.c cmd_usleep.c cmd_bfin.c cmd_pld.c cmd_svf.c \
+	cmd_bsdl.c
 @ENABLE_SVF_TRUE@am__objects_1 = cmd_svf.lo
 @ENABLE_BSDL_TRUE@am__objects_2 = cmd_bsdl.lo
 am__objects_3 = cmd_frequency.lo cmd_cable.lo cmd_reset.lo \
@@ -124,9 +125,9 @@ am__objects_3 = cmd_frequency.lo cmd_cable.lo cmd_reset.lo \
 	cmd_instruction.lo cmd_shift.lo cmd_dr.lo cmd_get.lo \
 	cmd_test.lo cmd_debug.lo cmd_shell.lo cmd_set.lo cmd_endian.lo \
 	cmd_peekpoke.lo cmd_pod.lo cmd_readmem.lo cmd_writemem.lo \
-	cmd_flashmem.lo cmd_eraseflash.lo cmd_include.lo \
-	cmd_addpart.lo cmd_cmd.lo cmd_usleep.lo cmd_bfin.lo cmd_pld.lo \
-	$(am__objects_1) $(am__objects_2)
+	cmd_flashmem.lo cmd_eraseflash.lo cmd_lockflash.lo \
+	cmd_include.lo cmd_addpart.lo cmd_cmd.lo cmd_usleep.lo \
+	cmd_bfin.lo cmd_pld.lo $(am__objects_1) $(am__objects_2)
 am_libcmd_la_OBJECTS = $(am__objects_3)
 libcmd_la_OBJECTS = $(am_libcmd_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
@@ -318,9 +319,9 @@ all_cmd_files = cmd_frequency.c cmd_cable.c cmd_reset.c \
 	cmd_bus.c cmd_instruction.c cmd_shift.c cmd_dr.c cmd_get.c \
 	cmd_test.c cmd_debug.c cmd_shell.c cmd_set.c cmd_endian.c \
 	cmd_peekpoke.c cmd_pod.c cmd_readmem.c cmd_writemem.c \
-	cmd_flashmem.c cmd_eraseflash.c cmd_include.c cmd_addpart.c \
-	cmd_cmd.c cmd_usleep.c cmd_bfin.c cmd_pld.c $(am__append_1) \
-	$(am__append_2)
+	cmd_flashmem.c cmd_eraseflash.c cmd_lockflash.c cmd_include.c \
+	cmd_addpart.c cmd_cmd.c cmd_usleep.c cmd_bfin.c cmd_pld.c \
+	$(am__append_1) $(am__append_2)
 libcmd_la_SOURCES = \
 	cmd.h \
 	cmd_list.h \
@@ -403,6 +404,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_include.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_initbus.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_instruction.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_lockflash.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_part.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_peekpoke.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_pld.Plo@am__quote@
