@@ -709,6 +709,8 @@ ENABLE_BUS_PPC405EP_FALSE
 ENABLE_BUS_PPC405EP_TRUE
 ENABLE_BUS_MPC837X_FALSE
 ENABLE_BUS_MPC837X_TRUE
+ENABLE_BUS_MPC8313_FALSE
+ENABLE_BUS_MPC8313_TRUE
 ENABLE_BUS_MPC824X_FALSE
 ENABLE_BUS_MPC824X_TRUE
 ENABLE_BUS_MPC5200_FALSE
@@ -1603,7 +1605,7 @@ Optional Features:
                           'default' enables:
                           arm9tdmi au1500 avr32 bcm1250 blackfin bscoach ejtag
                           ejtag_dma fjmem ixp425 ixp435 ixp465 jopcyc h7202
-                          lh7a400 mpc5200 mpc824x mpc837x ppc405ep
+                          lh7a400 mpc5200 mpc824x mpc8313 mpc837x ppc405ep
                           ppc440gx_ebc8 prototype pxa2x0 pxa27x s3c4510 sa1110
                           sh7727 sh7750r sh7751r sharc_21065L
                           sharc_21369_ezkit slsup3 tx4925 zefant_xs3
@@ -16299,7 +16301,7 @@ else
 fi
 
 	# expand 'default' to default enabled bus drivers
-	drivers=`echo ${drivers} | $SED -e "s/default/ 	arm9tdmi 	au1500 	avr32 	bcm1250 	blackfin 	bscoach 	ejtag 	ejtag_dma 	fjmem 	ixp425 	ixp435 	ixp465 	jopcyc 	h7202 	lh7a400 	mpc5200 	mpc824x 	mpc837x 	ppc405ep 	ppc440gx_ebc8 	prototype 	pxa2x0 	pxa27x 	s3c4510 	sa1110 	sh7727 	sh7750r 	sh7751r 	sharc_21065L 	sharc_21369_ezkit 	slsup3 	tx4925 	zefant_xs3 /"`
+	drivers=`echo ${drivers} | $SED -e "s/default/ 	arm9tdmi 	au1500 	avr32 	bcm1250 	blackfin 	bscoach 	ejtag 	ejtag_dma 	fjmem 	ixp425 	ixp435 	ixp465 	jopcyc 	h7202 	lh7a400 	mpc5200 	mpc824x 	mpc8313 	mpc837x 	ppc405ep 	ppc440gx_ebc8 	prototype 	pxa2x0 	pxa27x 	s3c4510 	sa1110 	sh7727 	sh7750r 	sh7751r 	sharc_21065L 	sharc_21369_ezkit 	slsup3 	tx4925 	zefant_xs3 /"`
 
 
 	enabled_drivers=''
@@ -16792,6 +16794,35 @@ else
 else
   ENABLE_BUS_MPC824X_TRUE='#'
   ENABLE_BUS_MPC824X_FALSE=
+fi
+
+
+fi
+
+
+		if echo "$drivers" | $GREP -q "mpc8313"; then :
+
+
+$as_echo "#define ENABLE_BUS_MPC8313 1" >>confdefs.h
+
+			 if true; then
+  ENABLE_BUS_MPC8313_TRUE=
+  ENABLE_BUS_MPC8313_FALSE='#'
+else
+  ENABLE_BUS_MPC8313_TRUE='#'
+  ENABLE_BUS_MPC8313_FALSE=
+fi
+
+			as_fn_append enabled_drivers "mpc8313 "
+
+else
+
+			 if false; then
+  ENABLE_BUS_MPC8313_TRUE=
+  ENABLE_BUS_MPC8313_FALSE='#'
+else
+  ENABLE_BUS_MPC8313_TRUE='#'
+  ENABLE_BUS_MPC8313_FALSE=
 fi
 
 
@@ -18578,6 +18609,14 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_BUS_MPC824X_TRUE}" && test -z "${ENABLE_BUS_MPC824X_FALSE}"; then
   as_fn_error $? "conditional \"ENABLE_BUS_MPC824X\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ENABLE_BUS_MPC8313_TRUE}" && test -z "${ENABLE_BUS_MPC8313_FALSE}"; then
+  as_fn_error $? "conditional \"ENABLE_BUS_MPC8313\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ENABLE_BUS_MPC8313_TRUE}" && test -z "${ENABLE_BUS_MPC8313_FALSE}"; then
+  as_fn_error $? "conditional \"ENABLE_BUS_MPC8313\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_BUS_MPC837X_TRUE}" && test -z "${ENABLE_BUS_MPC837X_FALSE}"; then
