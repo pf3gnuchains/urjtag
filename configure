@@ -747,6 +747,8 @@ JEDEC_EXP_FALSE
 JEDEC_EXP_TRUE
 ENABLE_BSDL_FALSE
 ENABLE_BSDL_TRUE
+ENABLE_STAPL_FALSE
+ENABLE_STAPL_TRUE
 ENABLE_SVF_FALSE
 ENABLE_SVF_TRUE
 LEXLIB
@@ -929,6 +931,7 @@ with_inpout32
 enable_werror
 enable_apps
 enable_svf
+enable_stapl
 enable_bsdl
 enable_jedec_exp
 enable_bus
@@ -1593,6 +1596,7 @@ Optional Features:
   --disable-apps          disable building the jtag and bsdl2jtag main
                           programs
   --disable-svf           Disable SVF player
+  --disable-stapl         Disable STAPL player
   --disable-bsdl          Disable BSDL subsystem
   --enable-jedec-exp      Enable experimental JEDEC flash detection
   --enable-bus            Enable default set or specific bus drivers:
@@ -3066,7 +3070,7 @@ esac
 AM_BACKSLASH='\'
 
 
-ac_config_files="$ac_config_files Makefile doc/Makefile data/Makefile extra/fjmem/Makefile include/Makefile include/urjtag/Makefile src/Makefile src/urjtag.pc src/lib/Makefile src/tap/Makefile src/part/Makefile src/bus/Makefile src/flash/Makefile src/cmd/Makefile src/svf/Makefile src/bsdl/Makefile src/jim/Makefile src/pld/Makefile src/global/Makefile src/apps/jtag/Makefile src/apps/bsdl2jtag/Makefile src/bfin/Makefile po/Makefile.in"
+ac_config_files="$ac_config_files Makefile doc/Makefile data/Makefile extra/fjmem/Makefile include/Makefile include/urjtag/Makefile src/Makefile src/urjtag.pc src/lib/Makefile src/tap/Makefile src/part/Makefile src/bus/Makefile src/flash/Makefile src/cmd/Makefile src/svf/Makefile src/bsdl/Makefile src/stapl/Makefile src/jim/Makefile src/pld/Makefile src/global/Makefile src/apps/jtag/Makefile src/apps/bsdl2jtag/Makefile src/bfin/Makefile po/Makefile.in"
 
 
 
@@ -16131,6 +16135,42 @@ fi
 
 fi
 
+# Check whether --enable-stapl was given.
+if test "${enable_stapl+set}" = set; then :
+  enableval=$enable_stapl; case "${enableval}" in
+   yes) stapl=true ;;
+   no)  stapl=false ;;
+   *)   as_fn_error $? "bad value ${enableval} for --enable-stapl" "$LINENO" 5 ;;
+ esac
+fi
+
+if test "x$stapl" = xtrue; then :
+
+   if true; then
+  ENABLE_STAPL_TRUE=
+  ENABLE_STAPL_FALSE='#'
+else
+  ENABLE_STAPL_TRUE='#'
+  ENABLE_STAPL_FALSE=
+fi
+
+
+$as_echo "#define ENABLE_STAPL 1" >>confdefs.h
+
+
+else
+
+   if false; then
+  ENABLE_STAPL_TRUE=
+  ENABLE_STAPL_FALSE='#'
+else
+  ENABLE_STAPL_TRUE='#'
+  ENABLE_STAPL_FALSE=
+fi
+
+
+fi
+
 # Check whether --enable-bsdl was given.
 if test "${enable_bsdl+set}" = set; then :
   enableval=$enable_bsdl; case "${enableval}" in
@@ -18380,6 +18420,14 @@ if test -z "${ENABLE_SVF_TRUE}" && test -z "${ENABLE_SVF_FALSE}"; then
   as_fn_error $? "conditional \"ENABLE_SVF\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
+if test -z "${ENABLE_STAPL_TRUE}" && test -z "${ENABLE_STAPL_FALSE}"; then
+  as_fn_error $? "conditional \"ENABLE_STAPL\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ENABLE_STAPL_TRUE}" && test -z "${ENABLE_STAPL_FALSE}"; then
+  as_fn_error $? "conditional \"ENABLE_STAPL\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
 if test -z "${ENABLE_BSDL_TRUE}" && test -z "${ENABLE_BSDL_FALSE}"; then
   as_fn_error $? "conditional \"ENABLE_BSDL\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
@@ -19796,6 +19844,7 @@ do
     "src/cmd/Makefile") CONFIG_FILES="$CONFIG_FILES src/cmd/Makefile" ;;
     "src/svf/Makefile") CONFIG_FILES="$CONFIG_FILES src/svf/Makefile" ;;
     "src/bsdl/Makefile") CONFIG_FILES="$CONFIG_FILES src/bsdl/Makefile" ;;
+    "src/stapl/Makefile") CONFIG_FILES="$CONFIG_FILES src/stapl/Makefile" ;;
     "src/jim/Makefile") CONFIG_FILES="$CONFIG_FILES src/jim/Makefile" ;;
     "src/pld/Makefile") CONFIG_FILES="$CONFIG_FILES src/pld/Makefile" ;;
     "src/global/Makefile") CONFIG_FILES="$CONFIG_FILES src/global/Makefile" ;;
@@ -21332,6 +21381,14 @@ else
 
 fi
 
+  if test ${stapl:-false} != false; then :
+       FLAG_stapl=yes
+
+else
+       FLAG_stapl=no
+
+fi
+
 { $as_echo "$as_me:${as_lineno-$LINENO}:
 
 urjtag is now configured for
@@ -21343,8 +21400,9 @@ urjtag is now configured for
     inpout32   : $FLAG_HAVE_INPOUTXX
 
   Subsystems:
-    SVF player : $FLAG_svf
+    SVF        : $FLAG_svf
     BSDL       : $FLAG_bsdl
+    STAPL      : $FLAG_stapl
 
   Drivers:
     Bus        : $enabled_bus_drivers
@@ -21362,8 +21420,9 @@ urjtag is now configured for
     inpout32   : $FLAG_HAVE_INPOUTXX
 
   Subsystems:
-    SVF player : $FLAG_svf
+    SVF        : $FLAG_svf
     BSDL       : $FLAG_bsdl
+    STAPL      : $FLAG_stapl
 
   Drivers:
     Bus        : $enabled_bus_drivers

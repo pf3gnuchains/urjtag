@@ -85,6 +85,7 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(top_srcdir)/Makefile.rules
 @ENABLE_SVF_TRUE@am__append_1 = cmd_svf.c
 @ENABLE_BSDL_TRUE@am__append_2 = cmd_bsdl.c
+@ENABLE_STAPL_TRUE@am__append_3 = cmd_stapl.c
 subdir = src/cmd
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/gettext.m4 \
@@ -114,10 +115,11 @@ am__libcmd_la_SOURCES_DIST = cmd.h cmd_list.h cmd_frequency.c \
 	cmd_pod.c cmd_readmem.c cmd_writemem.c cmd_flashmem.c \
 	cmd_eraseflash.c cmd_lockflash.c cmd_include.c cmd_addpart.c \
 	cmd_cmd.c cmd_usleep.c cmd_bfin.c cmd_pld.c cmd_svf.c \
-	cmd_bsdl.c
+	cmd_bsdl.c cmd_stapl.c
 @ENABLE_SVF_TRUE@am__objects_1 = cmd_svf.lo
 @ENABLE_BSDL_TRUE@am__objects_2 = cmd_bsdl.lo
-am__objects_3 = cmd_frequency.lo cmd_cable.lo cmd_reset.lo \
+@ENABLE_STAPL_TRUE@am__objects_3 = cmd_stapl.lo
+am__objects_4 = cmd_frequency.lo cmd_cable.lo cmd_reset.lo \
 	cmd_discovery.lo cmd_idcode.lo cmd_detect.lo \
 	cmd_detectflash.lo cmd_help.lo cmd_quit.lo cmd_scan.lo \
 	cmd_signal.lo cmd_salias.lo cmd_bit.lo cmd_register.lo \
@@ -127,8 +129,9 @@ am__objects_3 = cmd_frequency.lo cmd_cable.lo cmd_reset.lo \
 	cmd_peekpoke.lo cmd_pod.lo cmd_readmem.lo cmd_writemem.lo \
 	cmd_flashmem.lo cmd_eraseflash.lo cmd_lockflash.lo \
 	cmd_include.lo cmd_addpart.lo cmd_cmd.lo cmd_usleep.lo \
-	cmd_bfin.lo cmd_pld.lo $(am__objects_1) $(am__objects_2)
-am_libcmd_la_OBJECTS = $(am__objects_3)
+	cmd_bfin.lo cmd_pld.lo $(am__objects_1) $(am__objects_2) \
+	$(am__objects_3)
+am_libcmd_la_OBJECTS = $(am__objects_4)
 libcmd_la_OBJECTS = $(am_libcmd_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
@@ -321,7 +324,7 @@ all_cmd_files = cmd_frequency.c cmd_cable.c cmd_reset.c \
 	cmd_peekpoke.c cmd_pod.c cmd_readmem.c cmd_writemem.c \
 	cmd_flashmem.c cmd_eraseflash.c cmd_lockflash.c cmd_include.c \
 	cmd_addpart.c cmd_cmd.c cmd_usleep.c cmd_bfin.c cmd_pld.c \
-	$(am__append_1) $(am__append_2)
+	$(am__append_1) $(am__append_2) $(am__append_3)
 libcmd_la_SOURCES = \
 	cmd.h \
 	cmd_list.h \
@@ -420,6 +423,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_shell.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_shift.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_signal.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_stapl.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_svf.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_test.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cmd_usleep.Plo@am__quote@
