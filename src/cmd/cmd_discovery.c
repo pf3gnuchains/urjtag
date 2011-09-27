@@ -25,6 +25,7 @@
 #include <sysdep.h>
 
 #include <stdio.h>
+#include <string.h>
 
 #include <urjtag/error.h>
 #include <urjtag/tap.h>
