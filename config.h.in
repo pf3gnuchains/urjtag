@@ -60,6 +60,9 @@
 /* define if mpc824x is enabled */
 #undef ENABLE_BUS_MPC824X
 
+/* define if mpc8313 is enabled */
+#undef ENABLE_BUS_MPC8313
+
 /* define if mpc837x is enabled */
 #undef ENABLE_BUS_MPC837X
 
@@ -192,6 +195,9 @@
 /* Define to 1 if translation of program messages to the user's native
    language is requested. */
 #undef ENABLE_NLS
+
+/* define if STAPL player is enabled */
+#undef ENABLE_STAPL
 
 /* define if SVF player is enabled */
 #undef ENABLE_SVF
