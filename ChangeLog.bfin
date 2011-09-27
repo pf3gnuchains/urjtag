@@ -1,3 +1,13 @@
+2011-09-27  Jie Zhang  <jie.zhang@analog.com>
+
+  * include/urjtag/tap.h (urj_tap_discovery_one_dr): Declare.
+  * urjtag/src/tap/discovery.c: Include <stdbool.h>, <urjtag/part.h>
+    and <urjtag/part_instruction.h>.
+    (urj_tap_discovery_one_dr): Define.
+  * src/cmd/cmd_discovery.c (cmd_discovery_run): Add support for
+    discovery of one DR.
+    (cmd_discovery_help): Add discovery of one DR.
+
 2010-02-05  Jie Zhang  <jie.zhang@analog.com>
 
   Revert

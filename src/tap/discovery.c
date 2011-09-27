@@ -26,10 +26,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include <urjtag/tap.h>
 #include <urjtag/tap_register.h>
 #include <urjtag/chain.h>
+#include <urjtag/part.h>
+#include <urjtag/part_instruction.h>
 
 
 #define DETECT_PATTERN_SIZE     8
@@ -190,5 +193,61 @@ urj_tap_discovery (urj_chain_t *chain)
     urj_tap_register_free (ir);
     urj_tap_register_free (irz);
 
+    return URJ_STATUS_OK;
+}
+
+/* Discovery the size of DR for INSTRUCTION */
+int
+urj_tap_discovery_one_dr (urj_chain_t *chain, const char *instruction)
+{
+    int ret, rs;
+    urj_tap_register_t *ir = NULL;
+
+    urj_tap_reset (chain);
+
+    if (instruction != NULL)
+    {
+        ir = urj_tap_register_alloc (chain->total_instr_len);
+        if (!ir)
+            return URJ_STATUS_FAIL;
+
+        ret = urj_tap_register_set_string (ir, instruction);
+        if (ret != URJ_STATUS_OK)
+        {
+            urj_tap_register_free (ir);
+            return ret;
+        }
+
+        urj_tap_capture_ir (chain);
+        urj_tap_shift_register (chain, ir, NULL, 1);
+
+        urj_log (URJ_LOG_LEVEL_NORMAL, _("Detecting DR length for IR %s ... "),
+                 urj_tap_register_get_string (ir));
+    }
+    else
+    {
+        int i;
+
+        urj_log (URJ_LOG_LEVEL_NORMAL, _("Detecting DR length for the current IR "));
+        for (i = chain->parts->len; i > 0; i--)
+        {
+            urj_part_instruction_t *inst = chain->parts->parts[i - 1]->active_instruction;
+            if (inst == NULL)
+            {
+                urj_error_set (URJ_ERROR_INVALID, _("no active instruction is selected"));
+                return URJ_STATUS_FAIL;
+            }
+            urj_log (URJ_LOG_LEVEL_NORMAL, "%s", urj_tap_register_get_string (inst->value));
+        }
+        urj_log (URJ_LOG_LEVEL_NORMAL, " ... ");
+    }
+
+    fflush (stdout);
+    urj_tap_capture_dr (chain);
+    rs = urj_tap_detect_register_size (chain);
+
+    urj_log (URJ_LOG_LEVEL_NORMAL, _("%d\n"), rs);
+
+    urj_tap_register_free (ir);
     return URJ_STATUS_OK;
 }

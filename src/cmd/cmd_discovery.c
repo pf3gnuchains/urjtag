@@ -36,26 +36,41 @@
 static int
 cmd_discovery_run (urj_chain_t *chain, char *params[])
 {
-    if (urj_cmd_params (params) != 1)
-    {
-        urj_error_set (URJ_ERROR_SYNTAX,
-                       "%s: #parameters should be %d, not %d",
-                       params[0], 1, urj_cmd_params (params));
-        return URJ_STATUS_FAIL;
-    }
+    int ret;
 
     if (urj_cmd_test_cable (chain) != URJ_STATUS_OK)
         return URJ_STATUS_FAIL;
 
-    return urj_tap_discovery (chain);
+    switch (urj_cmd_params (params))
+    {
+    case 1:
+        ret = urj_tap_discovery (chain);
+        break;
+
+    case 2:
+        if (strcmp (params[1], "current") == 0)
+            ret = urj_tap_discovery_one_dr (chain, NULL);
+        else
+            ret = urj_tap_discovery_one_dr (chain, params[1]);
+        break;
+
+    default:
+        urj_error_set (URJ_ERROR_SYNTAX,
+                       "%s: #parameters should be 1 or 2, not %d",
+                       params[0], urj_cmd_params (params));
+        ret = URJ_STATUS_FAIL;
+        break;
+    }
+
+    return ret;
 }
 
 static void
 cmd_discovery_help (void)
 {
     urj_log (URJ_LOG_LEVEL_NORMAL,
-             _("Usage: %s\n"
-               "Discovery of unknown parts in the JTAG chain.\n"
+             _("Usage: %s [current|INSTRUCTION]\n"
+               "When no arguments, discovery of unknown parts in the JTAG chain.\n"
                "\n"
                "'%s' attempts to detect these parameters of an unknown JTAG\n"
                "chain:\n"
@@ -63,7 +78,10 @@ cmd_discovery_help (void)
                " 2. DR (data register) length for all possible instructions\n"
                "\n"
                "Warning: This may be dangerous for some parts (especially if the\n"
-               "part doesn't have TRST signal).\n"), "discovery",
+               "part doesn't have TRST signal).\n"
+               "\n"
+               "When there is an argument, discovery of the DR size of the current or\n"
+               "specified instruction.\n"), "discovery",
             "discovery");
 }
 

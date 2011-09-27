@@ -52,6 +52,8 @@ int urj_tap_detect_register_size (urj_chain_t *chain);
 /** @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
 int urj_tap_discovery (urj_chain_t *chain);
 /** @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
+int urj_tap_discovery_one_dr (urj_chain_t *chain, const char *instruction);
+/** @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
 int urj_tap_idcode (urj_chain_t *chain, unsigned int bytes);
 /**
  * Convenience function that detects the parts, initialises them to BYPASS,
