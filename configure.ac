@@ -179,7 +179,19 @@ AS_IF([test "x$ac_cv_header_windows_h" = "xyes"],[
 	])
 ])
 
+ORIG_LDFLAGS="$LDFLAGS"
+case $host_os in
+  *mingw32*)
+    AM_CONDITIONAL(MINGW32, true)
+    # UrJTAG provides a dummy termcap for Windows
+    LDFLAGS="$LDFLAGS -Wl,-defsym,_tgetent=0 -Wl,-defsym,_tgetnum=0 -Wl,-defsym,_tgetflag=0 -Wl,-defsym,_tgetstr=0 -Wl,-defsym,_tputs=0 -Wl,-defsym,_tgoto=0"
+    ;;
+  *)
+    AM_CONDITIONAL(MINGW32, false)
+    ;;
+esac
 VL_LIB_READLINE
+LDFLAGS="$ORIG_LDFLAGS"
 
 
 dnl check for libusb

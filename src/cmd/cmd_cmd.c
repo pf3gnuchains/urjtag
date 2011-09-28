@@ -346,3 +346,20 @@ urj_cmd_get_number (const char *s, long unsigned *i)
 
     return URJ_STATUS_FAIL;
 }
+
+#ifdef __MINGW32__
+
+int tgetnum (char *);
+
+/* This dummy function is used to pull in windows-termcap.o.  Otherwise
+   we would have to handle the interference between liburjtag.a and
+   libreadline.a on link command line.  */
+
+int __use_tgetnum (char *);
+
+int
+__use_tgetnum (char *name)
+{
+    return tgetnum (name);
+}
+#endif

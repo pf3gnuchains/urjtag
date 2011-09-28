@@ -104,11 +104,12 @@ LTLIBRARIES = $(noinst_LTLIBRARIES)
 libjtaglib_la_LIBADD =
 am__libjtaglib_la_SOURCES_DIST = fclock.c hex.c getdelim.c getline.c \
 	usleep.c lbasename.c lrealpath.c make-relative-prefix.c \
-	safe-ctype.c
+	safe-ctype.c windows-termcap.c
 @JTAG_RELOCATABLE_TRUE@am__objects_1 = lbasename.lo lrealpath.lo \
 @JTAG_RELOCATABLE_TRUE@	make-relative-prefix.lo safe-ctype.lo
+@MINGW32_TRUE@am__objects_2 = windows-termcap.lo
 am_libjtaglib_la_OBJECTS = fclock.lo hex.lo getdelim.lo getline.lo \
-	usleep.lo $(am__objects_1)
+	usleep.lo $(am__objects_1) $(am__objects_2)
 libjtaglib_la_OBJECTS = $(am_libjtaglib_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
@@ -299,13 +300,16 @@ noinst_LTLIBRARIES = libjtaglib.la
 @JTAG_RELOCATABLE_TRUE@	make-relative-prefix.c \
 @JTAG_RELOCATABLE_TRUE@	safe-ctype.c
 
+@MINGW32_FALSE@termcap_sources = 
+@MINGW32_TRUE@termcap_sources = windows-termcap.c
 libjtaglib_la_SOURCES = \
 	fclock.c \
 	hex.c \
 	getdelim.c \
 	getline.c \
 	usleep.c \
-	$(libiberty_sources)
+	$(libiberty_sources) \
+	$(termcap_sources)
 
 AM_CFLAGS = $(WARNINGCFLAGS)
 all: all-am
@@ -369,6 +373,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/make-relative-prefix.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/safe-ctype.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/usleep.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/windows-termcap.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

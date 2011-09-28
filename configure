@@ -775,6 +775,8 @@ HAVE_LIBUSB_FALSE
 HAVE_LIBUSB_TRUE
 LIBUSB_LIBS
 LIBUSB_CFLAGS
+MINGW32_FALSE
+MINGW32_TRUE
 PKG_CONFIG_LIBDIR
 PKG_CONFIG_PATH
 PKG_CONFIG
@@ -14721,6 +14723,31 @@ rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
 
 fi
 
+ORIG_LDFLAGS="$LDFLAGS"
+case $host_os in
+  *mingw32*)
+     if true; then
+  MINGW32_TRUE=
+  MINGW32_FALSE='#'
+else
+  MINGW32_TRUE='#'
+  MINGW32_FALSE=
+fi
+
+    # UrJTAG provides a dummy termcap for Windows
+    LDFLAGS="$LDFLAGS -Wl,-defsym,_tgetent=0 -Wl,-defsym,_tgetnum=0 -Wl,-defsym,_tgetflag=0 -Wl,-defsym,_tgetstr=0 -Wl,-defsym,_tputs=0 -Wl,-defsym,_tgoto=0"
+    ;;
+  *)
+     if false; then
+  MINGW32_TRUE=
+  MINGW32_FALSE='#'
+else
+  MINGW32_TRUE='#'
+  MINGW32_FALSE=
+fi
+
+    ;;
+esac
 
 
 # Check whether --with-readline was given.
@@ -14899,6 +14926,7 @@ $as_echo "#define HAVE_READLINE_COMPLETION 1" >>confdefs.h
   fi
 
 
+LDFLAGS="$ORIG_LDFLAGS"
 
 
 
@@ -18409,6 +18437,14 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${am__fastdepCC_TRUE}" && test -z "${am__fastdepCC_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCC\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${MINGW32_TRUE}" && test -z "${MINGW32_FALSE}"; then
+  as_fn_error $? "conditional \"MINGW32\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${MINGW32_TRUE}" && test -z "${MINGW32_FALSE}"; then
+  as_fn_error $? "conditional \"MINGW32\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${HAVE_LIBUSB_TRUE}" && test -z "${HAVE_LIBUSB_FALSE}"; then

@@ -1,3 +1,12 @@
+2011-09-28  Jie Zhang  <jie.zhang@analog.com>
+
+  * src/cmd/cmd_cmd.c (__use_tgetnum): Define.
+  * src/lib/windows-termcap.c: Import from GDB and fix prototype warnings.
+  * src/lib/Makefile.am (libjtaglib_la_SOURCES): Add windows-termcap.c
+    for mingw32.
+  * configure.ac: Use dummy termcap functions when detecting readline
+    library for mingw32.
+
 2011-09-27  Jie Zhang  <jie.zhang@analog.com>
 
   * src/cmd/cmd_discovery.c: Include <string.h>.

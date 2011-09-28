@@ -35,12 +35,19 @@ else
 libiberty_sources =
 endif
 
+if MINGW32
+termcap_sources = windows-termcap.c
+else
+termcap_sources =
+endif
+
 libjtaglib_la_SOURCES = \
 	fclock.c \
 	hex.c \
 	getdelim.c \
 	getline.c \
 	usleep.c \
-	$(libiberty_sources)
+	$(libiberty_sources) \
+	$(termcap_sources)
 
 AM_CFLAGS = $(WARNINGCFLAGS)
