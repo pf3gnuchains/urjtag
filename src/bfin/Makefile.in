@@ -102,8 +102,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 LTLIBRARIES = $(noinst_LTLIBRARIES)
 libbfin_la_LIBADD =
-am_libbfin_la_OBJECTS = insn-gen.lo bfin.lo bfin-part.lo \
-	bfin-part-bfin.lo
+am_libbfin_la_OBJECTS = insn-gen.lo bfin.lo
 libbfin_la_OBJECTS = $(am_libbfin_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
@@ -289,10 +288,7 @@ LINT_FLAGS = -warnposixheaders +boolint
 noinst_LTLIBRARIES = libbfin.la
 libbfin_la_SOURCES = \
 	insn-gen.c \
-	bfin.c \
-	bfin-part.c \
-	bfin-part.h \
-	bfin-part-bfin.c
+	bfin.c
 
 AM_CFLAGS = $(WARNINGCFLAGS)
 all: all-am
@@ -347,8 +343,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bfin-part-bfin.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bfin-part.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bfin.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/insn-gen.Plo@am__quote@
 
