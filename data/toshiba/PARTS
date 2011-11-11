@@ -24,3 +24,7 @@
 # bits 27-12 of the Device Identification Register
 0000000000011110	tx4925		TX4925
 0000000000011111	tx4926		TX4926
+
+# Same ID for TMPA900/901 and TMPA910/911/912/913, it seems.
+0111100100100110	tmpa9xx		TMPA9xx
+
