@@ -188,7 +188,6 @@ extern int bfin_wait_clocks;
 /* From src/bfin/bfin.c */
 
 int part_is_bfin (urj_chain_t *, int);
-void part_bypass (urj_chain_t *, int);
 
 urj_tap_register_t *register_init_value (urj_tap_register_t *, uint64_t);
 uint64_t register_value (urj_tap_register_t *);
