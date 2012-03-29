@@ -29,6 +29,7 @@ SUBDIRS = \
 	tap \
 	part \
 	bfin \
+	sdu \
 	bus \
 	cmd \
 	pld \
@@ -64,6 +65,7 @@ liburjtag_la_LIBADD = \
 	lib/libjtaglib.la \
 	flash/libflash.la \
 	bfin/libbfin.la \
+	sdu/libsdu.la \
 	bus/libbus.la \
 	cmd/libcmd.la \
 	pld/libpld.la \

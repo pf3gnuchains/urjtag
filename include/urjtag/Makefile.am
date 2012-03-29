@@ -51,6 +51,7 @@ pkginclude_HEADERS = \
 	part_instruction.h \
 	pld.h \
 	pod.h \
+	sdu.h \
 	tap_register.h \
 	tap_state.h \
 	tap.h \

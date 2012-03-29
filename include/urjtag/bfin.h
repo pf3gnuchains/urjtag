@@ -68,6 +68,7 @@ enum core_regnum
 
 struct bfin_part_data
 {
+    uint32_t magic;
     int bypass;
     int scan;
 
@@ -117,10 +118,10 @@ struct bfin_part_data
     uint32_t emupc_orig;
 };
 
-#define BFIN_PART_DATA(part)       ((struct bfin_part_data *)((part)->params->data))
-#define BFIN_PART_BYPASS(part)     (BFIN_PART_DATA (part)->bypass)
+#define BFIN_PART_BYPASS(part)     (PART_BYPASS (part))
+#define BFIN_PART_SCAN(part)       (PART_SCAN (part))
 
-#define BFIN_PART_SCAN(part)       (BFIN_PART_DATA (part)->scan)
+#define BFIN_PART_DATA(part)       ((struct bfin_part_data *)((part)->params->data))
 #define BFIN_PART_WPSTAT(part)     (BFIN_PART_DATA (part)->wpstat)
 #define BFIN_PART_DBGCTL(part)     (BFIN_PART_DATA (part)->dbgctl)
 #define BFIN_PART_DBGSTAT(part)    (BFIN_PART_DATA (part)->dbgstat)
@@ -139,7 +140,12 @@ struct bfin_part_data
 #define EMUPC_SCAN                      5
 #define BYPASS                          6
 #define EMUIR64_SCAN                    7
-#define NUM_SCANS                       8
+#define SDU_CTL_SCAN                    8
+#define SDU_STAT_SCAN                   9
+#define SDU_MACCTL_SCAN                 10
+#define SDU_MACADDR_SCAN                11
+#define SDU_MACDATA_SCAN                12
+#define NUM_SCANS                       13
 
 extern const char * const scans[];
 

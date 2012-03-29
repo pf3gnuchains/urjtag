@@ -32,6 +32,7 @@
 #include <urjtag/data_register.h>
 #include <urjtag/part_instruction.h>
 #include <urjtag/bfin.h>
+#include <urjtag/sdu.h>
 
 const char * const scans[] = {
     "IDCODE",
@@ -42,6 +43,11 @@ const char * const scans[] = {
     "EMUPC_SCAN",
     "BYPASS",
     "EMUIR64_SCAN",
+    "SDU_CTL_SCAN",
+    "SDU_STAT_SCAN",
+    "SDU_MACCTL_SCAN",
+    "SDU_MACADDR_SCAN",
+    "SDU_MACDATA_SCAN",
 };
 
 #define SWRST 0xffc00100
@@ -56,8 +62,7 @@ static const struct timespec bfin_emu_wait_ts = {0, 5000000};
 static int
 is_bfin_part (urj_part_t *part)
 {
-    /* FIXME: We now assume only Blackfin parts have initialized params.  */
-    if (part->params && part->params->data)
+    if (PART_HAS_DATA (part) && PART_MAGIC (part) == PART_MAGIC_BFIN)
         return 1;
     else
         return 0;
@@ -95,9 +100,7 @@ register_value (urj_tap_register_t *tr)
 static int
 bfin_set_scan (urj_part_t *part, int scan)
 {
-    if (is_bfin_part (part))
-    {
-        if (BFIN_PART_SCAN (part) != scan)
+        if (PART_SCAN (part) != scan)
         {
             urj_part_set_instruction (part, scans[scan]);
             if (part->active_instruction == NULL)
@@ -107,17 +110,11 @@ bfin_set_scan (urj_part_t *part, int scan)
                          "bfin", scans[scan]);
                 return -1;
             }
-            BFIN_PART_SCAN (part) = scan;
+            PART_SCAN (part) = scan;
             return 1;
         }
         else
             return 0;
-    }
-    else
-    {
-        urj_part_set_instruction (part, scans[scan]);
-        return 1;
-    }
 }
 
 static void emuir_init_value (urj_tap_register_t *r, uint64_t insn);
@@ -969,8 +966,9 @@ part_emulation_return (urj_chain_t *chain, int n)
     part_dbgctl_bit_clear_wakeup (chain, n);
     urj_tap_chain_shift_data_registers_mode (chain, 0, 1, URJ_CHAIN_EXITMODE_IDLE);
 
-    /* get the RTE out of EMUIR so we don't execute it more than once */
-    part_emuir_set (chain, n, INSN_NOP, URJ_CHAIN_EXITMODE_IDLE);
+    /* Get the RTE out of EMUIR so we don't execute it more than once.
+       This is for working around an issue of ICE-100B.  */
+    part_emuir_set (chain, n, INSN_NOP, URJ_CHAIN_EXITMODE_UPDATE);
 }
 
 void
@@ -1200,6 +1198,7 @@ part_mmr_write (urj_chain_t *chain, int n, uint32_t addr, uint32_t data, int siz
 
 struct bfin_part_data bfin_part_data_initializer =
 {
+    PART_MAGIC_BFIN, /* magic */
     0, /* bypass */
     0, /* scan */
 
@@ -1356,4 +1355,5 @@ _bfin_part_init (void)
     urj_part_init_register ("BF548M", bfin_part_init);
     urj_part_init_register ("BF561", bfin_part_init);
     urj_part_init_register ("BF592", bfin_part_init);
+    urj_part_init_register ("BF609", bfin_part_init);
 }

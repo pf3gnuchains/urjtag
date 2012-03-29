@@ -1,8 +1,8 @@
 /*
- * $Id$
+ * $Id
  *
- * Analog Devices ADSP-BF548 EZ-KIT Lite bus driver
- * Copyright (C) 2008-2011 Analog Devices, Inc.
+ * Analog Devices ADSP-BF609 EZ-BRD bus driver
+ * Copyright (C) 2011 Analog Devices, Inc.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
  * 02111-1307, USA.
  *
- * Written by Jie Zhang <jie.zhang@analog.com>, 2008.
+ * Written by Jie Zhang <jie.zhang@analog.com>, 2011.
  */
 
 #include "blackfin.h"
@@ -30,7 +30,7 @@ typedef struct
 } bus_params_t;
 
 static urj_bus_t *
-bf548_ezkit_bus_new (urj_chain_t *chain, const urj_bus_driver_t *driver,
+bf609_ezkit_bus_new (urj_chain_t *chain, const urj_bus_driver_t *driver,
                      const urj_param_t *cmd_params[])
 {
     urj_bus_t *bus;
@@ -44,13 +44,12 @@ bf548_ezkit_bus_new (urj_chain_t *chain, const urj_bus_driver_t *driver,
     part = bus->part;
 
     params = bus->params;
-    params->async_size = 64 * 1024 * 1024;
-    params->ams_cnt = 4;
-    params->abe_cnt = 2;
+    params->async_base = 0xb0000000;
+    params->async_size = 32 * 1024 * 1024;
+    params->ams_cnt = 1;
     params->addr_cnt = 24;
     params->data_cnt = 16;
-    failed |= urj_bus_generic_attach_sig (part, &params->dcs0, "CS0_B");
-    failed |= urj_bus_generic_attach_sig (part, &params->nce, "PJ1");
+    failed |= urj_bus_generic_attach_sig (part, &params->dcs0, "DDR_CS_b");
 
     failed |= bfin_bus_new (bus, cmd_params, NULL);
 
@@ -63,4 +62,4 @@ bf548_ezkit_bus_new (urj_chain_t *chain, const urj_bus_driver_t *driver,
     return bus;
 }
 
-BFIN_BUS_DECLARE(bf548_ezkit, "BF548 EZ-KIT board");
+BFIN_BUS_DECLARE(bf609_ezkit, "BF609 EZ-KIT board");

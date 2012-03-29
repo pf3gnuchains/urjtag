@@ -26,7 +26,6 @@ core
 .deps
 .libs
 Makefile
-Makefile.in
 
 #
 # specific autotool files
@@ -39,7 +38,6 @@ Makefile.in
 /config.h.in
 /config.log
 /config.status
-/configure
 /INSTALL
 /libtool
 /m4

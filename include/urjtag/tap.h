@@ -47,7 +47,13 @@ void urj_tap_shift_register (urj_chain_t *chain,
 /** @return number of detected parts on success; -1 on error */
 int urj_tap_detect_parts (urj_chain_t *chain, const char *db_path);
 /** @return chain length on success; -1 on error */
+int urj_tap_manual_add_at (urj_chain_t *chain, int n, char *name, int instr_len);
+/** @return chain length on success; -1 on error */
 int urj_tap_manual_add (urj_chain_t *chain, int instr_len);
+/** @return chain length on success; -1 on error */
+int urj_tap_manual_remove (urj_chain_t *chain, int n);
+/** @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
+int urj_tap_manual_init (urj_chain_t *chain, char *data_path);
 /** @return register size on success; -1 on error */
 int urj_tap_detect_register_size (urj_chain_t *chain);
 /** @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */

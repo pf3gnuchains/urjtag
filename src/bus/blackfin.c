@@ -190,6 +190,12 @@ bfin_select_flash (urj_bus_t *bus, uint32_t adr)
 
     bfin_select_flash_sdram (bus);
 
+    if (params->dcs0)
+        urj_part_set_signal (part, params->dcs0, 1, 1);
+
+    if (params->nce)
+        urj_part_set_signal (part, params->nce, 1, 1);
+
     if (params->select_flash)
         params->select_flash (bus, adr);
 }
@@ -211,6 +217,12 @@ bfin_unselect_flash (urj_bus_t *bus)
         urj_part_set_signal (part, params->hwait, 1, params->hwait_level);
 
     bfin_select_flash_sdram (bus);
+
+    if (params->dcs0)
+        urj_part_set_signal (part, params->dcs0, 1, 1);
+
+    if (params->nce)
+        urj_part_set_signal (part, params->nce, 1, 1);
 
     if (params->unselect_flash)
         params->unselect_flash (bus);

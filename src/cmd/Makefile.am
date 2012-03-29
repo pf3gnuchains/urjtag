@@ -65,7 +65,8 @@ all_cmd_files = \
 	cmd_cmd.c \
 	cmd_usleep.c \
 	cmd_bfin.c \
-	cmd_pld.c
+	cmd_pld.c \
+	cmd_sdu.c
 
 if ENABLE_SVF
 all_cmd_files += cmd_svf.c

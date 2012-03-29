@@ -39,6 +39,10 @@ typedef struct {
     int sdram, sms_cnt;
     urj_part_signal_t *scas, *sras, *swe, *sms[4];
 
+    urj_part_signal_t *dcs0;  /* DDR */
+
+    urj_part_signal_t *nce;   /* NAND */
+
     urj_part_signal_t *hwait;
     int hwait_level;
 

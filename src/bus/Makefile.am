@@ -59,7 +59,8 @@ libbus_la_SOURCES += \
 	bf533_stamp.c \
 	bf537_stamp.c \
 	bf548_ezkit.c \
-	bf561_ezkit.c
+	bf561_ezkit.c \
+	bf609_ezkit.c
 endif
 
 if ENABLE_BUS_BSCOACH

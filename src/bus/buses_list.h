@@ -54,6 +54,7 @@ _URJ_BUS(bf538f_ezkit)
 _URJ_BUS(bf53x)
 _URJ_BUS(bf548_ezkit)
 _URJ_BUS(bf561_ezkit)
+_URJ_BUS(bf609_ezkit)
 #endif
 #ifdef ENABLE_BUS_BSCOACH
 _URJ_BUS(bscoach)

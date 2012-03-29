@@ -1,0 +1,1006 @@
+signal VDD_INT(0)
+signal VDD_INT(1)
+signal VDD_INT(2)
+signal VDD_INT(3)
+signal VDD_INT(4)
+signal VDD_INT(5)
+signal VDD_INT(6)
+signal VDD_INT(7)
+signal VDD_INT(8)
+signal VDD_INT(9)
+signal VDD_INT(10)
+signal VDD_INT(11)
+signal VDD_INT(12)
+signal VDD_INT(13)
+signal VDD_INT(14)
+signal VDD_INT(15)
+signal VDD_INT(16)
+signal VDD_INT(17)
+signal VDD_INT(18)
+signal VDD_INT(19)
+signal VDD_INT(20)
+signal VDD_INT(21)
+signal VDD_INT(22)
+signal VDD_INT(23)
+signal VDD_EXT(0)
+signal VDD_EXT(1)
+signal VDD_EXT(2)
+signal VDD_EXT(3)
+signal VDD_EXT(4)
+signal VDD_EXT(5)
+signal VDD_EXT(6)
+signal VDD_EXT(7)
+signal VDD_EXT(8)
+signal VDD_EXT(9)
+signal VDD_EXT(10)
+signal VDD_EXT(11)
+signal VDD_EXT(12)
+signal VDD_EXT(13)
+signal VDD_EXT(14)
+signal VDD_EXT(15)
+signal VDD_EXT(16)
+signal VDD_EXT(17)
+signal VDD_EXT(18)
+signal VDD_EXT(19)
+signal VDD_EXT(20)
+signal VDD_EXT(21)
+signal VDD_EXT(22)
+signal VDD_EXT(23)
+signal VDD_EXT(24)
+signal VDD_EXT(25)
+signal VDD_EXT(26)
+signal VDD_EXT(27)
+signal VDD_EXT(28)
+signal VDD_EXT(29)
+signal VDD_DMC(0)
+signal VDD_DMC(1)
+signal VDD_DMC(2)
+signal VDD_DMC(3)
+signal VDD_DMC(4)
+signal VDD_DMC(5)
+signal VDD_DMC(6)
+signal VDD_DMC(7)
+signal VDD_DMC(8)
+signal VDD_DMC(9)
+signal VDD_DMC(10)
+signal VDD_DMC(11)
+signal VDD_DMC(12)
+signal VDD_DMC(13)
+signal VDD_DMC(14)
+signal VDD_DMC(15)
+signal VDD_TD
+signal VDD_USB
+signal GND(0)
+signal GND(1)
+signal GND(2)
+signal GND(3)
+signal GND(4)
+signal GND(5)
+signal GND(6)
+signal GND(7)
+signal GND(8)
+signal GND(9)
+signal GND(10)
+signal GND(11)
+signal GND(12)
+signal GND(13)
+signal GND(14)
+signal GND(15)
+signal GND(16)
+signal GND(17)
+signal GND(18)
+signal GND(19)
+signal GND(20)
+signal GND(21)
+signal GND(22)
+signal GND(23)
+signal GND(24)
+signal GND(25)
+signal GND(26)
+signal GND(27)
+signal GND(28)
+signal GND(29)
+signal GND(30)
+signal GND(31)
+signal GND(32)
+signal GND(33)
+signal GND(34)
+signal GND(35)
+signal GND(36)
+signal GND(37)
+signal GND(38)
+signal GND(39)
+signal GND(40)
+signal GND(41)
+signal GND(42)
+signal GND(43)
+signal GND(44)
+signal GND(45)
+signal GND(46)
+signal GND(47)
+signal GND(48)
+signal GND(49)
+signal GND(50)
+signal GND(51)
+signal GND(52)
+signal GND(53)
+signal GND(54)
+signal GND(55)
+signal GND(56)
+signal GND(57)
+signal GND(58)
+signal GND(59)
+signal GND(60)
+signal GND(61)
+signal GND(62)
+signal SYS_XTAL
+signal SYS_EXTWAKE
+signal VREF_DMC
+signal USB0_VBC
+signal USB0_VBUS
+signal USB0_ID
+signal USB0_DP
+signal USB0_DM
+signal USB0_CLKIN
+signal JTG_TRST_b
+signal JTG_TMS
+signal JTG_TDO
+signal SYS_TDA
+signal SYS_TDK
+signal JTG_TDI
+signal JTG_TCK
+signal TWI1_SDA
+signal TWI0_SDA
+signal TWI1_SCL
+signal TWI0_SCL
+signal SYS_NMI_RESOUT_b
+signal SYS_HWRST_b
+signal SYS_PWRGD
+signal PG_09
+signal PG_08
+signal PG_07
+signal PG_06
+signal PG_05
+signal PG_04
+signal PG_03
+signal PG_02
+signal PG_15
+signal PG_14
+signal PG_13
+signal PG_12
+signal PG_11
+signal PG_10
+signal PG_01
+signal PG_00
+signal PF_09
+signal PF_08
+signal PF_07
+signal PF_06
+signal PF_05
+signal PF_04
+signal PF_03
+signal PF_02
+signal PF_15
+signal PF_14
+signal PF_13
+signal PF_12
+signal PF_11
+signal PF_10
+signal PF_01
+signal PF_00
+signal PE_09
+signal PE_08
+signal PE_07
+signal PE_06
+signal PE_05
+signal PE_04
+signal PE_03
+signal PE_02
+signal PE_15
+signal PE_14
+signal PE_13
+signal PE_12
+signal PE_11
+signal PE_10
+signal PE_01
+signal PE_00
+signal PD_09
+signal PD_08
+signal PD_07
+signal PD_06
+signal PD_05
+signal PD_04
+signal PD_03
+signal PD_02
+signal PD_15
+signal PD_14
+signal PD_13
+signal PD_12
+signal PD_11
+signal PD_10
+signal PD_01
+signal PD_00
+signal PC_09
+signal PC_08
+signal PC_07
+signal PC_06
+signal PC_05
+signal PC_04
+signal PC_03
+signal PC_02
+signal PC_15
+signal PC_14
+signal PC_13
+signal PC_12
+signal PC_11
+signal PC_10
+signal PC_01
+signal PC_00
+signal PB_09
+signal PB_08
+signal PB_07
+signal PB_06
+signal PB_05
+signal PB_04
+signal PB_03
+signal PB_02
+signal PB_15
+signal PB_14
+signal PB_13
+signal PB_12
+signal PB_11
+signal PB_10
+signal PB_01
+signal PB_00
+signal PA_09
+signal PA_08
+signal PA_07
+signal PA_06
+signal PA_05
+signal PA_04
+signal PA_03
+signal PA_02
+signal PA_15
+signal PA_14
+signal PA_13
+signal PA_12
+signal PA_11
+signal PA_10
+signal PA_01
+signal PA_00
+signal SYS_FAULT_b
+signal SYS_FAULT
+signal JTG_EMU_b
+signal DMC0_CK_b
+signal DMC0_CK
+signal DMC0_WE_b
+signal DMC0_RAS_b
+signal DMC0_ODT
+signal DMC0_UDQS_b
+signal DMC0_UDQS
+signal DMC0_LDQS_b
+signal DMC0_LDQS
+signal DMC0_UDM
+signal DMC0_LDM
+signal DMC0_CKE
+signal DMC0_DQ09
+signal DMC0_DQ08
+signal DMC0_DQ07
+signal DMC0_DQ06
+signal DMC0_DQ05
+signal DMC0_DQ04
+signal DMC0_DQ03
+signal DMC0_DQ02
+signal DMC0_DQ15
+signal DMC0_DQ14
+signal DMC0_DQ13
+signal DMC0_DQ12
+signal DMC0_DQ11
+signal DMC0_DQ10
+signal DMC0_DQ01
+signal DMC0_DQ00
+signal DMC0_CS0_b
+signal DMC0_CAS_b
+signal DMC0_BA2
+signal DMC0_BA1
+signal DMC0_BA0
+signal DMC0_A09
+signal DMC0_A08
+signal DMC0_A07
+signal DMC0_A06
+signal DMC0_A05
+signal DMC0_A04
+signal DMC0_A03
+signal DMC0_A02
+signal DMC0_A13
+signal DMC0_A12
+signal DMC0_A11
+signal DMC0_A10
+signal DMC0_A01
+signal DMC0_A00
+signal SMC0_D09
+signal SMC0_D08
+signal SMC0_D07
+signal SMC0_D06
+signal SMC0_D05
+signal SMC0_D04
+signal SMC0_D03
+signal SMC0_D02
+signal SMC0_D15
+signal SMC0_D14
+signal SMC0_D13
+signal SMC0_D12
+signal SMC0_D11
+signal SMC0_D10
+signal SMC0_D01
+signal SMC0_D00
+signal SYS_CLKOUT
+signal SYS_CLKIN
+signal SMC0_BR_b
+signal SYS_BMODE2
+signal SYS_BMODE1
+signal SYS_BMODE0
+signal SMC0_AWE_b
+signal SMC0_ARE_b
+signal SMC0_ARDY_NORWT
+signal SMC0_AOE_NORDV_b
+signal SMC0_AMS0_b
+signal SMC0_A02
+signal SMC0_A01
+
+salias ADDR1 SMC0_A01
+salias ADDR2 SMC0_A02
+salias ADDR3 PA_00
+salias ADDR4 PA_01
+salias ADDR5 PA_02
+salias ADDR6 PA_03
+salias ADDR7 PA_04
+salias ADDR8 PA_05
+salias ADDR9 PA_06
+salias ADDR10 PA_07
+salias ADDR11 PA_08
+salias ADDR12 PA_09
+salias ADDR13 PB_02
+salias ADDR14 PA_10
+salias ADDR15 PA_11
+salias ADDR16 PB_03
+salias ADDR17 PA_12
+salias ADDR18 PA_13
+salias ADDR19 PA_14
+salias ADDR20 PA_15
+salias ADDR21 PB_06
+salias ADDR22 PB_07
+salias ADDR23 PB_08
+salias ADDR24 PB_10
+salias DATA0 SMC0_D00
+salias DATA1 SMC0_D01
+salias DATA2 SMC0_D02
+salias DATA3 SMC0_D03
+salias DATA4 SMC0_D04
+salias DATA5 SMC0_D05
+salias DATA6 SMC0_D06
+salias DATA7 SMC0_D07
+salias DATA8 SMC0_D08
+salias DATA9 SMC0_D09
+salias DATA10 SMC0_D10
+salias DATA11 SMC0_D11
+salias DATA12 SMC0_D12
+salias DATA13 SMC0_D13
+salias DATA14 SMC0_D14
+salias DATA15 SMC0_D15
+salias DDR_CS_b DMC0_CS0_b
+salias AWE_B SMC0_AWE_b
+salias ARE_B SMC0_ARE_b
+salias AOE_B SMC0_AOE_NORDV_b
+salias AMS_B0 SMC0_AMS0_b
+
+instruction length 5
+
+register DIR 32
+register BSR 568
+register BYPASS 1
+
+instruction IDCODE 00010 DIR
+instruction PRELOAD 10000 BSR
+instruction SAMPLE/PRELOAD 10000 BSR
+instruction EXTEST 00000 BSR
+instruction BYPASS 11111 BYPASS
+
+register SEL_SMS_WDR 3
+register SEL_SMS_WIR 18
+register SEL_JPC_WDR 1
+register SEL_JPC_WIR 6
+
+instruction SEL_SMS_WDR_SCAN 00001 SEL_SMS_WDR
+instruction SEL_SMS_WIR_SCAN 10001 SEL_SMS_WIR
+instruction SEL_JPC_WDR_SCAN 01001 SEL_JPC_WDR
+instruction SEL_JPC_WIR_SCAN 11001 SEL_JPC_WIR
+
+register SDU_CTL 16
+register SDU_STAT 32
+register SDU_MACCTL 5
+register SDU_MACADDR 32
+register SDU_MACDATA 32
+register SDU_DMARD 32
+register SDU_DMAWD 32
+register SDU_SCANMODE 1
+register SDU_SCANATSPEED 1
+
+instruction SDU_CTL_SCAN 00101 SDU_CTL
+instruction SDU_STAT_SCAN 10101 SDU_STAT
+instruction SDU_MACCTL_SCAN 01101 SDU_MACCTL
+instruction SDU_MACADDR_SCAN 11101 SDU_MACADDR
+instruction SDU_MACDATA_SCAN 00011 SDU_MACDATA
+instruction SDU_DMARD_SCAN 10011 SDU_DMARD
+instruction SDU_DMAWD_SCAN 01011 SDU_DMAWD
+instruction SDU_SCANMODE_SCAN 10111 SDU_SCANMODE
+instruction SDU_SCANATSPEED_SCAN 11011 SDU_SCANATSPEED
+
+bit 0 O ? DMC0_A02 78 0 Z
+bit 1 O ? DMC0_A00 78 0 Z
+bit 2 O ? DMC0_A08 78 0 Z
+bit 3 O ? DMC0_A06 78 0 Z
+bit 4 O ? DMC0_A04 78 0 Z
+bit 5 O ? DMC0_BA1 78 0 Z
+bit 6 O ? DMC0_A11 78 0 Z
+bit 7 O ? DMC0_A13 78 0 Z
+bit 8 O ? DMC0_A01 78 0 Z
+bit 9 O ? DMC0_A05 78 0 Z
+bit 10 O ? DMC0_A09 78 0 Z
+bit 11 O ? DMC0_A12 78 0 Z
+bit 12 O ? DMC0_A07 78 0 Z
+bit 13 O ? DMC0_A03 78 0 Z
+bit 14 O ? DMC0_A10 78 0 Z
+bit 15 O ? DMC0_BA0 78 0 Z
+bit 16 O ? DMC0_BA2 78 0 Z
+bit 17 I ? DMC0_DQ05
+bit 18 O 0 DMC0_DQ05 62 0 Z
+bit 19 I ? DMC0_DQ02
+bit 20 O 0 DMC0_DQ02 62 0 Z
+bit 21 O ? DMC0_CKE 79 0 Z
+bit 22 I ? DMC0_DQ03
+bit 23 O 0 DMC0_DQ03 62 0 Z
+bit 24 I ? DMC0_DQ04
+bit 25 O 0 DMC0_DQ04 62 0 Z
+bit 26 O ? DMC0_WE_b 78 0 Z
+bit 27 I ? DMC0_DQ01
+bit 28 O 0 DMC0_DQ01 62 0 Z
+bit 29 I ? DMC0_DQ00
+bit 30 O 0 DMC0_DQ00 62 0 Z
+bit 31 I ? DMC0_DQ06
+bit 32 O 0 DMC0_DQ06 62 0 Z
+bit 33 I ? DMC0_DQ07
+bit 34 O 0 DMC0_DQ07 62 0 Z
+bit 35 O ? DMC0_CK 74 0 Z
+bit 36 I ? DMC0_LDQS
+bit 37 O ? DMC0_LDQS 63 0 Z
+bit 38 O ? DMC0_LDM 78 0 Z
+bit 39 I ? DMC0_DQ11
+bit 40 O 0 DMC0_DQ11 62 0 Z
+bit 41 I ? DMC0_DQ12
+bit 42 O 0 DMC0_DQ12 62 0 Z
+bit 43 O ? DMC0_ODT 78 0 Z
+bit 44 I ? DMC0_DQ14
+bit 45 O 0 DMC0_DQ14 62 0 Z
+bit 46 I ? DMC0_DQ09
+bit 47 O 0 DMC0_DQ09 62 0 Z
+bit 48 O ? DMC0_RAS_b 78 0 Z
+bit 49 I ? DMC0_UDQS
+bit 50 O ? DMC0_UDQS 63 0 Z
+bit 51 O ? DMC0_UDM 78 0 Z
+bit 52 I ? DMC0_DQ08
+bit 53 O 0 DMC0_DQ08 62 0 Z
+bit 54 I ? DMC0_DQ15
+bit 55 O 0 DMC0_DQ15 62 0 Z
+bit 56 O ? DMC0_CS0_b 78 0 Z
+bit 57 I ? DMC0_DQ13
+bit 58 O 0 DMC0_DQ13 62 0 Z
+bit 59 I ? DMC0_DQ10
+bit 60 O 0 DMC0_DQ10 62 0 Z
+bit 61 O ? DMC0_CAS_b 78 0 Z
+bit 62 C 0 *
+bit 63 C 0 *
+bit 64 O 0 *
+bit 65 O 0 *
+bit 66 O 0 *
+bit 67 O 0 *
+bit 68 O 0 *
+bit 69 O 0 *
+bit 70 O 0 *
+bit 71 O 0 *
+bit 72 O 0 *
+bit 73 O 0 *
+bit 74 C 0 *
+bit 75 O 0 *
+bit 76 O 0 *
+bit 77 O 0 *
+bit 78 C 0 *
+bit 79 C 0 *
+bit 80 O 0 *
+bit 81 O 0 *
+bit 82 I ? TWI0_SDA
+bit 83 O ? TWI0_SDA 84 0 Z
+bit 84 C 0 *
+bit 85 I ? TWI0_SCL
+bit 86 O ? TWI0_SCL 87 0 Z
+bit 87 C 0 *
+bit 88 I ? TWI1_SDA
+bit 89 O ? TWI1_SDA 90 0 Z
+bit 90 C 0 *
+bit 91 I ? TWI1_SCL
+bit 92 O ? TWI1_SCL 93 0 Z
+bit 93 C 0 *
+bit 94 I ? SMC0_ARDY_NORWT
+bit 95 I ? SMC0_D11
+bit 96 O ? SMC0_D11 222 0 Z
+bit 97 I ? SMC0_D14
+bit 98 O ? SMC0_D14 222 0 Z
+bit 99 O ? SMC0_AOE_NORDV_b 223 0 Z
+bit 100 I ? SMC0_D13
+bit 101 O ? SMC0_D13 222 0 Z
+bit 102 I ? SMC0_D08
+bit 103 O ? SMC0_D08 222 0 Z
+bit 104 O ? SMC0_ARE_b 223 0 Z
+bit 105 I ? SMC0_D05
+bit 106 O ? SMC0_D05 222 0 Z
+bit 107 I ? SMC0_D15
+bit 108 O ? SMC0_D15 222 0 Z
+bit 109 O ? SMC0_AWE_b 223 0 Z
+bit 110 I ? SMC0_D10
+bit 111 O ? SMC0_D10 222 0 Z
+bit 112 I ? SMC0_D07
+bit 113 O ? SMC0_D07 222 0 Z
+bit 114 I ? SMC0_D02
+bit 115 O ? SMC0_D02 222 0 Z
+bit 116 I ? SMC0_D12
+bit 117 O ? SMC0_D12 222 0 Z
+bit 118 I ? SMC0_D04
+bit 119 O ? SMC0_D04 222 0 Z
+bit 120 I ? SMC0_D09
+bit 121 O ? SMC0_D09 222 0 Z
+bit 122 I ? SMC0_D06
+bit 123 O ? SMC0_D06 222 0 Z
+bit 124 I ? SMC0_D03
+bit 125 O ? SMC0_D03 222 0 Z
+bit 126 O ? SMC0_AMS0_b 223 0 Z
+bit 127 I ? SMC0_D01
+bit 128 O ? SMC0_D01 222 0 Z
+bit 129 I ? SMC0_D00
+bit 130 O ? SMC0_D00 222 0 Z
+bit 131 O ? SMC0_A02 223 0 Z
+bit 132 O ? SMC0_A01 223 0 Z
+bit 133 I ? PA_01
+bit 134 O ? PA_01 135 0 Z
+bit 135 C 0 *
+bit 136 I ? PA_00
+bit 137 O ? PA_00 138 0 Z
+bit 138 C 0 *
+bit 139 I ? SMC0_BR_b
+bit 140 I ? PA_03
+bit 141 O ? PA_03 142 0 Z
+bit 142 C 0 *
+bit 143 I ? PA_05
+bit 144 O ? PA_05 145 0 Z
+bit 145 C 0 *
+bit 146 I ? PA_02
+bit 147 O ? PA_02 148 0 Z
+bit 148 C 0 *
+bit 149 I ? PA_04
+bit 150 O ? PA_04 151 0 Z
+bit 151 C 0 *
+bit 152 I ? PA_07
+bit 153 O ? PA_07 154 0 Z
+bit 154 C 0 *
+bit 155 I ? PB_00
+bit 156 O ? PB_00 157 0 Z
+bit 157 C 0 *
+bit 158 I ? PA_06
+bit 159 O ? PA_06 160 0 Z
+bit 160 C 0 *
+bit 161 I ? PA_08
+bit 162 O ? PA_08 163 0 Z
+bit 163 C 0 *
+bit 164 I ? PB_01
+bit 165 O ? PB_01 166 0 Z
+bit 166 C 0 *
+bit 167 I ? PA_09
+bit 168 O ? PA_09 169 0 Z
+bit 169 C 0 *
+bit 170 I ? PA_11
+bit 171 O ? PA_11 172 0 Z
+bit 172 C 0 *
+bit 173 I ? PB_02
+bit 174 O ? PB_02 175 0 Z
+bit 175 C 0 *
+bit 176 I ? PA_10
+bit 177 O ? PA_10 178 0 Z
+bit 178 C 0 *
+bit 179 I ? PA_12
+bit 180 O ? PA_12 181 0 Z
+bit 181 C 0 *
+bit 182 I ? PB_03
+bit 183 O ? PB_03 184 0 Z
+bit 184 C 0 *
+bit 185 I ? PA_13
+bit 186 O ? PA_13 187 0 Z
+bit 187 C 0 *
+bit 188 I ? PA_14
+bit 189 O ? PA_14 190 0 Z
+bit 190 C 0 *
+bit 191 I ? PB_04
+bit 192 O ? PB_04 193 0 Z
+bit 193 C 0 *
+bit 194 I ? PB_07
+bit 195 O ? PB_07 196 0 Z
+bit 196 C 0 *
+bit 197 I ? PA_15
+bit 198 O ? PA_15 199 0 Z
+bit 199 C 0 *
+bit 200 I ? PB_05
+bit 201 O ? PB_05 202 0 Z
+bit 202 C 0 *
+bit 203 I ? PB_06
+bit 204 O ? PB_06 205 0 Z
+bit 205 C 0 *
+bit 206 I ? PB_08
+bit 207 O ? PB_08 208 0 Z
+bit 208 C 0 *
+bit 209 I ? PB_09
+bit 210 O ? PB_09 211 0 Z
+bit 211 C 0 *
+bit 212 I ? PB_11
+bit 213 O ? PB_11 214 0 Z
+bit 214 C 0 *
+bit 215 I ? PB_10
+bit 216 O ? PB_10 217 0 Z
+bit 217 C 0 *
+bit 218 I ? PB_12
+bit 219 O ? PB_12 220 0 Z
+bit 220 C 0 *
+bit 221 O 0 *
+bit 222 C 0 *
+bit 223 C 0 *
+bit 224 O 0 *
+bit 225 O 0 *
+bit 226 O 0 *
+bit 227 O 0 *
+bit 228 O 0 *
+bit 229 O 0 *
+bit 230 O 0 *
+bit 231 O 0 *
+bit 232 O 0 *
+bit 233 O 0 *
+bit 234 O 0 *
+bit 235 O 0 *
+bit 236 O 0 *
+bit 237 O 0 *
+bit 238 O 0 *
+bit 239 O 0 *
+bit 240 O ? JTG_EMU_b 247 0 Z
+bit 241 I ? SYS_FAULT_b
+bit 242 O ? SYS_FAULT_b 243 0 Z
+bit 243 C 0 *
+bit 244 I ? SYS_NMI_RESOUT_b
+bit 245 O ? SYS_NMI_RESOUT_b 246 0 Z
+bit 246 C 0 *
+bit 247 C 0 *
+bit 248 O 0 *
+bit 249 O 0 *
+bit 250 O 0 *
+bit 251 O 0 *
+bit 252 O 0 *
+bit 253 O 0 *
+bit 254 O 0 *
+bit 255 O 0 *
+bit 256 O 0 *
+bit 257 O 0 *
+bit 258 O 0 *
+bit 259 O 0 *
+bit 260 O 0 *
+bit 261 O 0 *
+bit 262 O 0 *
+bit 263 O 0 *
+bit 264 O 0 *
+bit 265 O 0 *
+bit 266 O 0 *
+bit 267 O 0 *
+bit 268 O 0 *
+bit 269 O 0 *
+bit 270 O 0 *
+bit 271 O 0 *
+bit 272 O 0 *
+bit 273 O 0 *
+bit 274 O ? *
+bit 275 O ? *
+bit 276 O ? *
+bit 277 O ? *
+bit 278 O ? *
+bit 279 O ? *
+bit 280 O ? *
+bit 281 O ? *
+bit 282 O ? *
+bit 283 O ? *
+bit 284 O ? *
+bit 285 O ? *
+bit 286 O ? *
+bit 287 O ? *
+bit 288 O ? *
+bit 289 O ? *
+bit 290 I ? SYS_FAULT
+bit 291 O ? SYS_FAULT 292 0 Z
+bit 292 C 0 *
+bit 293 I 0 SYS_HWRST_b
+bit 294 I ? SYS_BMODE2
+bit 295 I ? SYS_BMODE1
+bit 296 I ? SYS_BMODE0
+bit 297 I ? SYS_PWRGD
+bit 298 I ? PB_13
+bit 299 O ? PB_13 300 0 Z
+bit 300 C 0 *
+bit 301 I ? PC_00
+bit 302 O ? PC_00 303 0 Z
+bit 303 C 0 *
+bit 304 I ? PC_02
+bit 305 O ? PC_02 306 0 Z
+bit 306 C 0 *
+bit 307 I ? PB_14
+bit 308 O ? PB_14 309 0 Z
+bit 309 C 0 *
+bit 310 I ? PC_01
+bit 311 O ? PC_01 312 0 Z
+bit 312 C 0 *
+bit 313 I ? PC_04
+bit 314 O ? PC_04 315 0 Z
+bit 315 C 0 *
+bit 316 I ? PC_03
+bit 317 O ? PC_03 318 0 Z
+bit 318 C 0 *
+bit 319 I ? PC_06
+bit 320 O ? PC_06 321 0 Z
+bit 321 C 0 *
+bit 322 I ? PC_05
+bit 323 O ? PC_05 324 0 Z
+bit 324 C 0 *
+bit 325 I ? PB_15
+bit 326 O ? PB_15 327 0 Z
+bit 327 C 0 *
+bit 328 I ? PC_08
+bit 329 O ? PC_08 330 0 Z
+bit 330 C 0 *
+bit 331 I ? PC_07
+bit 332 O ? PC_07 333 0 Z
+bit 333 C 0 *
+bit 334 O 0 SYS_CLKOUT
+bit 335 I ? PC_10
+bit 336 O ? PC_10 337 0 Z
+bit 337 C 0 *
+bit 338 I ? PC_09
+bit 339 O ? PC_09 340 0 Z
+bit 340 C 0 *
+bit 341 I ? PD_06
+bit 342 O ? PD_06 343 0 Z
+bit 343 C 0 *
+bit 344 I ? PC_12
+bit 345 O ? PC_12 346 0 Z
+bit 346 C 0 *
+bit 347 I ? PC_11
+bit 348 O ? PC_11 349 0 Z
+bit 349 C 0 *
+bit 350 I ? PD_07
+bit 351 O ? PD_07 352 0 Z
+bit 352 C 0 *
+bit 353 I ? PD_08
+bit 354 O ? PD_08 355 0 Z
+bit 355 C 0 *
+bit 356 I ? PC_13
+bit 357 O ? PC_13 358 0 Z
+bit 358 C 0 *
+bit 359 I ? PC_14
+bit 360 O ? PC_14 361 0 Z
+bit 361 C 0 *
+bit 362 I ? PD_00
+bit 363 O ? PD_00 364 0 Z
+bit 364 C 0 *
+bit 365 I ? PD_09
+bit 366 O ? PD_09 367 0 Z
+bit 367 C 0 *
+bit 368 I ? PC_15
+bit 369 O ? PC_15 370 0 Z
+bit 370 C 0 *
+bit 371 I ? PD_04
+bit 372 O ? PD_04 373 0 Z
+bit 373 C 0 *
+bit 374 I ? PD_01
+bit 375 O ? PD_01 376 0 Z
+bit 376 C 0 *
+bit 377 I ? PD_10
+bit 378 O ? PD_10 379 0 Z
+bit 379 C 0 *
+bit 380 I ? PD_03
+bit 381 O ? PD_03 382 0 Z
+bit 382 C 0 *
+bit 383 I ? PD_11
+bit 384 O ? PD_11 385 0 Z
+bit 385 C 0 *
+bit 386 I ? PD_05
+bit 387 O ? PD_05 388 0 Z
+bit 388 C 0 *
+bit 389 I ? PD_02
+bit 390 O ? PD_02 391 0 Z
+bit 391 C 0 *
+bit 392 I ? PD_13
+bit 393 O ? PD_13 394 0 Z
+bit 394 C 0 *
+bit 395 I ? PE_00
+bit 396 O ? PE_00 397 0 Z
+bit 397 C 0 *
+bit 398 I ? PD_12
+bit 399 O ? PD_12 400 0 Z
+bit 400 C 0 *
+bit 401 I ? PD_14
+bit 402 O ? PD_14 403 0 Z
+bit 403 C 0 *
+bit 404 I ? PE_01
+bit 405 O ? PE_01 406 0 Z
+bit 406 C 0 *
+bit 407 I ? PE_02
+bit 408 O ? PE_02 409 0 Z
+bit 409 C 0 *
+bit 410 I ? PD_15
+bit 411 O ? PD_15 412 0 Z
+bit 412 C 0 *
+bit 413 I ? PE_03
+bit 414 O ? PE_03 415 0 Z
+bit 415 C 0 *
+bit 416 I ? PE_05
+bit 417 O ? PE_05 418 0 Z
+bit 418 C 0 *
+bit 419 O 0 *
+bit 420 O 0 *
+bit 421 O 0 *
+bit 422 O 0 *
+bit 423 O 0 *
+bit 424 O 0 *
+bit 425 I ? PE_04
+bit 426 O ? PE_04 427 0 Z
+bit 427 C 0 *
+bit 428 I ? PF_15
+bit 429 O ? PF_15 430 0 Z
+bit 430 C 0 *
+bit 431 I ? PE_06
+bit 432 O ? PE_06 433 0 Z
+bit 433 C 0 *
+bit 434 I ? PF_14
+bit 435 O ? PF_14 436 0 Z
+bit 436 C 0 *
+bit 437 I ? PF_12
+bit 438 O ? PF_12 439 0 Z
+bit 439 C 0 *
+bit 440 I ? PE_07
+bit 441 O ? PE_07 442 0 Z
+bit 442 C 0 *
+bit 443 I ? PF_11
+bit 444 O ? PF_11 445 0 Z
+bit 445 C 0 *
+bit 446 I ? PF_13
+bit 447 O ? PF_13 448 0 Z
+bit 448 C 0 *
+bit 449 I ? PF_08
+bit 450 O ? PF_08 451 0 Z
+bit 451 C 0 *
+bit 452 I ? PF_10
+bit 453 O ? PF_10 454 0 Z
+bit 454 C 0 *
+bit 455 I ? PF_09
+bit 456 O ? PF_09 457 0 Z
+bit 457 C 0 *
+bit 458 I ? PE_09
+bit 459 O ? PE_09 460 0 Z
+bit 460 C 0 *
+bit 461 I ? PF_06
+bit 462 O ? PF_06 463 0 Z
+bit 463 C 0 *
+bit 464 I ? PF_07
+bit 465 O ? PF_07 466 0 Z
+bit 466 C 0 *
+bit 467 I ? PF_05
+bit 468 O ? PF_05 469 0 Z
+bit 469 C 0 *
+bit 470 I ? PF_03
+bit 471 O ? PF_03 472 0 Z
+bit 472 C 0 *
+bit 473 I ? PF_02
+bit 474 O ? PF_02 475 0 Z
+bit 475 C 0 *
+bit 476 I ? PF_01
+bit 477 O ? PF_01 478 0 Z
+bit 478 C 0 *
+bit 479 I ? PE_13
+bit 480 O ? PE_13 481 0 Z
+bit 481 C 0 *
+bit 482 I ? PF_00
+bit 483 O ? PF_00 484 0 Z
+bit 484 C 0 *
+bit 485 I ? PE_12
+bit 486 O ? PE_12 487 0 Z
+bit 487 C 0 *
+bit 488 I ? PE_08
+bit 489 O ? PE_08 490 0 Z
+bit 490 C 0 *
+bit 491 I ? PF_04
+bit 492 O ? PF_04 493 0 Z
+bit 493 C 0 *
+bit 494 I ? PE_10
+bit 495 O ? PE_10 496 0 Z
+bit 496 C 0 *
+bit 497 I ? PG_00
+bit 498 O ? PG_00 499 0 Z
+bit 499 C 0 *
+bit 500 I ? PG_03
+bit 501 O ? PG_03 502 0 Z
+bit 502 C 0 *
+bit 503 I ? PE_11
+bit 504 O ? PE_11 505 0 Z
+bit 505 C 0 *
+bit 506 I ? PE_15
+bit 507 O ? PE_15 508 0 Z
+bit 508 C 0 *
+bit 509 I ? PG_06
+bit 510 O ? PG_06 511 0 Z
+bit 511 C 0 *
+bit 512 I ? PE_14
+bit 513 O ? PE_14 514 0 Z
+bit 514 C 0 *
+bit 515 I ? PG_02
+bit 516 O ? PG_02 517 0 Z
+bit 517 C 0 *
+bit 518 I ? PG_09
+bit 519 O ? PG_09 520 0 Z
+bit 520 C 0 *
+bit 521 I ? PG_05
+bit 522 O ? PG_05 523 0 Z
+bit 523 C 0 *
+bit 524 I ? PG_01
+bit 525 O ? PG_01 526 0 Z
+bit 526 C 0 *
+bit 527 I ? PG_08
+bit 528 O ? PG_08 529 0 Z
+bit 529 C 0 *
+bit 530 I ? PG_12
+bit 531 O ? PG_12 532 0 Z
+bit 532 C 0 *
+bit 533 I ? PG_04
+bit 534 O ? PG_04 535 0 Z
+bit 535 C 0 *
+bit 536 I ? PG_14
+bit 537 O ? PG_14 538 0 Z
+bit 538 C 0 *
+bit 539 I ? PG_11
+bit 540 O ? PG_11 541 0 Z
+bit 541 C 0 *
+bit 542 I ? PG_07
+bit 543 O ? PG_07 544 0 Z
+bit 544 C 0 *
+bit 545 I ? PG_15
+bit 546 O ? PG_15 547 0 Z
+bit 547 C 0 *
+bit 548 I ? PG_13
+bit 549 O ? PG_13 550 0 Z
+bit 550 C 0 *
+bit 551 I ? PG_10
+bit 552 O ? PG_10 553 0 Z
+bit 553 C 0 *
+bit 554 O 0 *
+bit 555 O 0 *
+bit 556 O 0 *
+bit 557 O 0 *
+bit 558 O 0 *
+bit 559 O 0 *
+bit 560 O 0 *
+bit 561 O 0 *
+bit 562 O 0 *
+bit 563 O 0 *
+bit 564 O 0 *
+bit 565 O 0 *
+bit 566 O 0 *
+bit 567 O 0 *

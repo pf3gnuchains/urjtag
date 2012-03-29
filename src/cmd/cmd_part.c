@@ -31,6 +31,7 @@
 #include <urjtag/error.h>
 #include <urjtag/chain.h>
 #include <urjtag/part.h>
+#include <urjtag/tap.h>
 
 #include <urjtag/cmd.h>
 
@@ -52,13 +53,13 @@ cmd_part_run (urj_chain_t *chain, char *params[])
 /* part alias U1 (3 params) */
     if (urj_cmd_params (params) == 3)
     {
+        urj_part_t *part = urj_tap_chain_active_part (chain);
+
+        if (part == NULL)
+            return URJ_STATUS_FAIL;
+
         if (strcasecmp (params[1], "alias") == 0)
         {
-            urj_part_t *part = urj_tap_chain_active_part (chain);
-
-            if (part == NULL)
-                return URJ_STATUS_FAIL;
-
             part->alias = strdup (params[2]);
             if (part->alias == NULL)
             {
@@ -66,7 +67,16 @@ cmd_part_run (urj_chain_t *chain, char *params[])
                               params[2]);
                 return URJ_STATUS_FAIL;
             }
-
+            return URJ_STATUS_OK;
+        }
+        else if (strcasecmp (params[1], "name") == 0)
+        {
+            strncpy (part->part, params[2], URJ_PART_PART_MAXLEN);
+            return URJ_STATUS_OK;
+        }
+        else if (strcasecmp (params[1], "init") == 0)
+        {
+            urj_tap_manual_init (chain, params[2]);
             return URJ_STATUS_OK;
         }
     }
@@ -157,11 +167,17 @@ static void
 cmd_part_help (void)
 {
     urj_log (URJ_LOG_LEVEL_NORMAL,
-             _("Usage: %s [PART|ALIAS]\n"
-               "Change active part for current JTAG chain.\n\n"
-               "Usage: %s ALIAS\n"
-               "Assign an alias for the active part.\n"),
-             "part", "part alias");
+             _("Usage: %s PART\n"
+               "Usage: %s alias ALIAS\n"
+               "Usage: %s name NAME\n"
+               "Usage: %s init DATA_FILE\n"
+               "Change active part for current JTAG chain or set alias/name for the active part or initialize the active part with the DATA_FILE.\n"
+               "\n"
+               "PART          part number\n"
+               "ALIAS         part alias\n"
+               "NAME          part name\n"
+               "DATA_FILE     part data file\n"),
+             "part", "part", "part", "part");
 }
 
 const urj_cmd_t urj_cmd_part = {

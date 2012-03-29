@@ -422,9 +422,13 @@ urj_part_parts_free (urj_parts_t *ps)
     free (ps);
 }
 
+/* Add the part *P to position N in *PS.  */
+
 int
-urj_part_parts_add_part (urj_parts_t *ps, urj_part_t *p)
+urj_part_parts_add_part_at (urj_parts_t *ps, int n, urj_part_t *p)
 {
+    int i;
+
     urj_part_t **np = realloc (ps->parts, (ps->len + 1) * sizeof *ps->parts);
 
     if (!np)
@@ -435,7 +439,30 @@ urj_part_parts_add_part (urj_parts_t *ps, urj_part_t *p)
     }
 
     ps->parts = np;
-    ps->parts[ps->len++] = p;
+    for (i = ps->len; i > n; i--)
+        ps->parts[i] = ps->parts[i - 1];
+    ps->parts[n] = p;
+    ps->len++;
+
+    return URJ_STATUS_OK;
+}
+
+int
+urj_part_parts_add_part (urj_parts_t *ps, urj_part_t *p)
+{
+    return urj_part_parts_add_part_at (ps, ps->len, p);
+}
+
+int
+urj_part_parts_remove_part_at (urj_parts_t *ps, int n)
+{
+    int i;
+
+    urj_part_free (ps->parts[n]);
+
+    for (i = n; i < ps->len - 1; i++)
+        ps->parts[i] = ps->parts[i + 1];
+    ps->len--;
 
     return URJ_STATUS_OK;
 }
@@ -505,4 +532,30 @@ urj_part_find_init (char *part)
             return pi->init;
 
     return NULL;
+}
+
+
+int
+urj_part_is_bypassed (urj_part_t *part)
+{
+    if (PART_HAS_DATA (part))
+        return PART_BYPASS (part);
+
+    /* Other parts are all bypassed.  */
+    else
+        return 1;
+}
+
+void
+urj_part_bypass (urj_part_t *part)
+{
+    if (PART_HAS_DATA (part))
+        PART_BYPASS (part) = 1;
+}
+
+void
+urj_part_unset_bypass (urj_part_t *part)
+{
+    if (PART_HAS_DATA (part))
+        PART_BYPASS (part) = 0;
 }

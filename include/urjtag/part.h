@@ -25,6 +25,8 @@
 #ifndef URJ_PART_H
 #define URJ_PART_H
 
+#include <stdint.h>
+
 #include "types.h"
 
 #define URJ_PART_MANUFACTURER_MAXLEN    25
@@ -122,10 +124,33 @@ struct URJ_PARTS
 urj_parts_t *urj_part_parts_alloc (void);
 void urj_part_parts_free (urj_parts_t *ps);
 /* @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
+int urj_part_parts_add_part_at (urj_parts_t *ps, int n, urj_part_t *p);
+/* @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
 int urj_part_parts_add_part (urj_parts_t *ps, urj_part_t *p);
+/* @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
+int urj_part_parts_remove_part_at (urj_parts_t *ps, int n);
 /* @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
 int urj_part_parts_set_instruction (urj_parts_t *ps, const char *iname);
 /* @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
 int urj_part_parts_print (urj_log_level_t ll, urj_parts_t *ps, int active_part);
+
+struct URJ_PART_DATA_COMMON
+{
+    uint32_t magic;
+    int bypass;
+    int scan;
+};
+
+#define PART_MAGIC_BFIN 0xad100525
+#define PART_MAGIC_SDU  0xad100225
+
+#define PART_HAS_DATA(part) ((part)->params != NULL && (part)->params->data != NULL)
+#define PART_MAGIC(part)    (((struct URJ_PART_DATA_COMMON *)((part)->params->data))->magic)
+#define PART_BYPASS(part)   (((struct URJ_PART_DATA_COMMON *)((part)->params->data))->bypass)
+#define PART_SCAN(part)     (((struct URJ_PART_DATA_COMMON *)((part)->params->data))->scan)
+
+int urj_part_is_bypassed (urj_part_t *part);
+void urj_part_bypass (urj_part_t *part);
+void urj_part_unset_bypass (urj_part_t *part);
 
 #endif /* URJ_PART_H */

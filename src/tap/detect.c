@@ -30,6 +30,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <errno.h>
+#include <assert.h>
 
 #include <urjtag/cmd.h>
 
@@ -278,7 +279,12 @@ urj_tap_detect_parts (urj_chain_t *chain, const char *db_path)
         else
             urj_tap_shift_register (chain, one, br, URJ_CHAIN_EXITMODE_SHIFT);
 
-        if (urj_tap_register_compare (one, br) == 0)
+        if (urj_tap_register_compare (one, br) == 0
+            /* HACK HACK HACK
+               The cores in BF60x have 1 in their BYPASS register.
+               Don't treat them as an IDCODE. */
+            && !(chlen == 3 && (i == 0 || i == 1))
+           )
         {
             /* Part that supports IDCODE */
             if (all_ids)
@@ -469,6 +475,58 @@ urj_tap_detect_parts (urj_chain_t *chain, const char *db_path)
     return ps->len;
 }
 
+/* Manually add a part at position N.  */
+
+int
+urj_tap_manual_add_at (urj_chain_t *chain, int n, char *name, int instr_len)
+{
+    urj_tap_register_t *id;
+    urj_part_t *part;
+
+    id = urj_tap_register_alloc (1);
+    if (id == NULL)
+        return -1;
+
+    /* if there are no parts, create the parts list */
+    if (chain->parts == NULL)
+    {
+        chain->parts = urj_part_parts_alloc ();
+        if (chain->parts == NULL)
+            return -1;
+    }
+
+    part = urj_part_alloc (id);
+    if (part == NULL)
+        return -1;
+
+    strncpy (part->part, name, URJ_PART_PART_MAXLEN);
+    part->instruction_length = instr_len;
+
+    urj_part_parts_add_part_at (chain->parts, n, part);
+    chain->active_part = n;
+
+    /* update total instruction register length of chain */
+    chain->total_instr_len += instr_len;
+
+    return chain->parts->len;
+}
+
+/* Manually remove a part at position N.  */
+
+int
+urj_tap_manual_remove (urj_chain_t *chain, int n)
+{
+    urj_part_t *part = chain->parts->parts[n];
+
+    /* update total instruction register length of chain */
+    chain->total_instr_len -= part->instruction_length;
+
+    urj_part_parts_remove_part_at (chain->parts, n);
+    if (chain->active_part >= n)
+        chain->active_part--;
+
+    return chain->parts->len;
+}
 
 /* In case we do not want to detect, we can add parts manually */
 
@@ -535,6 +593,56 @@ urj_tap_manual_add (urj_chain_t *chain, int instr_len)
     chain->total_instr_len += instr_len;
 
     return chain->parts->len;
+}
+
+/* Some parts don't support IDCODE instruction. We cannot find and parse
+   their data file during detect. This function can be used to parse the
+   data file if they have one.  */
+
+int
+urj_tap_manual_init (urj_chain_t *chain, char *data_file)
+{
+    urj_part_t *part;
+    char data_path[1024];
+    urj_part_init_func_t part_init_func;
+
+    assert (chain->active_part >= 0 && chain->active_part < chain->parts->len);
+
+    part = chain->parts->parts[chain->active_part];
+
+    assert (part != NULL);
+
+    data_path[0] = '\0';
+    strncat_const (data_path, urj_get_data_dir ());
+    strncat_const (data_path, "/");
+    strncat_const (data_path, data_file);
+ 
+    if (urj_parse_include (chain, data_path, 0) == URJ_STATUS_FAIL)
+    {
+        urj_log (URJ_LOG_LEVEL_NORMAL, "Error: %s\n",
+                 urj_error_describe());
+        urj_error_reset();
+        return URJ_STATUS_FAIL;
+    }
+
+    if (part->active_instruction == NULL)
+        part->active_instruction = urj_part_find_instruction (part,
+                                                              "IDCODE");
+    if (part->active_instruction == NULL)
+        part->active_instruction = urj_part_find_instruction (part,
+                                                              "BYPASS");
+
+    /* Do part specific initialization.  */
+    part_init_func = urj_part_find_init (part->part);
+    if (part_init_func)
+    {
+        part->params = malloc (sizeof (urj_part_params_t));
+        (*part_init_func) (part);
+    }
+    else
+        part->params = NULL;
+
+    return URJ_STATUS_OK;
 }
 
 int
