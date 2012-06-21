@@ -199,7 +199,7 @@ _intel_flash_print_info (urj_log_level_t ll, urj_flash_cfi_array_t *cfi_array,
     }
 
     /* Read Array */
-    URJ_BUS_WRITE (bus, cfi_array->address + (0 << o), 0x00FF00FF);
+    URJ_BUS_WRITE (bus, cfi_array->address, 0x00FF00FF);
 }
 
 static void
@@ -249,6 +249,8 @@ intel_flash_erase_block (urj_flash_cfi_array_t *cfi_array, uint32_t adr)
     URJ_BUS_WRITE (bus, adr, CFI_INTEL_CMD_CONFIRM);
 
     while (!((sr = URJ_BUS_READ (bus, cfi_array->address) & 0xFE) & CFI_INTEL_SR_READY));     /* TODO: add timeout */
+
+    URJ_BUS_WRITE (bus, cfi_array->address, 0x00FF00FF);
 
     switch (sr & ~CFI_INTEL_SR_READY)
     {
@@ -341,6 +343,8 @@ intel_flash_program_single (urj_flash_cfi_array_t *cfi_array,
 
     while (!((sr = URJ_BUS_READ (bus, cfi_array->address) & 0xFE) & CFI_INTEL_SR_READY));     /* TODO: add timeout */
 
+    URJ_BUS_WRITE (bus, cfi_array->address, 0x00FF00FF);
+
     if (sr != CFI_INTEL_SR_READY)
     {
         urj_error_set (URJ_ERROR_FLASH_PROGRAM,
@@ -401,6 +405,9 @@ intel_flash_program_buffer (urj_flash_cfi_array_t *cfi_array,
 
     /* poll SR7 == 1 */
     while (!((sr = URJ_BUS_READ (bus, cfi_array->address) & 0xFE) & CFI_INTEL_SR_READY));     /* TODO: add timeout */
+
+    URJ_BUS_WRITE (bus, cfi_array->address, 0x00FF00FF);
+
     if (sr != CFI_INTEL_SR_READY)
     {
         urj_error_set (URJ_ERROR_FLASH_PROGRAM,
@@ -460,6 +467,8 @@ intel_flash_erase_block32 (urj_flash_cfi_array_t *cfi_array, uint32_t adr)
                    (CFI_INTEL_CMD_CONFIRM << 16) | CFI_INTEL_CMD_CONFIRM);
 
     while (((sr = URJ_BUS_READ (bus, cfi_array->address) & 0x00FE00FE) & ((CFI_INTEL_SR_READY << 16) | CFI_INTEL_SR_READY)) != ((CFI_INTEL_SR_READY << 16) | CFI_INTEL_SR_READY));    /* TODO: add timeout */
+
+    URJ_BUS_WRITE (bus, cfi_array->address, 0x00FF00FF);
 
     if (sr != ((CFI_INTEL_SR_READY << 16) | CFI_INTEL_SR_READY))
     {
@@ -524,6 +533,8 @@ intel_flash_program32_single (urj_flash_cfi_array_t *cfi_array,
     URJ_BUS_WRITE (bus, adr, data);
 
     while (((sr = URJ_BUS_READ (bus, cfi_array->address) & 0x00FE00FE) & ((CFI_INTEL_SR_READY << 16) | CFI_INTEL_SR_READY)) != ((CFI_INTEL_SR_READY << 16) | CFI_INTEL_SR_READY));    /* TODO: add timeout */
+
+    URJ_BUS_WRITE (bus, cfi_array->address, 0x00FF00FF);
 
     if (sr != ((CFI_INTEL_SR_READY << 16) | CFI_INTEL_SR_READY))
     {
