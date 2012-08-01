@@ -248,20 +248,19 @@ sdu_halt_wait (urj_chain_t *chain, int n)
 	       _("%s: cores not halted <2>\n"), "sdu");
     */
 
-    if (sdu_stat_is_chlt (chain, n))
-    {
-        /* Clear EMEEN bit in SDU_CTL and EME bit in SDU_STAT.  */
-        part_scan_select (chain, n, SDU_CTL_SCAN);
-        sdu_ctl_bit_clear_emeen (chain, n);
-        urj_tap_chain_shift_data_registers_mode (chain, 0, 1, URJ_CHAIN_EXITMODE_UPDATE);
-        part_scan_select (chain, n, SDU_STAT_SCAN);
-        sdu_stat_bit_clear_eme (chain, n);
-        urj_tap_chain_shift_data_registers_mode (chain, 0, 1, URJ_CHAIN_EXITMODE_UPDATE);
-    }
-    else
+    if (!sdu_stat_is_chlt (chain, n))
         urj_log (URJ_LOG_LEVEL_ERROR,
-                 _("%s: unable to halt cores\n"),
+                 _("%s: unable to halt core(s)\n"),
                  "sdu");
+
+    /* Whether halt is successfull or not, we have to clear EMEEN bit
+       in SDU_CTL and EME bit in SDU_STAT for next core halt.  */
+    part_scan_select (chain, n, SDU_CTL_SCAN);
+    sdu_ctl_bit_clear_emeen (chain, n);
+    urj_tap_chain_shift_data_registers_mode (chain, 0, 1, URJ_CHAIN_EXITMODE_UPDATE);
+    part_scan_select (chain, n, SDU_STAT_SCAN);
+    sdu_stat_bit_clear_eme (chain, n);
+    urj_tap_chain_shift_data_registers_mode (chain, 0, 1, URJ_CHAIN_EXITMODE_UPDATE);
 }
 
 void
