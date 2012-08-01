@@ -944,7 +944,8 @@ part_emulation_trigger (urj_chain_t *chain, int n)
     part_emuir_set (chain, n, INSN_NOP, URJ_CHAIN_EXITMODE_UPDATE);
 
     part_scan_select (chain, n, DBGCTL_SCAN);
-    part_dbgctl_bit_set_wakeup (chain, n);
+    /* Don't set WAKEUP bit here.  Setting EMEEN should be enough
+       to wake up the core from IDLE instruction.  */
     part_dbgctl_bit_set_emeen (chain, n);
     urj_tap_chain_shift_data_registers_mode (chain, 0, 1, URJ_CHAIN_EXITMODE_IDLE);
 
