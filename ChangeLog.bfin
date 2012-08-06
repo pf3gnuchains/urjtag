@@ -1,3 +1,9 @@
+2012-08-06  Jie Zhang  <jie.zhang@analog.com>
+
+  * src/sdu/sdu.c: (sdu_stat_bit_clear_deepsleep): Define.
+  (sdu_stat_clear_deepsleep): Define.
+  * include/urjtag/sdu.h (sdu_stat_clear_deepsleep): Declare.
+
 2011-09-28  Jie Zhang  <jie.zhang@analog.com>
 
   * src/cmd/cmd_cmd.c (__use_tgetnum): Define.

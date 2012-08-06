@@ -129,8 +129,9 @@ SDU_STAT_BIT_IS (eme)
 SDU_STAT_BIT_IS (chlt)
 SDU_STAT_BIT_IS (crst)
 
-SDU_STAT_BIT_CLEAR (eme)
 SDU_STAT_BIT_CLEAR (sysrst)
+SDU_STAT_BIT_CLEAR (deepsleep)
+SDU_STAT_BIT_CLEAR (eme)
 
 #define SDU_STAT_CAUSE(name)                                            \
     uint32_t                                                            \
@@ -306,6 +307,14 @@ sdu_reset_deassert (urj_chain_t *chain, int n)
         urj_log (URJ_LOG_LEVEL_ERROR,
                  _("%s: system is not in reset\n"),
                  "sdu");
+}
+
+void
+sdu_stat_clear_deepsleep (urj_chain_t *chain, int n)
+{
+    part_scan_select (chain, n, SDU_STAT_SCAN);
+    sdu_stat_bit_clear_deepsleep (chain, n);
+    urj_tap_chain_shift_data_registers_mode (chain, 0, 1, URJ_CHAIN_EXITMODE_UPDATE);
 }
  
 void

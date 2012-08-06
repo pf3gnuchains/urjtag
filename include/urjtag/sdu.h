@@ -118,6 +118,7 @@ extern void sdu_halt (urj_chain_t *, int, int);
 extern void sdu_reset_assert (urj_chain_t *, int);
 extern void sdu_reset_deassert (urj_chain_t *, int);
 extern void sdu_reset (urj_chain_t *, int);
+extern void sdu_stat_clear_deepsleep (urj_chain_t *, int);
 extern void sdu_stat_get (urj_chain_t *, int);
 extern void sdu_ctl_get (urj_chain_t *, int);
 
