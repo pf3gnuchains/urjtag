@@ -173,7 +173,7 @@ find_record (char *filename, urj_tap_register_t *key,
 #define strncat_const(dst, src) strncat(dst, src, sizeof(dst) - strlen(dst) - 1)
 
 int
-urj_tap_detect_parts (urj_chain_t *chain, const char *db_path)
+urj_tap_detect_parts (urj_chain_t *chain, const char *db_path, int maxirlen)
 {
     int irlen;
     urj_tap_register_t *ir;
@@ -195,7 +195,7 @@ urj_tap_detect_parts (urj_chain_t *chain, const char *db_path)
     /* Detect IR length */
     urj_tap_reset (chain);
     urj_tap_capture_ir (chain);
-    irlen = urj_tap_detect_register_size (chain);
+    irlen = urj_tap_detect_register_size (chain, maxirlen);
     if (irlen < 1)
         // retain error state
         return -1;
@@ -213,7 +213,7 @@ urj_tap_detect_parts (urj_chain_t *chain, const char *db_path)
 
     /* Detect chain length */
     urj_tap_capture_dr (chain);
-    chlen = urj_tap_detect_register_size (chain);
+    chlen = urj_tap_detect_register_size (chain, 0);
     if (chlen < 1)
     {
         // retain error state
@@ -646,7 +646,7 @@ urj_tap_manual_init (urj_chain_t *chain, char *data_file)
 }
 
 int
-urj_tap_detect (urj_chain_t *chain)
+urj_tap_detect (urj_chain_t *chain, int maxirlen)
 {
     int i;
     urj_bus_t *abus;
@@ -654,7 +654,7 @@ urj_tap_detect (urj_chain_t *chain)
     urj_bus_buses_free ();
     urj_part_parts_free (chain->parts);
     chain->parts = NULL;
-    if (urj_tap_detect_parts (chain, urj_get_data_dir ()) == -1)
+    if (urj_tap_detect_parts (chain, urj_get_data_dir (), maxirlen) == -1)
         // retain error state
         return URJ_STATUS_FAIL;
     if (!chain->parts)
