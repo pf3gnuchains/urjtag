@@ -52,6 +52,22 @@ part_is_sdu (urj_chain_t *chain, int n)
     return is_sdu_part (chain->parts->parts[n]);
 }
 
+/* Except IDCODE register, SDU data registers and instruction registers
+   shift out MSB first, which does not conform to JTAG standard.  So it needs
+   its own register_set_value and register_get_value functions.  */
+
+static int
+sdu_register_set_value (urj_tap_register_t *tr, uint64_t value)
+{
+    return urj_tap_register_set_value_bit_range (tr, value, 0, tr->len - 1);
+}
+
+static uint64_t
+sdu_register_get_value (const urj_tap_register_t *tr)
+{
+    return urj_tap_register_get_value_bit_range (tr, 0, tr->len - 1);
+}
+
 #define SDU_CTL_BIT_SET(name)                                           \
     static void                                                         \
     sdu_ctl_bit_set_##name (urj_chain_t *chain, int n)                  \
@@ -59,7 +75,7 @@ part_is_sdu (urj_chain_t *chain, int n)
         urj_part_t *part = chain->parts->parts[n];                      \
         urj_tap_register_t *r = part->active_instruction->data_register->in; \
         SDU_PART_CTL (part) |= SDU_PART_DATA (part)->ctl_##name;        \
-        register_init_value (r, SDU_PART_CTL (part));                   \
+        sdu_register_set_value (r, SDU_PART_CTL (part));                \
     }
 
 #define SDU_CTL_BIT_CLEAR(name)                                         \
@@ -69,7 +85,7 @@ part_is_sdu (urj_chain_t *chain, int n)
         urj_part_t *part = chain->parts->parts[n];                      \
         urj_tap_register_t *r = part->active_instruction->data_register->in; \
         SDU_PART_CTL (part) &= ~SDU_PART_DATA (part)->ctl_##name;       \
-        register_init_value (r, SDU_PART_CTL (part));                   \
+        sdu_register_set_value (r, SDU_PART_CTL (part));                \
     }
 
 #define SDU_CTL_BIT_IS(name)                                            \
@@ -112,7 +128,7 @@ SDU_CTL_BIT_IS (cspen)
         urj_part_t *part = chain->parts->parts[n];                      \
         urj_tap_register_t *r = part->active_instruction->data_register->in; \
         SDU_PART_STAT (part) &= ~SDU_PART_DATA (part)->stat_##name;     \
-        register_init_value (r, SDU_PART_DATA (part)->stat_##name);     \
+        sdu_register_set_value (r, SDU_PART_DATA (part)->stat_##name);  \
     }
 
 
@@ -166,7 +182,7 @@ sdu_ctl_set_ehlt (urj_chain_t * chain, int n, int what)
     urj_tap_register_t *r = part->active_instruction->data_register->in;
     SDU_PART_CTL (part) &= ~SDU_PART_DATA (part)->ctl_ehlt_mask;
     SDU_PART_CTL (part) |= (what << 8);
-    register_init_value (r, SDU_PART_CTL (part));
+    sdu_register_set_value (r, SDU_PART_CTL (part));
 }
 
 
@@ -332,7 +348,7 @@ sdu_stat_get (urj_chain_t *chain, int n)
     part_scan_select (chain, n, SDU_STAT_SCAN);
     urj_tap_chain_shift_data_registers_mode (chain, 1, 1, URJ_CHAIN_EXITMODE_UPDATE);
     part = chain->parts->parts[n];
-    SDU_PART_STAT (part) = register_value (part->active_instruction->data_register->out);
+    SDU_PART_STAT (part) = sdu_register_get_value (part->active_instruction->data_register->out);
 }
 
 void
@@ -345,14 +361,14 @@ sdu_ctl_get (urj_chain_t *chain, int n)
     urj_tap_chain_shift_data_registers_mode (chain, 1, 1, URJ_CHAIN_EXITMODE_EXIT1);
     part = chain->parts->parts[n];
     r = part->active_instruction->data_register->out;
-    SDU_PART_CTL (part) = register_value (r);
+    SDU_PART_CTL (part) = sdu_register_get_value (r);
 
     urj_tap_chain_defer_clock (chain, 0, 0, 1);     /* Pause-DR */
     urj_tap_chain_defer_clock (chain, 1, 0, 1);     /* Exit2 */
     urj_tap_chain_defer_clock (chain, 0, 0, 1);     /* Shift-DR */
  
     r = part->active_instruction->data_register->in;
-    register_init_value (r, SDU_PART_CTL (part));
+    sdu_register_set_value (r, SDU_PART_CTL (part));
     urj_tap_chain_shift_data_registers_mode (chain, 0, 0, URJ_CHAIN_EXITMODE_UPDATE);
 }
 
@@ -368,7 +384,7 @@ sdu_ctl_get (urj_chain_t *chain, int n)
         urj_part_t *part = chain->parts->parts[n];                      \
         urj_tap_register_t *r = part->active_instruction->data_register->in; \
         SDU_PART_MACCTL (part) |= SDU_PART_DATA (part)->macctl_##name;  \
-        register_init_value (r, SDU_PART_MACCTL (part));                \
+        sdu_register_set_value (r, SDU_PART_MACCTL (part));             \
     }
 
 #define SDU_MACCTL_BIT_CLEAR(name)                                      \
@@ -378,7 +394,7 @@ sdu_ctl_get (urj_chain_t *chain, int n)
         urj_part_t *part = chain->parts->parts[n];                      \
         urj_tap_register_t *r = part->active_instruction->data_register->in; \
         SDU_PART_MACCTL (part) &= ~SDU_PART_DATA (part)->macctl_##name; \
-        register_init_value (r, SDU_PART_MACCTL (part));                \
+        sdu_register_set_value (r, SDU_PART_MACCTL (part));             \
     }
 
 SDU_MACCTL_BIT_SET (rnw)
@@ -408,7 +424,7 @@ sdu_macctl_set_size (urj_chain_t *chain, int n, enum sdu_macctl_size size)
 
     SDU_PART_MACCTL (part) &= ~mask;
     SDU_PART_MACCTL (part) |= s;
-    register_init_value (r, SDU_PART_MACCTL (part));
+    sdu_register_set_value (r, SDU_PART_MACCTL (part));
 }
 
 static void
@@ -422,7 +438,7 @@ sdu_macaddr_set (urj_chain_t *chain, int n, uint32_t addr)
     SDU_PART_MACADDR (part) = addr;
 
     part_scan_select (chain, n, SDU_MACADDR_SCAN);
-    register_init_value (part->active_instruction->data_register->in, addr);
+    sdu_register_set_value (part->active_instruction->data_register->in, addr);
     urj_tap_chain_shift_data_registers_mode (chain, 0, 1, URJ_CHAIN_EXITMODE_UPDATE);
 }
 
@@ -434,7 +450,7 @@ sdu_macdata_get (urj_chain_t *chain, int n)
 
     part_scan_select (chain, n, SDU_MACDATA_SCAN);
     urj_tap_chain_shift_data_registers_mode (chain, 1, 1, URJ_CHAIN_EXITMODE_UPDATE);
-    data = register_value (part->active_instruction->data_register->out);
+    data = sdu_register_get_value (part->active_instruction->data_register->out);
 
     return data;
 }
@@ -446,7 +462,7 @@ sdu_macdata_set (urj_chain_t *chain, int n, uint32_t data)
     urj_part_t *part = chain->parts->parts[n];
 
     part_scan_select (chain, n, SDU_MACDATA_SCAN);
-    register_init_value (part->active_instruction->data_register->in, data);
+    sdu_register_set_value (part->active_instruction->data_register->in, data);
     urj_tap_chain_shift_data_registers_mode (chain, 0, 1, URJ_CHAIN_EXITMODE_UPDATE);
 }
 
