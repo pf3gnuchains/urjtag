@@ -27,6 +27,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
+#include <limits.h>
 
 #include <urjtag/error.h>
 #include <urjtag/bus.h>
@@ -41,9 +42,11 @@ cmd_eraseflash_run (urj_chain_t *chain, char *params[])
 {
     long unsigned adr = 0;
     long unsigned number = 0;
+    int optlen;
 
-    if (urj_cmd_params (params) != 3)
-    {
+    optlen = cmd_params( params );
+
+    if (2 > optlen || optlen > 3)
         urj_error_set (URJ_ERROR_SYNTAX,
                        "%s: #parameters should be %d, not %d",
                        params[0], 3, urj_cmd_params (params));
@@ -59,8 +62,16 @@ cmd_eraseflash_run (urj_chain_t *chain, char *params[])
     }
     if (urj_cmd_get_number (params[1], &adr) != URJ_STATUS_OK)
         return URJ_STATUS_FAIL;
-    if (urj_cmd_get_number (params[2], &number) != URJ_STATUS_OK)
-        return URJ_STATUS_FAIL;
+    } else if (optlen == 2) {
+        number = UINT_MAX;
+    } else if (optlen == 3) {
+        if (urj_cmd_get_number (params[2], &number) != URJ_STATUS_OK)
+            return URJ_STATUS_FAIL;
+        if (number == UINT_MAX) {
+            urj_error_set (URJ_ERROR_ILLEGAL_STATE, _("BLOCKS too large.\n"));
+            return URJ_STATUS_FAIL;
+        }
+    }
 
     return urj_flasherase (urj_bus, adr, number);
 }
@@ -69,14 +80,15 @@ static void
 cmd_eraseflash_help (void)
 {
     urj_log (URJ_LOG_LEVEL_NORMAL,
-             _("Usage: %s ADDR BLOCKS\n"
+             _("Usage: %s ADDR [BLOCKS]\n"
                "Erase flash memory from ADDR.\n"
                "\n"
                "ADDR       target addres for erasing block\n"
-               "BLOCKS     number of blocks to erase\n"
+               "[BLOCKS]   number of blocks to erase (optional)\n"
                "\n"
                "ADDR and BLOCKS could be in decimal or hexadecimal (prefixed with 0x) form.\n"
                "\n" "Supported Flash Memories:\n"),
+               "In case BLOCKS is not specified, it will delete all blocks.\n"
              "eraseflash");
 
     urj_cmd_show_list (urj_flash_flash_drivers);

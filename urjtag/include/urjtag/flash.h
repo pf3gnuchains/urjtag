@@ -53,6 +53,8 @@ typedef struct
     int (*autodetect) (urj_flash_cfi_array_t *cfi_array);
     void (*print_info) (urj_log_level_t ll, urj_flash_cfi_array_t *cfi_array);
     /** @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
+    int (*erase_all)( urj_flash_cfi_array_t *cfi_array );
+    /** @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
     int (*erase_block) (urj_flash_cfi_array_t *cfi_array, uint32_t adr);
     /** @return URJ_STATUS_OK on success; URJ_STATUS_FAIL on error */
     int (*lock_block) (urj_flash_cfi_array_t *cfi_array, uint32_t adr);

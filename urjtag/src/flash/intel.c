@@ -238,6 +238,13 @@ intel_flash_print_info32 (urj_log_level_t ll, urj_flash_cfi_array_t *cfi_array)
 }
 
 static int
+intel_flash_erase_all( urj_flash_cfi_array_t *cfi_array )
+{
+    urj_error_set (URJ_ERROR_FLASH_ERASE, "not implemented.");
+    return URJ_STATUS_FAIL;
+}
+
+static int
 intel_flash_erase_block (urj_flash_cfi_array_t *cfi_array, uint32_t adr)
 {
     uint16_t sr;
@@ -577,6 +584,7 @@ const urj_flash_driver_t urj_flash_intel_32_flash_driver = {
     4,                          /* buswidth */
     intel_flash_autodetect32,
     intel_flash_print_info32,
+    intel_flash_erase_all,
     intel_flash_erase_block32,
     intel_flash_lock_block32,
     intel_flash_unlock_block32,
@@ -590,6 +598,7 @@ const urj_flash_driver_t urj_flash_intel_16_flash_driver = {
     2,                          /* buswidth */
     intel_flash_autodetect,
     intel_flash_print_info,
+    intel_flash_erase_all,
     intel_flash_erase_block,
     intel_flash_lock_block,
     intel_flash_unlock_block,
@@ -603,6 +612,7 @@ const urj_flash_driver_t urj_flash_intel_8_flash_driver = {
     1,                          /* buswidth */
     intel_flash_autodetect8,
     intel_flash_print_info,
+    intel_flash_erase_all,
     intel_flash_erase_block,
     intel_flash_lock_block,
     intel_flash_unlock_block,

@@ -428,6 +428,13 @@ amd_flash_print_info (urj_log_level_t ll, urj_flash_cfi_array_t *cfi_array)
 }
 
 static int
+amd_flash_erase_all( urj_flash_cfi_array_t *cfi_array )
+{
+    urj_error_set (URJ_ERROR_FLASH_ERASE, "not implemented.");
+    return URJ_STATUS_FAIL;
+}
+
+static int
 amd_flash_erase_block (urj_flash_cfi_array_t *cfi_array, uint32_t adr)
 {
     urj_bus_t *bus = cfi_array->bus;
@@ -662,6 +669,7 @@ const urj_flash_driver_t urj_flash_amd_32_flash_driver = {
     4,                          /* buswidth */
     amd_flash_autodetect32,
     amd_flash_print_info,
+    amd_flash_erase_all,
     amd_flash_erase_block,
     amd_flash_lock_block,
     amd_flash_unlock_block,
@@ -675,6 +683,7 @@ const urj_flash_driver_t urj_flash_amd_16_flash_driver = {
     2,                          /* buswidth */
     amd_flash_autodetect16,
     amd_flash_print_info,
+    amd_flash_erase_all,
     amd_flash_erase_block,
     amd_flash_lock_block,
     amd_flash_unlock_block,
@@ -688,6 +697,7 @@ const urj_flash_driver_t urj_flash_amd_8_flash_driver = {
     1,                          /* buswidth */
     amd_flash_autodetect8,
     amd_flash_print_info,
+    amd_flash_erase_all,
     amd_flash_erase_block,
     amd_flash_lock_block,
     amd_flash_unlock_block,

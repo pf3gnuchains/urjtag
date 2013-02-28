@@ -39,6 +39,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <limits.h>
 
 #include <urjtag/error.h>
 #include <urjtag/log.h>
@@ -490,56 +491,60 @@ urj_flasherase (urj_bus_t *bus, uint32_t addr, uint32_t number)
     }
     cfi = &urj_flash_cfi_array->cfi_chips[0]->cfi;
 
-    bus_width = urj_flash_cfi_array->bus_width;
-    chip_width = urj_flash_cfi_array->cfi_chips[0]->width;
-
-    urj_log (URJ_LOG_LEVEL_NORMAL,
-             _("\nErasing %d Flash block%s from address 0x%lx\n"), number,
-             number > 1 ? "s" : "", (long unsigned) addr);
-
-    for (i = 1; i <= number; i++)
-    {
-        int r;
-        int btr = 0;
-        int block_no = find_block (cfi, addr - urj_flash_cfi_array->address,
-                                   bus_width, chip_width, &btr);
-
-        if (block_no < 0)
-        {
-            urj_error_set (URJ_ERROR_FLASH_ERASE, "Cannot find block");
-            status = URJ_STATUS_FAIL;
-            break;
-        }
+    if (number == UINT_MAX) {
+        status = flash_driver->erase_all (urj_flash_cfi_array);
+    } else {
+        bus_width = urj_flash_cfi_array->bus_width;
+        chip_width = urj_flash_cfi_array->cfi_chips[0]->width;
 
         urj_log (URJ_LOG_LEVEL_NORMAL,
-                 _("(%d%% Completed) FLASH Block %d : Unlocking ... "),
-                i * 100 / number, block_no);
-        flash_driver->unlock_block (urj_flash_cfi_array, addr);
-        urj_log (URJ_LOG_LEVEL_NORMAL, _("Erasing ... "));
-        r = flash_driver->erase_block (urj_flash_cfi_array, addr);
-        if (r == URJ_STATUS_OK)
+                 _("\nErasing %d Flash block%s from address 0x%lx\n"), number,
+                 number > 1 ? "s" : "", (long unsigned) addr);
+
+        for (i = 1; i <= number; i++)
         {
-            if (i == number)
+            int r;
+            int btr = 0;
+            int block_no = find_block (cfi, addr - urj_flash_cfi_array->address,
+                                       bus_width, chip_width, &btr);
+
+            if (block_no < 0)
             {
-                urj_log (URJ_LOG_LEVEL_NORMAL, "\r");
-                urj_log (URJ_LOG_LEVEL_NORMAL,
-                         _("(100%% Completed) FLASH Block %d : Unlocking ... Erasing ... Ok.\n"),
-                         block_no);
+                urj_error_set (URJ_ERROR_FLASH_ERASE, "Cannot find block");
+                status = URJ_STATUS_FAIL;
+                break;
+            }
+
+            urj_log (URJ_LOG_LEVEL_NORMAL,
+                     _("(%d%% Completed) FLASH Block %d : Unlocking ... "),
+                     i * 100 / number, block_no);
+            flash_driver->unlock_block (urj_flash_cfi_array, addr);
+            urj_log (URJ_LOG_LEVEL_NORMAL, _("Erasing ... "));
+            r = flash_driver->erase_block (urj_flash_cfi_array, addr);
+            if (r == URJ_STATUS_OK)
+            {
+                if (i == number)
+                {
+                    urj_log (URJ_LOG_LEVEL_NORMAL, "\r");
+                    urj_log (URJ_LOG_LEVEL_NORMAL,
+                             _("(100%% Completed) FLASH Block %d : Unlocking ... Erasing ... Ok.\n"),
+                             block_no);
+                }
+                else
+                {
+                    urj_log (URJ_LOG_LEVEL_NORMAL, _("Ok."));
+                    urj_log (URJ_LOG_LEVEL_NORMAL, "\r");
+                    urj_log (URJ_LOG_LEVEL_NORMAL, _("%78s"), "");
+                    urj_log (URJ_LOG_LEVEL_NORMAL, "\r");
+                }
             }
             else
             {
-                urj_log (URJ_LOG_LEVEL_NORMAL, _("Ok."));
-                urj_log (URJ_LOG_LEVEL_NORMAL, "\r");
-                urj_log (URJ_LOG_LEVEL_NORMAL, _("%78s"), "");
-                urj_log (URJ_LOG_LEVEL_NORMAL, "\r");
+                    urj_log (URJ_LOG_LEVEL_NORMAL, _("ERROR.\n"));
+                    status = r;
             }
+            addr += btr;
         }
-        else
-        {
-            urj_log (URJ_LOG_LEVEL_NORMAL, _("ERROR.\n"));
-            status = r;
-        }
-        addr += btr;
     }
 
     if (status == URJ_STATUS_OK)
