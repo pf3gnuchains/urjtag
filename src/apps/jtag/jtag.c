@@ -560,7 +560,9 @@ main (int argc, char *const argv[])
     rl_readline_name = "urjtag";
     rl_completer_quote_characters = "\"";
     rl_filename_completion_desired = 1;
+#if ! defined(__APPLE__)
     rl_filename_quote_characters = " ";
+#endif
     rl_completion_entry_function = urj_cmd_completion;
 #endif
 
